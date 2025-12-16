@@ -1,0 +1,22 @@
+
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import AppHeader from '@/components/common/AppHeader.tsx'
+import AppBottomNav from '@/components/common/AppBottomNav.tsx'
+import ContactDriverContent from '@/components/contact-driver/ContactDriverContent.tsx'
+---
+
+<BaseLayout title="Contact Driver - Bossie Ride">
+  <AppHeader 
+    client:load 
+    showBackButton={true}
+    title="Contact Driver"
+    showNotifications={false}
+  />
+  
+  <main className="flex-1 pb-20">
+    <ContactDriverContent client:load />
+  </main>
+
+  <AppBottomNav client:idle activeItem="home" />
+</BaseLayout>

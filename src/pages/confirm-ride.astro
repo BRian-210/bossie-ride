@@ -1,0 +1,22 @@
+
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import AppHeader from '@/components/common/AppHeader.tsx'
+import AppBottomNav from '@/components/common/AppBottomNav.tsx'
+import ConfirmRideContent from '@/components/confirm-ride/ConfirmRideContent.tsx'
+---
+
+<BaseLayout title="Confirm Ride - Bossie Ride">
+  <AppHeader 
+    client:load
+    showBackButton={true}
+    title="Confirm Ride"
+    showNotifications={false}
+  />
+  
+  <main class="flex-1 pb-20">
+    <ConfirmRideContent client:load />
+  </main>
+
+  <AppBottomNav client:idle activeItem="home" />
+</BaseLayout>

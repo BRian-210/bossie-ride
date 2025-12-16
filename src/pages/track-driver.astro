@@ -1,0 +1,22 @@
+
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import AppHeader from '@/components/common/AppHeader.tsx'
+import AppBottomNav from '@/components/common/AppBottomNav.tsx'
+import TrackDriverContent from '@/components/track-driver/TrackDriverContent.tsx'
+---
+
+<BaseLayout title="Track Driver - Bossie Ride">
+  <AppHeader 
+    showBackButton={true}
+    title="Track Driver"
+    showNotifications={false}
+    client:load
+  />
+  
+  <main class="flex-1 pb-20">
+    <TrackDriverContent client:load />
+  </main>
+
+  <AppBottomNav client:idle />
+</BaseLayout>

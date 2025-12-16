@@ -1,0 +1,22 @@
+
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import AppHeader from '@/components/common/AppHeader.tsx'
+import AppBottomNav from '@/components/common/AppBottomNav.tsx'
+import SelectRideTypeContent from '@/components/select-ride-type/SelectRideTypeContent.tsx'
+---
+
+<BaseLayout title="Select Ride Type - Bossie Ride">
+  <AppHeader 
+    client:load 
+    showBackButton={true}
+    title="Choose Ride Type"
+    showNotifications={false}
+  />
+  
+  <main class="pb-20">
+    <SelectRideTypeContent client:load />
+  </main>
+
+  <AppBottomNav client:idle activeItem="home" />
+</BaseLayout>
