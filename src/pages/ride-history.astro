@@ -1,0 +1,25 @@
+
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import AppHeader from '@/components/common/AppHeader.tsx'
+import AppBottomNav from '@/components/common/AppBottomNav.tsx'
+import RideHistoryList from '@/components/ride-history/RideHistoryList.tsx'
+---
+
+<BaseLayout title="Ride History - Bossie Ride">
+  <AppHeader 
+    client:load 
+    showBackButton={true}
+    title="Ride History"
+    showNotifications={true}
+    notificationCount={0}
+  />
+  
+  <main class="pb-20 pt-4">
+    <div class="container px-4">
+      <RideHistoryList client:idle />
+    </div>
+  </main>
+
+  <AppBottomNav client:load activeItem="history" />
+</BaseLayout>

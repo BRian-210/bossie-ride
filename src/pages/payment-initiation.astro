@@ -1,0 +1,22 @@
+
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import AppHeader from '@/components/common/AppHeader.tsx'
+import AppBottomNav from '@/components/common/AppBottomNav.tsx'
+import PaymentInitiationContent from '@/components/payment-initiation/PaymentInitiationContent.tsx'
+---
+
+<BaseLayout title="Payment - Bossie Ride">
+  <AppHeader 
+    client:load
+    showBackButton={true}
+    title="Payment"
+    showNotifications={false}
+  />
+  
+  <main class="flex-1 pb-20">
+    <PaymentInitiationContent client:load />
+  </main>
+
+  <AppBottomNav client:idle activeItem="home" />
+</BaseLayout>

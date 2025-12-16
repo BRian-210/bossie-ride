@@ -1,0 +1,20 @@
+
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import AppHeader from '@/components/common/AppHeader.tsx'
+import MpesaPaymentDetailsForm from '@/components/mpesa-payment-details/MpesaPaymentDetailsForm.tsx'
+---
+
+<BaseLayout title="M-Pesa Payment Details - Bossie Ride">
+  <AppHeader 
+    client:load 
+    showBackButton={true}
+    title="Payment Details"
+  />
+  
+  <main className="min-h-screen bg-background pb-20">
+    <div className="container max-w-2xl mx-auto px-4 py-8">
+      <MpesaPaymentDetailsForm client:load />
+    </div>
+  </main>
+</BaseLayout>

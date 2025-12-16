@@ -1,0 +1,22 @@
+
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import AppHeader from '@/components/common/AppHeader.tsx'
+import AppBottomNav from '@/components/common/AppBottomNav.tsx'
+import RideInProgressContent from '@/components/ride-in-progress/RideInProgressContent.tsx'
+---
+
+<BaseLayout title="Ride In Progress - Bossie Ride">
+  <AppHeader 
+    client:load 
+    showBackButton={false}
+    title="Your Ride"
+    showNotifications={false}
+  />
+  
+  <main className="flex-1 pb-20">
+    <RideInProgressContent client:load />
+  </main>
+
+  <AppBottomNav client:idle activeItem="home" />
+</BaseLayout>

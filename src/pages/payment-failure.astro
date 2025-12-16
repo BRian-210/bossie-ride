@@ -1,0 +1,21 @@
+
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import AppHeader from '@/components/common/AppHeader.tsx'
+import AppBottomNav from '@/components/common/AppBottomNav.tsx'
+import PaymentFailureContent from '@/components/payment-failure/PaymentFailureContent.tsx'
+---
+
+<BaseLayout title="Payment Failed - Bossie Ride">
+  <AppHeader 
+    title="Payment Failed"
+    showBackButton={false}
+    showNotifications={false}
+  />
+  
+  <main class="flex-1 pb-20">
+    <PaymentFailureContent client:load />
+  </main>
+
+  <AppBottomNav client:idle />
+</BaseLayout>
