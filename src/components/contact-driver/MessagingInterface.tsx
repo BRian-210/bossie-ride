@@ -20,6 +20,9 @@ interface MessagingInterfaceProps {
   driverAvatar?: string
   onSendMessage: (text: string) => void
   onQuickMessage: (message: string) => void
+  isConnected?: boolean
+  isLoading?: boolean
+  error?: string | null
 }
 
 const quickMessages = [
@@ -34,7 +37,10 @@ export default function MessagingInterface({
   driverName,
   driverAvatar,
   onSendMessage,
-  onQuickMessage
+  onQuickMessage,
+  isConnected,
+  isLoading = false,
+  error
 }: MessagingInterfaceProps) {
   const [inputValue, setInputValue] = useState('')
   const scrollRef = useRef<HTMLDivElement>(null)
@@ -66,14 +72,36 @@ export default function MessagingInterface({
   return (
     <Card className="shadow-card flex flex-col h-[500px]">
       <CardHeader className="border-b">
-        <CardTitle className="text-base">Messages with {driverName}</CardTitle>
+        <div className="flex items-center justify-between">
+          <CardTitle className="text-base">Messages with {driverName}</CardTitle>
+          {isConnected !== undefined && (
+            <div className="flex items-center gap-2">
+              <div className={`h-2 w-2 rounded-full ${isConnected ? 'bg-green-500' : 'bg-gray-400'}`} />
+              <span className="text-xs text-muted-foreground">
+                {isConnected ? 'Connected' : 'Disconnected'}
+              </span>
+            </div>
+          )}
+        </div>
       </CardHeader>
 
       <CardContent className="flex-1 flex flex-col p-0">
+        {/* Error Message */}
+        {error && (
+          <div className="p-3 bg-destructive/10 text-destructive text-sm border-b">
+            {error}
+          </div>
+        )}
+        
         {/* Messages Area */}
         <ScrollArea className="flex-1 p-4">
-          <div className="space-y-4">
-            {messages.map((message) => (
+          {isLoading && messages.length === 0 ? (
+            <div className="flex items-center justify-center h-full">
+              <p className="text-sm text-muted-foreground">Loading messages...</p>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {messages.map((message) => (
               <div
                 key={message.id}
                 className={`flex gap-3 ${message.sender === 'rider' ? 'flex-row-reverse' : ''}`}
@@ -100,9 +128,10 @@ export default function MessagingInterface({
                   <span className="text-xs text-muted-foreground">{message.timestamp}</span>
                 </div>
               </div>
-            ))}
-            <div ref={scrollRef} />
-          </div>
+              ))}
+              <div ref={scrollRef} />
+            </div>
+          )}
         </ScrollArea>
 
         {/* Quick Messages */}

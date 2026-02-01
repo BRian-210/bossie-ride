@@ -1,7 +1,9 @@
 
         
-import { LocationModel, mockLocations } from "./location";
-import { DriverModel, mockDrivers } from "./driver";
+import type { LocationModel } from "./location";
+import { mockLocations } from "./location";
+import type { DriverModel } from "./driver";
+import { mockDrivers } from "./driver";
 
 export type RideStatus = "REQUESTING" | "PENDING" | "ACCEPTED" | "IN_TRANSIT" | "ARRIVED" | "COMPLETED" | "CANCELLED";
 
