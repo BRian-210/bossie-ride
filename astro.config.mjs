@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
+import node from '@astrojs/node';
 import { reactNodeTransform, astroSourceIntegration } from './scripts/inject-source-info';
 
 function collectRoutes(projectRoot) {
@@ -112,7 +113,10 @@ export default defineConfig({
     astroSourceIntegration(),
     redirectMissingRoutes()
   ],
-  output: 'static',
+  output: 'server',
+  adapter: node({
+    mode: 'standalone'
+  }),
   build: {
     concurrency: 4,
     format: 'file',

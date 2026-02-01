@@ -1,6 +1,6 @@
 
         
-import { CompletedRideDetailsModel } from "./ride-completed";
+import type { CompletedRideDetailsModel } from "./ride";
 
 export type TransactionStatus = "PENDING" | "SUCCESS" | "FAILED";
 export type PaymentMethod = "MPESA" | "CARD" | "CASH";

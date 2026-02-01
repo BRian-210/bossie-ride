@@ -37,7 +37,8 @@ const mockRideHistory: RideHistory[] = [
     driverRating: 4.8,
     vehicleType: 'Standard',
     distance: '8.5 km',
-    duration: '22 mins'
+    duration: '22 mins',
+    paymentMethod: 'M-PESA'
   },
   {
     id: 'ride-002',
@@ -51,7 +52,8 @@ const mockRideHistory: RideHistory[] = [
     driverRating: 4.9,
     vehicleType: 'Premium',
     distance: '12.3 km',
-    duration: '28 mins'
+    duration: '28 mins',
+    paymentMethod: 'Card'
   },
   {
     id: 'ride-003',
@@ -65,7 +67,8 @@ const mockRideHistory: RideHistory[] = [
     driverRating: 4.7,
     vehicleType: 'Standard',
     distance: '9.8 km',
-    duration: '25 mins'
+    duration: '25 mins',
+    paymentMethod: 'M-PESA'
   },
   {
     id: 'ride-004',
@@ -79,7 +82,8 @@ const mockRideHistory: RideHistory[] = [
     driverRating: 4.6,
     vehicleType: 'Premium',
     distance: '11.2 km',
-    duration: '26 mins'
+    duration: '26 mins',
+    paymentMethod: 'Cash'
   },
   {
     id: 'ride-005',
@@ -93,7 +97,8 @@ const mockRideHistory: RideHistory[] = [
     driverRating: 4.9,
     vehicleType: 'Standard',
     distance: '7.5 km',
-    duration: '20 mins'
+    duration: '20 mins',
+    paymentMethod: 'M-PESA'
   },
   {
     id: 'ride-006',
@@ -107,7 +112,8 @@ const mockRideHistory: RideHistory[] = [
     driverRating: 4.8,
     vehicleType: 'Premium',
     distance: '14.2 km',
-    duration: '32 mins'
+    duration: '32 mins',
+    paymentMethod: 'Card'
   }
 ]
 

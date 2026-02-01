@@ -35,7 +35,7 @@ export default function SelectRideTypeContent() {
       </div>
 
       {/* Ride Type Cards Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 scroll-smooth">
         {mockRideTypes.map((rideType) => (
           <RideTypeCard
             key={rideType.typeId}
@@ -48,7 +48,10 @@ export default function SelectRideTypeContent() {
 
       {/* Selected Ride Summary */}
       {selectedRideType && (
-        <div className="bg-primary/5 border border-primary/20 rounded-lg p-4 space-y-3">
+        <div 
+          id="selected-ride-summary"
+          className="bg-primary/5 border border-primary/20 rounded-lg p-4 space-y-3 transition-all duration-300"
+        >
           <div className="flex items-center justify-between">
             <div>
               <p className="text-sm text-muted-foreground">Selected Ride</p>

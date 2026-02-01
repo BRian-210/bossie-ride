@@ -1,6 +1,6 @@
 
         
-import { CoordinatesModel } from "./location";
+import type { CoordinatesModel } from "./location";
 
 export interface VehicleModel {
   model: string; // e.g., Toyota Vitz
@@ -21,12 +21,12 @@ export interface DriverModel {
 export const mockDrivers: DriverModel[] = [
   {
     driverId: "drv_456",
-    name: "Alex Karanja",
+    name: "Brian Githinji",
     rating: 4.8,
-    phone: "+254712345678",
+    phone: "+254742052920",
     profileImageUrl: "https://spark-builder.s3.us-east-1.amazonaws.com/image/2025/11/16/bd2b84c6-4c73-437f-a8a5-27b723d6aac9.png",
     vehicle: {
-      model: "Suzuki Swift",
+      model: "Toyota Vitz",
       plateNumber: "KDD 543Z",
       color: "Blue",
     },

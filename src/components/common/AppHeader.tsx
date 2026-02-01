@@ -1,8 +1,8 @@
 
 import { Button } from '@/components/ui/button'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import SafeIcon from '@/components/common/SafeIcon'
+import UserMenu from './UserMenu'
 
 interface AppHeaderProps {
   showBackButton?: boolean
@@ -10,8 +10,6 @@ interface AppHeaderProps {
   title?: string
   showNotifications?: boolean
   notificationCount?: number
-  userInitials?: string
-  userAvatar?: string
 }
 
 export default function AppHeader({
@@ -20,8 +18,6 @@ export default function AppHeader({
   title,
   showNotifications = true,
   notificationCount = 0,
-  userInitials = 'BR',
-  userAvatar
 }: AppHeaderProps) {
   const handleBack = () => {
     if (onBackClick) {
@@ -73,14 +69,7 @@ export default function AppHeader({
             </Button>
           )}
           
-          <Button variant="ghost" size="icon" className="rounded-full" aria-label="User profile">
-            <Avatar className="h-8 w-8">
-              <AvatarImage src={userAvatar} alt="User avatar" />
-              <AvatarFallback className="bg-primary text-primary-foreground text-sm">
-                {userInitials}
-              </AvatarFallback>
-            </Avatar>
-          </Button>
+          <UserMenu />
         </div>
       </div>
     </header>

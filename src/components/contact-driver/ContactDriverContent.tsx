@@ -1,40 +1,25 @@
 
-import { useState } from 'react'
 import { mockCurrentRide } from '@/data/ride'
+import { mockCurrentUser } from '@/data/user'
+import { useMessaging } from '@/hooks/useMessaging'
 import RideDetailsPanel from './RideDetailsPanel'
 import MessagingInterface from './MessagingInterface'
 import CallActionButtons from './CallActionButtons'
 
 export default function ContactDriverContent() {
-  const [messages, setMessages] = useState<Array<{ id: string; sender: 'rider' | 'driver'; text: string; timestamp: string }>>([
-    {
-      id: '1',
-      sender: 'driver',
-      text: 'Hi! I\'m on my way. I\'ll be there in about 5 minutes.',
-      timestamp: '14:32'
-    },
-    {
-      id: '2',
-      sender: 'rider',
-      text: 'Great! I\'m ready. I\'ll be waiting outside.',
-      timestamp: '14:33'
-    },
-    {
-      id: '3',
-      sender: 'driver',
-      text: 'Perfect! I\'m driving a blue Suzuki Swift, plate KDD 543Z.',
-      timestamp: '14:34'
-    }
-  ])
+  const { messages, sendMessage, isConnected, isLoading, error } = useMessaging({
+    rideId: mockCurrentRide.rideId,
+    userId: mockCurrentUser.userId,
+    userType: 'rider',
+    socketUrl: import.meta.env.PUBLIC_SOCKET_URL,
+  })
 
-  const handleSendMessage = (text: string) => {
-    const newMessage = {
-      id: String(messages.length + 1),
-      sender: 'rider' as const,
-      text,
-      timestamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false })
+  const handleSendMessage = async (text: string) => {
+    try {
+      await sendMessage(text)
+    } catch (err) {
+      console.error('Failed to send message:', err)
     }
-    setMessages([...messages, newMessage])
   }
 
   const handleCall = () => {
@@ -59,6 +44,9 @@ export default function ContactDriverContent() {
         driverAvatar={mockCurrentRide.driverDetails?.profileImageUrl}
         onSendMessage={handleSendMessage}
         onQuickMessage={handleQuickMessage}
+        isConnected={isConnected}
+        isLoading={isLoading}
+        error={error}
       />
 
       {/* Call Actions */}

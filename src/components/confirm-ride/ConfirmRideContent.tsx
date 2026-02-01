@@ -13,7 +13,8 @@ import { mockLocations } from '@/data/location'
 
 
 export default function ConfirmRideContent() {
-  const [isConfirming, setIsConfirming] = useState(null)
+  const [isConfirming, setIsConfirming] = useState<boolean>(false)
+  const [agreedToTerms, setAgreedToTerms] = useState<boolean>(false)
 
   // Use mock data for initial render
   const ride = mockCurrentRide
@@ -174,7 +175,8 @@ export default function ConfirmRideContent() {
           <input
             type="checkbox"
             id="terms"
-            defaultChecked
+            checked={agreedToTerms}
+            onChange={(e) => setAgreedToTerms(e.target.checked)}
             className="mt-1 w-4 h-4 rounded border-border cursor-pointer"
           />
           <label htmlFor="terms" className="text-sm text-muted-foreground cursor-pointer">
@@ -196,7 +198,7 @@ export default function ConfirmRideContent() {
           onClick={handleConfirmBooking}
           size="lg"
           className="w-full"
-          disabled={isConfirming}
+          disabled={isConfirming || !agreedToTerms}
         >
           {isConfirming ? (
             <>

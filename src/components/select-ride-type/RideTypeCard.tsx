@@ -16,26 +16,42 @@ export default function RideTypeCard({
   isSelected,
   onSelect
 }: RideTypeCardProps) {
+  const handleClick = () => {
+    // Smooth scroll to selected summary if not already visible
+    const summaryElement = document.getElementById('selected-ride-summary');
+    if (summaryElement) {
+      summaryElement.scrollIntoView({ 
+        behavior: 'smooth', 
+        block: 'nearest',
+        inline: 'nearest'
+      });
+    }
+    onSelect();
+  };
+
   return (
     <Card
       className={cn(
-        'cursor-pointer transition-all duration-200 overflow-hidden hover:shadow-lg',
+        'cursor-pointer transition-all duration-300 ease-out overflow-hidden hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]',
         isSelected
-          ? 'ring-2 ring-primary border-primary shadow-lg'
+          ? 'ring-2 ring-primary border-primary shadow-lg scale-[1.02]'
           : 'hover:border-primary/50'
       )}
-      onClick={onSelect}
+      onClick={handleClick}
     >
       {/* Vehicle Image */}
       <div className="relative h-40 bg-muted overflow-hidden">
         <img
           src={rideType.imageUrl}
           alt={rideType.name}
-          className="w-full h-full object-cover"
+          className={cn(
+            "w-full h-full object-cover transition-transform duration-300",
+            isSelected ? "scale-110" : "scale-100"
+          )}
         />
         {isSelected && (
-          <div className="absolute inset-0 bg-primary/10 flex items-center justify-center">
-            <div className="bg-primary rounded-full p-2">
+          <div className="absolute inset-0 bg-primary/10 flex items-center justify-center transition-opacity duration-300 opacity-100">
+            <div className="bg-primary rounded-full p-2 transform scale-100 transition-transform duration-200">
               <SafeIcon name="Check" size={24} color="white" />
             </div>
           </div>
