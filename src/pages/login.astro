@@ -1,0 +1,13 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import AppHeader from '@/components/common/AppHeader.tsx'
+import LoginForm from '@/components/auth/LoginForm.tsx'
+---
+
+<BaseLayout title="Log In - Bossie Ride">
+  <AppHeader title="Log In" showNotifications={false} />
+
+  <main class="pb-12">
+    <LoginForm client:load />
+  </main>
+</BaseLayout>

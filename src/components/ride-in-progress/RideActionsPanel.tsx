@@ -8,13 +8,15 @@ interface RideActionsPanelProps {
   onCancel?: () => void
   onTrack?: () => void
   onContact?: () => void
+  onPay?: () => void
 }
 
 export default function RideActionsPanel({
   status,
   onCancel,
   onTrack,
-  onContact
+  onContact,
+  onPay
 }: RideActionsPanelProps) {
   const isCompleted = status === 'COMPLETED'
   const isCancelled = status === 'CANCELLED'
@@ -45,6 +47,17 @@ export default function RideActionsPanel({
           </Button>
         )}
       </div>
+
+      {onPay && isActive && (
+        <Button
+          onClick={onPay}
+          variant="secondary"
+          className="w-full"
+        >
+          <SafeIcon name="CreditCard" size={16} className="mr-2" />
+          Pay for Ride
+        </Button>
+      )}
 
       {/* Cancel Button */}
       {onCancel && isActive && (

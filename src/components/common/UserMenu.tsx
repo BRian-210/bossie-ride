@@ -35,8 +35,9 @@ export default function UserMenu() {
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => {
-            // Placeholder for profile page
-            console.log('Profile clicked')
+            if (typeof window !== 'undefined') {
+              window.location.href = './profile'
+            }
           }}
         >
           <SafeIcon name="User" size={16} className="mr-2" />

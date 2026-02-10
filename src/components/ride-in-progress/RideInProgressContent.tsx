@@ -2,7 +2,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { mockCurrentRide } from '@/data/ride'
+import { mockCurrentRide, mockRideTypes, type RideTypeModel } from '@/data/ride'
 import DriverMapView from './DriverMapView'
 import RideStatusOverlay from './RideStatusOverlay'
 import DriverDetailsCard from './DriverDetailsCard'
@@ -12,6 +12,27 @@ import RideSummaryCard from './RideSummaryCard'
 export default function RideInProgressContent() {
   const [ride, setRide] = useState(mockCurrentRide)
   const [eta, setEta] = useState(ride.currentEtaMinutes)
+  const distanceEstimate = mockCurrentRide.estimatedFare - mockCurrentRide.selectedRideType.baseFareKsh
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const stored = sessionStorage.getItem('selectedRideType')
+    if (!stored) return
+    try {
+      const parsed = JSON.parse(stored) as RideTypeModel
+      const matched = mockRideTypes.find((type) => type.typeId === parsed.typeId)
+      if (!matched) return
+      const updatedRide = {
+        ...mockCurrentRide,
+        selectedRideType: matched,
+        estimatedFare: Math.max(matched.baseFareKsh + distanceEstimate, matched.baseFareKsh),
+      }
+      setRide(updatedRide)
+      setEta(updatedRide.currentEtaMinutes)
+    } catch {
+      // Ignore invalid storage payloads
+    }
+  }, [])
 
   // Simulate ETA countdown
   useEffect(() => {
@@ -31,6 +52,12 @@ export default function RideInProgressContent() {
   const handleContactDriver = () => {
     if (typeof window !== 'undefined') {
       window.location.href = './contact-driver.html'
+    }
+  }
+
+  const handlePayment = () => {
+    if (typeof window !== 'undefined') {
+      window.location.href = './payment-initiation.html'
     }
   }
 
@@ -92,6 +119,7 @@ export default function RideInProgressContent() {
             onCancel={handleCancelRide}
             onTrack={handleTrackDriver}
             onContact={handleContactDriver}
+            onPay={handlePayment}
             status={ride.status}
           />
         </div>

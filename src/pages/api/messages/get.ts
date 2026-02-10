@@ -1,11 +1,10 @@
 import type { APIRoute } from 'astro';
 import connectDB from '@/lib/db';
 import Message from '@/lib/models/Message';
+import { getMemoryMessages } from '@/lib/memoryMessages';
 
 export const GET: APIRoute = async ({ url }) => {
   try {
-    await connectDB();
-
     const rideId = url.searchParams.get('rideId');
 
     if (!rideId) {
@@ -15,10 +14,35 @@ export const GET: APIRoute = async ({ url }) => {
       );
     }
 
+    if (!process.env.MONGODB_URI) {
+      const messages = getMemoryMessages(rideId);
+      const formattedMessages = messages.map((msg) => ({
+        id: msg.id,
+        sender: msg.senderType,
+        text: msg.text,
+        timestamp: msg.createdAt.toLocaleTimeString('en-US', {
+          hour: '2-digit',
+          minute: '2-digit',
+          hour12: false,
+        }),
+      }));
+
+      return new Response(
+        JSON.stringify({
+          success: true,
+          messages: formattedMessages,
+        }),
+        {
+          status: 200,
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
+    }
+
+    await connectDB();
+
     // Fetch messages for the ride, sorted by creation date (oldest first)
-    const messages = await Message.find({ rideId })
-      .sort({ createdAt: 1 })
-      .lean();
+    const messages = await Message.find({ rideId }).sort({ createdAt: 1 }).lean();
 
     // Format messages for frontend
     const formattedMessages = messages.map((msg) => ({
