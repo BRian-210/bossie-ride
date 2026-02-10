@@ -19,7 +19,7 @@ export function useMessaging({
   rideId,
   userId,
   userType,
-  socketUrl = process.env.PUBLIC_SOCKET_URL || 'http://localhost:3001',
+  socketUrl = import.meta.env.PUBLIC_SOCKET_URL || 'http://localhost:3001',
 }: UseMessagingOptions) {
   const [messages, setMessages] = useState<Message[]>([]);
   const [isConnected, setIsConnected] = useState(false);

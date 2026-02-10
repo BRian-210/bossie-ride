@@ -17,7 +17,7 @@ interface AppBottomNavProps {
 const navItems: NavItem[] = [
   { id: 'home', label: 'Home', icon: 'Home', href: './ride-request' },
   { id: 'history', label: 'History', icon: 'Clock', href: './ride-history' },
-  { id: 'profile', label: 'Profile', icon: 'User', href: './placeholder' }
+  { id: 'profile', label: 'Profile', icon: 'User', href: './profile' }
 ]
 
 export default function AppBottomNav({ activeItem }: AppBottomNavProps) {

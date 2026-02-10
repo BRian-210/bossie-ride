@@ -117,11 +117,24 @@ const mockRideHistory: RideHistory[] = [
   }
 ]
 
+function loadStoredHistory(): RideHistory[] {
+  if (typeof window === 'undefined') return mockRideHistory
+  const stored = sessionStorage.getItem('rideHistory')
+  if (!stored) return mockRideHistory
+  try {
+    const parsed = JSON.parse(stored) as RideHistory[]
+    return Array.isArray(parsed) && parsed.length > 0 ? parsed : []
+  } catch {
+    return mockRideHistory
+  }
+}
+
 export default function RideHistoryList() {
   const [searchQuery, setSearchQuery] = useState('')
   const [filterStatus, setFilterStatus] = useState<'all' | 'completed' | 'cancelled'>('all')
+  const [history, setHistory] = useState<RideHistory[]>(() => loadStoredHistory())
 
-  const filteredRides = mockRideHistory.filter(ride => {
+  const filteredRides = history.filter(ride => {
     const matchesSearch = 
       ride.pickupLocation.toLowerCase().includes(searchQuery.toLowerCase()) ||
       ride.dropoffLocation.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -132,12 +145,22 @@ export default function RideHistoryList() {
     return matchesSearch && matchesStatus
   })
 
-  const totalSpent = mockRideHistory.reduce((sum, ride) => {
+  const totalSpent = history.reduce((sum, ride) => {
     const amount = parseInt(ride.fare.replace('KES ', ''))
     return sum + amount
   }, 0)
 
-  const completedRides = mockRideHistory.filter(r => r.status === 'completed').length
+  const completedRides = history.filter(r => r.status === 'completed').length
+
+  const canClear = history.length > 0
+
+  const handleClearHistory = () => {
+    if (typeof window === 'undefined') return
+    const confirmed = confirm('Clear your ride history? This cannot be undone.')
+    if (!confirmed) return
+    sessionStorage.setItem('rideHistory', JSON.stringify([]))
+    setHistory([])
+  }
 
   return (
     <div className="space-y-6">
@@ -148,7 +171,7 @@ export default function RideHistoryList() {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm text-muted-foreground">Total Rides</p>
-                <p className="text-3xl font-bold text-primary">{mockRideHistory.length}</p>
+                <p className="text-3xl font-bold text-primary">{history.length}</p>
               </div>
               <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                 <SafeIcon name="Car" size={24} className="text-primary" />
@@ -186,10 +209,22 @@ export default function RideHistoryList() {
         </Card>
       </div>
 
-      {/* Search and Filter */}
+      {/* Search, Filter, Clear */}
       <Card>
-        <CardHeader>
-          <CardTitle className="text-lg">Search Rides</CardTitle>
+        <CardHeader className="flex flex-row items-center justify-between gap-4">
+          <div>
+            <CardTitle className="text-lg">Search Rides</CardTitle>
+            <CardDescription>Find past trips and manage your history.</CardDescription>
+          </div>
+          <Button
+            variant="destructive"
+            size="sm"
+            onClick={handleClearHistory}
+            disabled={!canClear}
+          >
+            <SafeIcon name="Trash2" size={16} className="mr-2" />
+            Clear History
+          </Button>
         </CardHeader>
         <CardContent className="space-y-4">
           <div className="relative">

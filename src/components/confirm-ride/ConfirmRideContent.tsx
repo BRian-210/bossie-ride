@@ -1,24 +1,50 @@
 
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import { Badge } from '@/components/ui/badge'
 import SafeIcon from '@/components/common/SafeIcon'
-import { mockCurrentRide, mockRideTypes } from '@/data/ride'
+import { mockCurrentRide, mockRideTypes, type RideTypeModel } from '@/data/ride'
 import { mockLocations } from '@/data/location'
 
 
 export default function ConfirmRideContent() {
   const [isConfirming, setIsConfirming] = useState<boolean>(false)
   const [agreedToTerms, setAgreedToTerms] = useState<boolean>(false)
+  const [ride, setRide] = useState(mockCurrentRide)
+  const [rideType, setRideType] = useState(mockCurrentRide.selectedRideType)
+
+  const distanceEstimate = mockCurrentRide.estimatedFare - mockCurrentRide.selectedRideType.baseFareKsh
+
+  const applyRideType = (selected: RideTypeModel) => {
+    setRideType(selected)
+    setRide({
+      ...mockCurrentRide,
+      selectedRideType: selected,
+      estimatedFare: Math.max(selected.baseFareKsh + distanceEstimate, selected.baseFareKsh),
+    })
+  }
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const stored = sessionStorage.getItem('selectedRideType')
+    if (!stored) return
+    try {
+      const parsed = JSON.parse(stored) as RideTypeModel
+      const matched = mockRideTypes.find((type) => type.typeId === parsed.typeId)
+      if (matched) {
+        applyRideType(matched)
+      }
+    } catch {
+      // Ignore invalid storage payloads
+    }
+  }, [])
 
   // Use mock data for initial render
-  const ride = mockCurrentRide
-  const rideType = ride.selectedRideType
   const pickupLocation = ride.pickupLocation
   const dropoffLocation = ride.dropoffLocation
 

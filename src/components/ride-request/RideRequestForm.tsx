@@ -1,7 +1,7 @@
 
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
@@ -18,6 +18,14 @@ export default function RideRequestForm() {
   const [showDropoffSuggestions, setShowDropoffSuggestions] = useState(false)
   const [pickupSearchTerm, setPickupSearchTerm] = useState(mockLocations[0].name)
   const [dropoffSearchTerm, setDropoffSearchTerm] = useState(mockLocations[1].name)
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+    const isAuthed = sessionStorage.getItem('riderAuth') === 'true'
+    if (!isAuthed) {
+      window.location.href = './login?returnTo=ride-request'
+    }
+  }, [])
 
   const handlePickupChange = (value: string) => {
     setPickupSearchTerm(value)
