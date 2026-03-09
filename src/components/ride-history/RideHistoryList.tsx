@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -7,6 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Input } from '@/components/ui/input'
 import SafeIcon from '@/components/common/SafeIcon'
 import RideHistoryItem from './RideHistoryItem'
+import { requireAuth } from '@/lib/requireAuthClient'
 
 interface RideHistory {
   id: string
@@ -133,6 +134,10 @@ export default function RideHistoryList() {
   const [searchQuery, setSearchQuery] = useState('')
   const [filterStatus, setFilterStatus] = useState<'all' | 'completed' | 'cancelled'>('all')
   const [history, setHistory] = useState<RideHistory[]>(() => loadStoredHistory())
+
+  useEffect(() => {
+    requireAuth('ride-history')
+  }, [])
 
   const filteredRides = history.filter(ride => {
     const matchesSearch = 

@@ -1,7 +1,7 @@
 
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Separator } from '@/components/ui/separator'
@@ -9,6 +9,8 @@ import SafeIcon from '@/components/common/SafeIcon'
 import RideCompletedHeader from './RideCompletedHeader'
 import RideSummaryCard from './RideSummaryCard'
 import DriverRatingCard from './DriverRatingCard'
+import { requireAuth } from '@/lib/requireAuthClient'
+import { fetchAuthedJson } from '@/lib/authClient'
 
 interface RideData {
   id: string
@@ -46,6 +48,18 @@ export default function RideCompletedContent() {
   const [rating, setRating] = useState(0)
   const [feedback, setFeedback] = useState('')
   const [isSubmittingRating, setIsSubmittingRating] = useState(false)
+
+  useEffect(() => {
+    requireAuth('ride-completed')
+    if (typeof window === 'undefined') return
+    const rideId = sessionStorage.getItem('currentRideId')
+    if (!rideId) return
+    const amount = Number(String(rideData.fare).replace(/[^\d.]/g, '')) || undefined
+    fetchAuthedJson(`./api/rides/${rideId}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ status: 'completed', finalFareKsh: amount }),
+    }).catch(() => {})
+  }, [rideData.fare])
 
   const handleRatingSubmit = () => {
     setIsSubmittingRating(true)

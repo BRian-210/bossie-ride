@@ -8,6 +8,8 @@ import RideStatusOverlay from './RideStatusOverlay'
 import DriverDetailsCard from './DriverDetailsCard'
 import RideActionsPanel from './RideActionsPanel'
 import RideSummaryCard from './RideSummaryCard'
+import { requireAuth } from '@/lib/requireAuthClient'
+import { fetchAuthedJson } from '@/lib/authClient'
 
 export default function RideInProgressContent() {
   const [ride, setRide] = useState(mockCurrentRide)
@@ -16,6 +18,14 @@ export default function RideInProgressContent() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
+    requireAuth('ride-in-progress')
+    const rideId = sessionStorage.getItem('currentRideId')
+    if (rideId) {
+      fetchAuthedJson(`./api/rides/${rideId}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ status: 'in_progress' }),
+      }).catch(() => {})
+    }
     const stored = sessionStorage.getItem('selectedRideType')
     if (!stored) return
     try {

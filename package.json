@@ -67,6 +67,7 @@
         "@types/react-dom": "^18.3.7",
         "astro": "^5.17.1",
         "autoprefixer": "^10.4.20",
+        "baseline-browser-mapping": "^2.10.0",
         "playwright": "1.55.0",
         "postcss": "^8.4.49",
         "typescript": "^5.9.3"
