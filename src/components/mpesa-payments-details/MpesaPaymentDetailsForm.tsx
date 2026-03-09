@@ -1,7 +1,7 @@
 
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
@@ -12,6 +12,9 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { Separator } from '@/components/ui/separator'
 import SafeIcon from '@/components/common/SafeIcon'
+import { requireAuth } from '@/lib/requireAuthClient'
+import { fetchAuthedJson } from '@/lib/authClient'
+import { notify } from '@/lib/notify'
 
 // Mock payment data
 const mockPaymentData = {
@@ -39,6 +42,18 @@ type MpesaPaymentFormValues = z.infer<typeof mpesaPaymentSchema>
 export default function MpesaPaymentDetailsForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [showConfirmation, setShowConfirmation] = useState(false)
+  const [amountKsh, setAmountKsh] = useState<number>(mockPaymentData.fareAmount)
+  const rideId = useMemo(() => {
+    if (typeof window === 'undefined') return undefined
+    return sessionStorage.getItem('currentRideId') || undefined
+  }, [])
+
+  useEffect(() => {
+    requireAuth('mpesa-payment-details')
+    if (typeof window === 'undefined') return
+    const v = Number(sessionStorage.getItem('paymentAmountKsh'))
+    if (Number.isFinite(v) && v > 0) setAmountKsh(v)
+  }, [])
 
   const form = useForm<MpesaPaymentFormValues>({
     resolver: zodResolver(mpesaPaymentSchema),
@@ -49,15 +64,44 @@ export default function MpesaPaymentDetailsForm() {
 
   const onSubmit = async (values: MpesaPaymentFormValues) => {
     setIsSubmitting(true)
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 500))
+    await new Promise((resolve) => setTimeout(resolve, 250))
     setShowConfirmation(true)
     setIsSubmitting(false)
   }
 
-  const handleProceedToConfirmation = () => {
-    if (typeof window !== 'undefined') {
-      window.location.href = './mpesa-payment-confirmation.html'
+  const handleProceedToConfirmation = async () => {
+    const phoneNumber = form.getValues('phoneNumber')
+    setIsSubmitting(true)
+    try {
+      const res = await fetchAuthedJson<{
+        transaction: { id: string; status: string }
+        stk: { checkoutRequestId: string; merchantRequestId: string; customerMessage: string }
+      }>('./api/mpesa/stkpush', {
+        method: 'POST',
+        body: JSON.stringify({
+          phoneNumber,
+          amountKsh,
+          rideId,
+          accountReference: rideId ? `BOSSIE-RIDE-${rideId.slice(-6)}` : 'BOSSIE-RIDE',
+          transactionDesc: 'Bossie Ride payment',
+        }),
+      })
+
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem('mpesaCheckoutRequestId', res.stk.checkoutRequestId)
+        sessionStorage.setItem('mpesaPhoneNumber', phoneNumber)
+        sessionStorage.setItem('mpesaAmountKsh', String(amountKsh))
+        sessionStorage.setItem('mpesaTransactionId', res.transaction.id)
+        window.location.href = './mpesa-payment-confirmation.html'
+      }
+    } catch (e: any) {
+      await notify({
+        title: 'Could not start M-Pesa prompt',
+        message: e?.message || 'Please try again.',
+        level: 'error',
+      })
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -112,7 +156,7 @@ export default function MpesaPaymentDetailsForm() {
                   </div>
                   <div className="flex justify-between">
                     <span className="text-muted-foreground">Amount:</span>
-                    <span className="font-bold text-lg text-primary">{mockPaymentData.fare}</span>
+                    <span className="font-bold text-lg text-primary">KES {amountKsh}</span>
                   </div>
                 </div>
               </div>
@@ -189,7 +233,7 @@ export default function MpesaPaymentDetailsForm() {
           {/* Amount Display */}
           <div className="text-center space-y-2">
             <p className="text-sm text-muted-foreground">Amount to Pay</p>
-            <p className="text-4xl font-bold text-primary">{mockPaymentData.fare}</p>
+            <p className="text-4xl font-bold text-primary">KES {amountKsh}</p>
             <p className="text-xs text-muted-foreground">{mockPaymentData.rideDate}</p>
           </div>
 

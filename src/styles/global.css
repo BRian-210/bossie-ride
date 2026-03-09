@@ -49,6 +49,31 @@
 }
 
 @layer base {
+  .marketing-light {
+    color-scheme: light;
+    --background: 0 0% 100%;
+    --foreground: 222 47% 7%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 7%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 7%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 35%;
+    --accent: 0 0% 0%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 42%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 0 0% 0%;
+    --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.12);
+    --shadow-card: 0 18px 44px rgba(0, 0, 0, 0.16);
+  }
+
   * {
     @apply border-border outline-ring/50;
   }

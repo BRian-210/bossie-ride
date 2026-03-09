@@ -1,4 +1,6 @@
 ---
+import AppToaster from '@/components/common/AppToaster'
+
 interface Props {
   title?: string;
   description?: string;
@@ -17,6 +19,7 @@ const { title = 'Project', description = 'Built with Astro' } = Astro.props;
   </head>
   <body>
     <slot />
+    <AppToaster client:load />
   </body>
 </html>
 

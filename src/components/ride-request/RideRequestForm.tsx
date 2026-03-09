@@ -10,6 +10,7 @@ import MapContainer from '@/components/common/MapContainer'
 import LocationInputField from '@/components/ride-request/LocationInputField'
 import { mockLocations } from '@/data/location'
 import type { LocationModel } from '@/data/location'
+import { requireAuth } from '@/lib/requireAuthClient'
 
 export default function RideRequestForm() {
   const [pickupLocation, setPickupLocation] = useState<LocationModel | null>(mockLocations[0])
@@ -21,10 +22,7 @@ export default function RideRequestForm() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    const isAuthed = sessionStorage.getItem('riderAuth') === 'true'
-    if (!isAuthed) {
-      window.location.href = './login?returnTo=ride-request'
-    }
+    requireAuth('ride-request')
   }, [])
 
   const handlePickupChange = (value: string) => {
