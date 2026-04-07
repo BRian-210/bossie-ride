@@ -1,12 +1,17 @@
 ---
-import AppToaster from '@/components/common/AppToaster'
+import AppToaster from '@/components/common/AppToaster';
 
 interface Props {
   title?: string;
   description?: string;
+  theme?: 'dark' | 'light' | 'monster';
 }
 
-const { title = 'Project', description = 'Built with Astro' } = Astro.props;
+const { 
+  title = 'Bossie Ride', 
+  description = 'Ride smarter. Arrive faster.', 
+  theme = 'monster' 
+} = Astro.props;
 ---
 
 <!doctype html>
@@ -17,12 +22,59 @@ const { title = 'Project', description = 'Built with Astro' } = Astro.props;
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body>
+  <body data-theme={theme}>
+    <!-- Theme Toggle Button -->
+    <div class="theme-toggle" onclick="toggleTheme()"></div>
+
     <slot />
+
     <AppToaster client:load />
+
+    <!-- Safe Theme Script -->
+    <script>
+      // Safe localStorage to prevent SecurityError
+      const safeGetItem = (key: string): string | null => {
+        try {
+          return localStorage.getItem(key);
+        } catch {
+          return null;
+        }
+      };
+
+      const safeSetItem = (key: string, value: string): void => {
+        try {
+          localStorage.setItem(key, value);
+        } catch {
+          // Silently fail in restricted environments
+        }
+      };
+
+      const toggleTheme = (): void => {
+        const body = document.body;
+        const current = (body.getAttribute('data-theme') as 'dark' | 'light' | 'monster') || 'monster';
+        let next: 'dark' | 'light' | 'monster';
+        if (current === 'monster') next = 'dark';
+        else if (current === 'dark') next = 'light';
+        else next = 'monster';
+        
+        body.setAttribute('data-theme', next);
+        safeSetItem('theme', next);
+      };
+
+      const loadSavedTheme = (): void => {
+        const saved = safeGetItem('theme');
+        if (saved === 'dark' || saved === 'light' || saved === 'monster') {
+          document.body.setAttribute('data-theme', saved);
+        }
+      };
+
+      // Initialize theme on load
+      document.addEventListener('DOMContentLoaded', loadSavedTheme);
+    </script>
+
+    <!-- Global Styles -->
+    <style is:global>
+      @import '../styles/global.css';
+    </style>
   </body>
 </html>
-
-<style is:global>
-  @import '../styles/global.css';
-</style>
