@@ -4,11 +4,37 @@ import AppHeader from '@/components/common/AppHeader.tsx'
 import SignupForm from '@/components/auth/SignupForm.tsx'
 ---
 
-<BaseLayout title="Sign Up - Bossie Ride">
-  <AppHeader title="Sign Up" showNotifications={false} />
+<BaseLayout 
+  title="Sign Up - Bossie Ride" 
+  description="Create your Bossie Ride account with Google, Apple, phone number, or email. Start requesting rides in Nairobi today."
+  theme="dark"
+>
+  <div class="min-h-dvh bg-background text-foreground flex flex-col">
+    <AppHeader title="Sign Up" showNotifications={false} />
 
-  <main class="pb-12">
-    <SignupForm client:load />
-  </main>
+    <main class="flex-1 flex items-center justify-center px-4 py-10 md:py-16">
+      <div class="w-full max-w-md">
+        <div class="bg-card rounded-3xl shadow-card border border-border overflow-hidden">
+          <div class="p-7 md:p-10 space-y-8">
+            <div class="text-center space-y-2">
+              <h1 class="text-3xl md:text-3.5xl font-bold tracking-tight text-foreground">
+                Join Bossie Ride
+              </h1>
+              <p class="text-muted-foreground text-base">
+                Quick & secure signup — start riding in minutes
+              </p>
+            </div>
+            <SignupForm client:load />
+            <div class="text-center text-sm space-y-3 mt-6">
+              <p class="mt-8 text-center text-xs text-muted-foreground">
+              By signing up, you agree to our 
+               <a href="./terms" class="hover:underline">Terms of Service</a> and 
+                <a href="./privacy" class="hover:underline">Privacy Policy</a>.
+              </p> 
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
 </BaseLayout>
-

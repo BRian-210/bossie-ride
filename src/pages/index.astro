@@ -1,235 +1,259 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro'
+import { useState } from 'react'; // Not needed - we'll use vanilla JS with types
+
+const title = "Bossie Ride - Get There Fast";
 ---
 
-<BaseLayout title="Bossie Ride | Request rides 24/7" description="Request a ride for now or later with Bossie Ride.">
-  <div class="marketing-light min-h-dvh bg-background text-foreground">
-    <!-- Updated Top navigation with mobile menu -->
-    <header class="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/70">
-      <div class="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
-        <!-- Logo -->
-        <a href="./ride-request" class="flex items-center gap-2 font-semibold tracking-tight z-50">
-          <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-black text-white">B</span>
-          <span class="text-base sm:text-lg">Bossie Ride</span>
-        </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{title}</title>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-        <!-- Desktop navigation + auth (visible from md upwards) -->
-        <div class="hidden md:flex md:items-center md:gap-8">
-          <nav class="flex items-center gap-6 text-sm font-medium" aria-label="Primary navigation">
-            <a class="hover:underline underline-offset-4 transition-colors" href="./ride-request">Ride</a>
-            <a class="hover:underline underline-offset-4 transition-colors" href="./placeholder">Drive</a>
-            <a class="hover:underline underline-offset-4 transition-colors" href="./placeholder">Business</a>
-            <a class="hover:underline underline-offset-4 transition-colors" href="./placeholder">Help</a>
-          </nav>
+    :root {
+      --bg: #0a0a0a;
+      --text: #ffffff;
+      --accent: #00ff9d;
+    }
 
-          <div class="flex items-center gap-3 ml-8">
-            <a 
-              href="./login" 
-              class="hidden sm:inline-flex rounded-full px-4 py-2 text-sm font-medium hover:bg-muted transition-colors"
-            >
-              Sign in
-            </a>
-            <a 
-              href="./login" 
-              class="inline-flex rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white hover:bg-black/90 transition-colors"
-            >
-              Sign up
-            </a>
-          </div>
-        </div>
+    [data-theme="light"] {
+      --bg: #f8f9fa;
+      --text: #1a1a1a;
+      --accent: #00cc7a;
+    }
 
-        <!-- Mobile menu toggle (visible below md) -->
-        <div class="md:hidden z-50">
-          <input type="checkbox" id="mobile-menu" class="peer hidden" />
-          
-          <label for="mobile-menu" class="cursor-pointer block">
-            <div class="relative flex h-10 w-10 items-center justify-center">
-              <!-- Hamburger lines -->
-              <div class="relative h-0.5 w-7 rounded-full bg-foreground transition-all duration-300 peer-checked:bg-transparent">
-                <span class="absolute left-0 top-[-0.375rem] h-0.5 w-7 rounded-full bg-foreground transition-all duration-300 ease-out peer-checked:top-0 peer-checked:rotate-45"></span>
-                <span class="absolute left-0 bottom-[-0.375rem] h-0.5 w-7 rounded-full bg-foreground transition-all duration-300 ease-out peer-checked:bottom-0 peer-checked:-rotate-45"></span>
-              </div>
-            </div>
-          </label>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-          <!-- Mobile menu overlay + panel -->
-          <div class="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm transition-opacity duration-300 peer-checked:opacity-100 opacity-0 pointer-events-none peer-checked:pointer-events-auto md:hidden">
-            <div class="absolute right-0 top-0 h-full w-4/5 max-w-sm bg-background shadow-2xl transition-transform duration-400 ease-in-out translate-x-full peer-checked:translate-x-0">
-              <div class="flex flex-col h-full p-6 pt-20">
-                <!-- Close button (X) -->
-                <label 
-                  for="mobile-menu" 
-                  class="absolute right-6 top-6 text-2xl font-bold text-muted-foreground hover:text-foreground cursor-pointer transition-colors"
-                >
-                  ×
-                </label>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+      transition: background 0.6s ease;
+    }
 
-                <!-- Mobile nav links -->
-                <nav class="flex flex-col gap-6 text-lg font-medium mt-4">
-                  <a href="./ride-request" class="hover:text-primary transition-colors">Ride</a>
-                  <a href="./placeholder" class="hover:text-primary transition-colors">Drive</a>
-                  <a href="./placeholder" class="hover:text-primary transition-colors">Business</a>
-                  <a href="./placeholder" class="hover:text-primary transition-colors">Help</a>
-                </nav>
+    /* Animated Background */
+    .background {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #1a0033, #000000);
+      z-index: -2;
+    }
 
-                <!-- Auth buttons in mobile menu -->
-                <div class="mt-10 flex flex-col gap-4 pt-8 border-t border-border">
-                  <a 
-                    href="./login" 
-                    class="rounded-xl border border-border px-6 py-3.5 text-center font-medium hover:bg-muted transition-colors"
-                  >
-                    Sign in
-                  </a>
-                  <a 
-                    href="./login" 
-                    class="rounded-xl bg-black px-6 py-3.5 text-center font-semibold text-white hover:bg-black/90 transition-colors"
-                  >
-                    Sign up
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-    <main>
-      <!-- Hero -->
-      <section class="mx-auto grid max-w-6xl gap-10 px-4 py-10 lg:grid-cols-2 lg:items-center lg:py-14">
-        <div class="space-y-5">
-          <h1 class="text-4xl font-semibold leading-tight tracking-tight sm:text-5xl">
-            Request a ride for now or later
-          </h1>
-          <p class="max-w-prose text-base text-muted-foreground sm:text-lg">
-            Add your trip details, hop in, and go. Fast pickup, clear pricing, and reliable support.
-          </p>
-          <form class="mt-6 rounded-2xl border border-border bg-card p-5 shadow-soft sm:p-6" action="./ride-request">
-            <div class="flex flex-wrap items-center justify-between gap-3">
-              <label class="text-sm font-medium" for="pickup-when">Pickup time</label>
-              <select
-                id="pickup-when"
-                name="when"
-                class="h-10 rounded-full border border-input bg-background px-4 text-sm focus:outline-none focus:ring-2 focus:ring-ring"
-              >
-                <option value="now" selected>Pickup now</option>
-                <option value="later">Pickup later</option>
-              </select>
-            </div>
-            <div class="mt-4 space-y-3">
-              <div>
-                <label class="sr-only" for="pickup">Pickup location</label>
-                <input
-                  id="pickup"
-                  name="pickup"
-                  placeholder="Pickup location"
-                  class="h-12 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-2 focus:ring-ring"
-                />
-              </div>
-              <div>
-                <label class="sr-only" for="dropoff">Dropoff location</label>
-                <input
-                  id="dropoff"
-                  name="dropoff"
-                  placeholder="Dropoff location"
-                  class="h-12 w-full rounded-xl border border-input bg-background px-4 text-sm outline-none focus:ring-2 focus:ring-ring"
-                />
-              </div>
-            </div>
-            <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center">
-              <button
-                type="submit"
-                class="inline-flex h-12 items-center justify-center rounded-xl bg-black px-5 text-sm font-semibold text-white hover:bg-black/90"
-              >
-                See prices
-              </button>
-              <a href="./login" class="text-sm font-medium hover:underline underline-offset-4">
-                Sign up to ride
-              </a>
-            </div>
-            <p class="mt-4 text-xs text-muted-foreground">
-              Certain requirements and features vary by region. Availability depends on your location.
-            </p>
-          </form>
-        </div>
-        <!-- Right-side visual -->
-        <div class="relative">
-          <div class="aspect-[4/3] w-full overflow-hidden rounded-3xl border border-border bg-gradient-radial-at-t from-black/10 via-transparent to-transparent p-6">
-            <div class="flex h-full flex-col justify-between">
-              <div class="flex items-start justify-between gap-3">
-                <div class="rounded-2xl border border-border bg-background/80 p-4 shadow-soft">
-                  <p class="text-sm font-semibold">Your ride, your way</p>
-                  <p class="mt-1 text-sm text-muted-foreground">Comfort, economy, or premium.</p>
-                </div>
-                <div class="rounded-2xl border border-border bg-background/80 p-4 shadow-soft">
-                  <p class="text-sm font-semibold">700+ airports</p>
-                  <p class="mt-1 text-sm text-muted-foreground">Schedule pickups in advance.</p>
-                </div>
-              </div>
-              <div class="grid gap-3 sm:grid-cols-2">
-                <div class="rounded-2xl border border-border bg-background/80 p-4 shadow-soft">
-                  <p class="text-sm font-semibold">Upfront pricing</p>
-                  <p class="mt-1 text-sm text-muted-foreground">Know your fare before you go.</p>
-                </div>
-                <div class="rounded-2xl border border-border bg-background/80 p-4 shadow-soft">
-                  <p class="text-sm font-semibold">Safety tools</p>
-                  <p class="mt-1 text-sm text-muted-foreground">Trip sharing and support.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="pointer-events-none absolute -bottom-6 -right-6 hidden h-32 w-32 rounded-full bg-black/5 blur-2xl lg:block"></div>
-        </div>
-      </section>
+    .background::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 30% 20%, rgba(0, 255, 157, 0.15), transparent 50%),
+                  radial-gradient(circle at 70% 80%, rgba(0, 255, 157, 0.12), transparent 50%);
+      animation: pulse 15s infinite alternate ease-in-out;
+    }
 
-      <!-- App callout -->
-      <section class="border-t border-border bg-muted/40">
-        <div class="mx-auto grid max-w-6xl gap-6 px-4 py-10 md:grid-cols-2 md:items-center">
-          <div class="space-y-2">
-            <h2 class="text-2xl font-semibold tracking-tight sm:text-3xl">Do more in the app</h2>
-            <p class="text-sm text-muted-foreground sm:text-base">
-              Save places, view ride history, manage payments, and get support—right from your phone.
-            </p>
-          </div>
-          <div class="flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-end">
-            <div class="hidden items-center gap-3 rounded-2xl border border-border bg-background p-3 shadow-soft sm:flex">
-              <div class="grid h-14 w-14 grid-cols-7 gap-[2px] rounded-lg bg-black p-2">
-                {Array.from({ length: 49 }).map((_, i) => (
-                  <span
-                    class:list={[
-                      'block h-full w-full rounded-[1px]',
-                      i % 3 === 0 || i % 5 === 0 ? 'bg-white' : 'bg-black',
-                    ]}
-                  />
-                ))}
-              </div>
-              <div class="leading-tight">
-                <p class="text-sm font-semibold">Scan to download</p>
-                <p class="text-xs text-muted-foreground">Get the Bossie Ride app</p>
-              </div>
-            </div>
-            <a
-              href="./placeholder"
-              class="inline-flex h-11 items-center justify-center rounded-xl bg-black px-5 text-sm font-semibold text-white hover:bg-black/90"
-            >
-              Download the app
-            </a>
-          </div>
-        </div>
-      </section>
+    @keyframes pulse {
+      0% { opacity: 0.6; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.08); }
+    }
 
-      <!-- ... rest of your sections (Suggestions, Value props, Business, FAQ, footer) remain exactly the same ... -->
+    /* Moving road lines */
+    .road {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 40%;
+      background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 40px,
+        rgba(0, 255, 157, 0.2) 40px,
+        rgba(0, 255, 157, 0.2) 60px
+      );
+      animation: roadMove 4s linear infinite;
+    }
 
-    </main>
+    @keyframes roadMove {
+      0% { background-position: 0 0; }
+      100% { background-position: -200px 0; }
+    }
 
-    <footer class="border-t border-border">
-      <div class="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-8 sm:flex-row sm:items-center sm:justify-between">
-        <p class="text-sm text-muted-foreground">© {new Date().getFullYear()} Bossie Ride</p>
-        <div class="flex flex-wrap gap-4 text-sm">
-          <a class="text-muted-foreground hover:text-foreground hover:underline underline-offset-4" href="./placeholder">Privacy</a>
-          <a class="text-muted-foreground hover:text-foreground hover:underline underline-offset-4" href="./placeholder">Terms</a>
-          <a class="text-muted-foreground hover:text-foreground hover:underline underline-offset-4" href="./placeholder">Help</a>
-        </div>
-      </div>
-    </footer>
+    .container {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .content {
+      max-width: 700px;
+      padding: 2rem;
+    }
+
+    .logo {
+      font-size: 4.8rem;
+      font-weight: 700;
+      letter-spacing: -3px;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #fff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 40px rgba(0, 255, 157, 0.5);
+    }
+
+    .tagline {
+      font-size: 1.7rem;
+      margin-bottom: 3rem;
+      opacity: 0.9;
+      font-weight: 400;
+      line-height: 1.3;
+    }
+
+    .cta-button {
+      padding: 18px 48px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      background: var(--accent);
+      color: #000;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      box-shadow: 0 10px 30px rgba(0, 255, 157, 0.4);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 45px rgba(0, 255, 157, 0.5);
+    }
+
+    /* Theme Toggle */
+    .theme-toggle {
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid var(--accent);
+      width: 62px;
+      height: 32px;
+      border-radius: 50px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 4px;
+      transition: all 0.4s ease;
+      z-index: 10;
+    }
+
+    .theme-toggle::after {
+      content: '';
+      width: 24px;
+      height: 24px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.4s ease;
+    }
+
+    [data-theme="light"] .theme-toggle {
+      background: #333;
+    }
+
+    [data-theme="light"] .theme-toggle::after {
+      transform: translateX(30px);
+    }
+
+    /* Car Animation */
+    .car {
+      position: absolute;
+      bottom: 18%;
+      left: -120px;
+      font-size: 4.5rem;
+      animation: drive 14s linear infinite;
+      opacity: 0.12;
+      z-index: 1;
+    }
+
+    @keyframes drive {
+      0% { left: -120px; }
+      100% { left: 120vw; }
+    }
+  </style>
+</head>
+
+<body data-theme="dark">
+  <div class="background"></div>
+  <div class="road"></div>
+  <div class="car">🚗</div>
+
+  <div class="theme-toggle" onclick="toggleTheme()"></div>
+
+  <div class="container">
+    <div class="content">
+      <h1 class="logo">BOSSIE RIDE</h1>
+      <p class="tagline">Ride smarter.<br>Arrive faster.<br>Your city, your ride.</p>
+      
+      <button class="cta-button" onclick="window.location.href = '/home'">
+        Get a Ride Now
+      </button>
+
+      <p style="margin-top: 40px; opacity: 0.75; font-size: 1rem;">
+        Available in Nairobi • Safe • Reliable • Affordable
+      </p>
+    </div>
   </div>
-</BaseLayout
+
+  <script>
+    // Safe localStorage to prevent SecurityError in sandboxed environments
+    const safeGetItem = (key: string): string | null => {
+      try {
+        return localStorage.getItem(key);
+      } catch {
+        return null;
+      }
+    };
+
+    const safeSetItem = (key: string, value: string): void => {
+      try {
+        localStorage.setItem(key, value);
+      } catch {
+        // Silently fail in restricted environments
+      }
+    };
+
+    const toggleTheme = (): void => {
+      const body = document.body;
+      const current = body.getAttribute('data-theme') as 'dark' | 'light' || 'dark';
+      const next = current === 'dark' ? 'light' : 'dark';
+      
+      body.setAttribute('data-theme', next);
+      safeSetItem('theme', next);
+    };
+
+    const loadSavedTheme = (): void => {
+      const saved = safeGetItem('theme');
+      if (saved === 'dark' || saved === 'light') {
+        document.body.setAttribute('data-theme', saved);
+      }
+    };
+
+    const goToRiderDashboard = (): void => {
+      window.location.href = '/rider.html';
+    };
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', () => {
+      loadSavedTheme();
+    });
+  </script>
+</body>
+</html>
