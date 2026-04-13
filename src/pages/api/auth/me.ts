@@ -29,7 +29,6 @@ export const GET: APIRoute = async ({ request }) => {
         id: String(user._id),
         fullName: user.fullName,
         email: user.email,
-        phone: user.phone,
         createdAt: user.createdAt,
       },
     }),

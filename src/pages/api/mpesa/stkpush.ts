@@ -13,7 +13,7 @@ export const POST: APIRoute = async ({ request }) => {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), { status: 401 })
   }
 
-  const body = await request.json().catch(() => null)
+  const body = await request.json().catch((): null => null)
   if (!body) return new Response(JSON.stringify({ error: 'Invalid JSON body' }), { status: 400 })
 
   const phoneNumber = String(body.phoneNumber || '').trim()

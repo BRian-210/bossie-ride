@@ -5,21 +5,17 @@ import connectDB from '@/lib/db'
 import User from '@/lib/models/User'
 import { signAuthToken } from '@/lib/auth'
 
-function looksLikeEmail(value: string) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-}
-
 export const POST: APIRoute = async ({ request }) => {
-  const body = await request.json().catch(() => null)
+  const body = await request.json().catch((): null => null)
   if (!body) {
     return new Response(JSON.stringify({ error: 'Invalid JSON body' }), { status: 400 })
   }
 
-  const identifier = String(body.identifier || '').trim()
+  const email = String(body.email || '').trim().toLowerCase()
   const password = String(body.password || '')
 
-  if (!identifier) {
-    return new Response(JSON.stringify({ error: 'Email or phone is required' }), { status: 400 })
+  if (!email) {
+    return new Response(JSON.stringify({ error: 'Email is required' }), { status: 400 })
   }
   if (!password) {
     return new Response(JSON.stringify({ error: 'Password is required' }), { status: 400 })
@@ -27,11 +23,7 @@ export const POST: APIRoute = async ({ request }) => {
 
   await connectDB()
 
-  const query = looksLikeEmail(identifier)
-    ? { email: identifier.toLowerCase() }
-    : { phone: identifier }
-
-  const user = await User.findOne(query)
+  const user = await User.findOne({ email })
   if (!user) {
     return new Response(JSON.stringify({ error: 'Account not found. Please sign up.' }), { status: 404 })
   }
@@ -45,7 +37,7 @@ export const POST: APIRoute = async ({ request }) => {
   return new Response(
     JSON.stringify({
       token,
-      user: { id: String(user._id), fullName: user.fullName, email: user.email, phone: user.phone },
+      user: { id: String(user._id), fullName: user.fullName, email: user.email },
     }),
     { status: 200, headers: { 'Content-Type': 'application/json' } }
   )

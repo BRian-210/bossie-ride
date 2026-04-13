@@ -328,7 +328,7 @@ const baseService = {
     Object.entries(params).forEach(([param, key]) => {
       options[key] && searchParams.append(param, options[key].toString());
     });
-    const imageEndpoint = joinPaths("/", imageConfig2.endpoint.route);
+    const imageEndpoint = joinPaths("http://localhost:4321", imageConfig2.endpoint.route);
     let url = `${imageEndpoint}?${searchParams}`;
     if (imageConfig2.assetQueryParams) {
       const assetQueryString = imageConfig2.assetQueryParams.toString();
@@ -1399,7 +1399,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      "./sharp.srvDrQzb.js"
+      "./sharp.cZToQ1RU.js"
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;

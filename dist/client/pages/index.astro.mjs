@@ -12,23 +12,21 @@ const $$Index = createComponent(($$result, $$props, $$slots) => renderTemplate`<
   
 ${renderHead()}</head>
 
-<body data-source-file="src/pages/index.astro" data-source-line-start="193" data-source-line-end="258" data-theme="dark" data-astro-cid-j7pv25f6>
+<body data-source-file="src/pages/index.astro" data-source-line-start="193" data-source-line-end="256" data-theme="dark" data-astro-cid-j7pv25f6>
   <div data-source-file="src/pages/index.astro" data-source-line-start="194" data-source-line-end="194" class="background" data-astro-cid-j7pv25f6></div>
   <div data-source-file="src/pages/index.astro" data-source-line-start="195" data-source-line-end="195" class="road" data-astro-cid-j7pv25f6></div>
   <div data-source-file="src/pages/index.astro" data-source-line-start="196" data-source-line-end="196" class="car" data-astro-cid-j7pv25f6>🚗</div>
 
-  <div data-source-file="src/pages/index.astro" data-source-line-start="198" data-source-line-end="198" class="theme-toggle" onclick="toggleTheme()" data-astro-cid-j7pv25f6></div>
-
-  <div data-source-file="src/pages/index.astro" data-source-line-start="200" data-source-line-end="213" class="container" data-astro-cid-j7pv25f6>
-    <div data-source-file="src/pages/index.astro" data-source-line-start="201" data-source-line-end="212" class="content" data-astro-cid-j7pv25f6>
-      <h1 data-source-file="src/pages/index.astro" data-source-line-start="202" data-source-line-end="202" class="logo" data-astro-cid-j7pv25f6>BOSSIE RIDE</h1>
-      <p data-source-file="src/pages/index.astro" data-source-line-start="203" data-source-line-end="203" class="tagline" data-astro-cid-j7pv25f6>Ride smarter.<br data-astro-cid-j7pv25f6>Arrive faster.<br data-astro-cid-j7pv25f6>Your city, your ride.</p>
+  <div data-source-file="src/pages/index.astro" data-source-line-start="198" data-source-line-end="211" class="container" data-astro-cid-j7pv25f6>
+    <div data-source-file="src/pages/index.astro" data-source-line-start="199" data-source-line-end="210" class="content" data-astro-cid-j7pv25f6>
+      <h1 data-source-file="src/pages/index.astro" data-source-line-start="200" data-source-line-end="200" class="logo" data-astro-cid-j7pv25f6>BOSSIE RIDE</h1>
+      <p data-source-file="src/pages/index.astro" data-source-line-start="201" data-source-line-end="201" class="tagline" data-astro-cid-j7pv25f6>Ride smarter.<br data-astro-cid-j7pv25f6>Arrive faster.<br data-astro-cid-j7pv25f6>Your city, your ride.</p>
       
-      <button data-source-file="src/pages/index.astro" data-source-line-start="205" data-source-line-end="207" class="cta-button" onclick="window.location.href = '/home'" data-astro-cid-j7pv25f6>
+      <button data-source-file="src/pages/index.astro" data-source-line-start="203" data-source-line-end="205" class="cta-button" onclick="window.location.href = '/home'" data-astro-cid-j7pv25f6>
         Get a Ride Now
       </button>
 
-      <p data-source-file="src/pages/index.astro" data-source-line-start="209" data-source-line-end="211" style="margin-top: 40px; opacity: 0.75; font-size: 1rem;" data-astro-cid-j7pv25f6>
+      <p data-source-file="src/pages/index.astro" data-source-line-start="207" data-source-line-end="209" style="margin-top: 40px; opacity: 0.75; font-size: 1rem;" data-astro-cid-j7pv25f6>
         Available in Nairobi • Safe • Reliable • Affordable
       </p>
     </div>

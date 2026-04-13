@@ -1,6 +1,6 @@
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
-import { $ as $$BaseLayout } from "../BaseLayout.D-nZ0uYi.js";
+import { f as fetchAuthedJson, n as notify, $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
 import { S as SafeIcon, a as Button, A as AppHeader } from "../AppHeader.DiYVpvWN.js";
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
 import * as React from "react";
@@ -14,9 +14,7 @@ import { Slot } from "@radix-ui/react-slot";
 import { L as Label } from "../label.Da--91Bw.js";
 import { A as Alert, a as AlertDescription } from "../alert.uiCSQyi5.js";
 import { S as Separator } from "../separator.DdA1LhoM.js";
-import { r as requireAuth } from "../requireAuthClient.BhWjweWu.js";
-import { f as fetchAuthedJson } from "../authClient.CZydr8qd.js";
-import { n as notify } from "../notify.5u8Vcg9W.js";
+import { r as requireAuth } from "../requireAuthClient.DpcUQgPl.js";
 import { renderers } from "../renderers.mjs";
 const Form = FormProvider;
 const FormFieldContext = React.createContext(null);

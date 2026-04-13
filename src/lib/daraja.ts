@@ -17,7 +17,7 @@ export async function getDarajaAccessToken() {
   const auth = Buffer.from(`${key}:${secret}`).toString('base64')
   const url = `${getDarajaBaseUrl()}/oauth/v1/generate?grant_type=client_credentials`
   const res = await fetch(url, { headers: { Authorization: `Basic ${auth}` } })
-  const data = await res.json().catch(() => null)
+  const data = await res.json().catch((): null => null)
   if (!res.ok || !data?.access_token) {
     throw new Error(data?.errorMessage || data?.error || `Daraja token failed (${res.status})`)
   }
@@ -92,7 +92,7 @@ export async function requestStkPush(input: {
     body: JSON.stringify(payload),
   })
 
-  const data = (await res.json().catch(() => null)) as any
+  const data = (await res.json().catch((): null => null)) as any
   if (!res.ok) {
     throw new Error(data?.errorMessage || data?.error || `STK push failed (${res.status})`)
   }

@@ -1,6 +1,6 @@
 import { R as Ride } from "../../../Ride.ixhf0jQo.js";
 import { c as connectDB } from "../../../db.Bk-H3Ses.js";
-import { r as requireUserId } from "../../../apiAuth.pN4veGNE.js";
+import { r as requireUserId } from "../../../apiAuth.DxwkxGQS.js";
 import { renderers } from "../../../renderers.mjs";
 const allowed = ["requested", "in_progress", "completed", "cancelled"];
 const PATCH = async ({

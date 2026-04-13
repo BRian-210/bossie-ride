@@ -1,5 +1,5 @@
 import { c as connectDB } from "../../../db.Bk-H3Ses.js";
-import { r as requireUserId } from "../../../apiAuth.pN4veGNE.js";
+import { r as requireUserId } from "../../../apiAuth.DxwkxGQS.js";
 import { T as Transaction } from "../../../Transaction.BMZuEaBc.js";
 import { renderers } from "../../../renderers.mjs";
 const GET = async ({
