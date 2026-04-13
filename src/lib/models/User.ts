@@ -2,9 +2,18 @@ import mongoose, { Schema, type Document, type Model } from 'mongoose'
 
 export interface IUser extends Document {
   fullName: string
-  email?: string
-  phone?: string
-  passwordHash: string
+  email: string
+  passwordHash?: string
+  oauthProviders: {
+    google?: {
+      id: string
+      email: string
+    }
+    apple?: {
+      id: string
+      email: string
+    }
+  }
   createdAt: Date
   updatedAt: Date
 }
@@ -12,16 +21,21 @@ export interface IUser extends Document {
 const UserSchema = new Schema<IUser>(
   {
     fullName: { type: String, required: true, trim: true },
-    email: { type: String, trim: true, lowercase: true, index: true },
-    phone: { type: String, trim: true, index: true },
-    passwordHash: { type: String, required: true },
+    email: { type: String, required: true, trim: true, lowercase: true, unique: true },
+    passwordHash: { type: String },
+    oauthProviders: {
+      google: {
+        id: String,
+        email: String,
+      },
+      apple: {
+        id: String,
+        email: String,
+      },
+    },
   },
   { timestamps: true }
 )
-
-// Unique indexes (sparse allows missing values)
-UserSchema.index({ email: 1 }, { unique: true, sparse: true })
-UserSchema.index({ phone: 1 }, { unique: true, sparse: true })
 
 const User: Model<IUser> = mongoose.models.User || mongoose.model<IUser>('User', UserSchema)
 export default User

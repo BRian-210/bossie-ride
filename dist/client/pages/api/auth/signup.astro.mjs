@@ -1,14 +1,10 @@
 import bcrypt from "bcryptjs";
 import { c as connectDB } from "../../../db.Bk-H3Ses.js";
-import { U as User, s as signAuthToken } from "../../../auth.CgSulwnn.js";
+import { U as User, s as signAuthToken } from "../../../auth.B8p_MpoA.js";
 import { renderers } from "../../../renderers.mjs";
 function normalizeEmail(email) {
   const e = (email || "").trim().toLowerCase();
   return e.length ? e : void 0;
-}
-function normalizePhone(phone) {
-  const p = (phone || "").trim();
-  return p.length ? p : void 0;
 }
 const POST = async ({
   request
@@ -23,7 +19,6 @@ const POST = async ({
   }
   const fullName = String(body.fullName || "").trim();
   const email = normalizeEmail(body.email);
-  const phone = normalizePhone(body.phone);
   const password = String(body.password || "");
   if (!fullName) {
     return new Response(JSON.stringify({
@@ -32,9 +27,9 @@ const POST = async ({
       status: 400
     });
   }
-  if (!email && !phone) {
+  if (!email) {
     return new Response(JSON.stringify({
-      error: "Email or phone is required"
+      error: "Email is required"
     }), {
       status: 400
     });
@@ -48,11 +43,7 @@ const POST = async ({
   }
   await connectDB();
   const existing = await User.findOne({
-    $or: [...email ? [{
-      email
-    }] : [], ...phone ? [{
-      phone
-    }] : []]
+    email
   });
   if (existing) {
     return new Response(JSON.stringify({
@@ -65,7 +56,6 @@ const POST = async ({
   const user = await User.create({
     fullName,
     email,
-    phone,
     passwordHash
   });
   const token = signAuthToken(String(user._id));
@@ -74,8 +64,7 @@ const POST = async ({
     user: {
       id: String(user._id),
       fullName: user.fullName,
-      email: user.email,
-      phone: user.phone
+      email: user.email
     }
   }), {
     status: 201,

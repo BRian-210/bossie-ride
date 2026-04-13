@@ -28,7 +28,7 @@ const TransactionSchema = new Schema<ITransaction>(
     amountKsh: { type: Number, required: true },
     reference: { type: String, trim: true, index: true },
     receipt: { type: String, trim: true },
-    mpesaCheckoutRequestId: { type: String, trim: true, index: true },
+    mpesaCheckoutRequestId: { type: String, trim: true },
     mpesaMerchantRequestId: { type: String, trim: true },
     mpesaResultCode: { type: Number },
     mpesaResultDesc: { type: String, trim: true },

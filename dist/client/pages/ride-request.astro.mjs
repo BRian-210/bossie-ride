@@ -1,6 +1,6 @@
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
-import { $ as $$BaseLayout } from "../BaseLayout.D-nZ0uYi.js";
+import { n as notify, $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
 import { S as SafeIcon, a as Button, A as AppHeader } from "../AppHeader.DiYVpvWN.js";
 import { A as AppBottomNav } from "../AppBottomNav.D_V8Uun5.js";
 import { jsxs, jsx } from "react/jsx-runtime";
@@ -11,8 +11,7 @@ import { M as MapContainer } from "../MapContainer.BYjNKSUp.js";
 import { I as Input } from "../input.DrcO4c1k.js";
 import { L as Label } from "../label.Da--91Bw.js";
 import { m as mockLocations } from "../location.BmOrolG9.js";
-import { r as requireAuth } from "../requireAuthClient.BhWjweWu.js";
-import { n as notify } from "../notify.5u8Vcg9W.js";
+import { r as requireAuth } from "../requireAuthClient.DpcUQgPl.js";
 import { renderers } from "../renderers.mjs";
 function LocationInputField({
   label,

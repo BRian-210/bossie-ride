@@ -1,6 +1,6 @@
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
-import { $ as $$BaseLayout } from "../BaseLayout.D-nZ0uYi.js";
+import { f as fetchAuthedJson, $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
 import { S as SafeIcon, a as Button, B as Badge, A as AppHeader } from "../AppHeader.DiYVpvWN.js";
 import { A as AppBottomNav } from "../AppBottomNav.D_V8Uun5.js";
 import { jsxs, jsx } from "react/jsx-runtime";
@@ -8,8 +8,7 @@ import { useState, useMemo, useEffect } from "react";
 import { C as Card, a as CardHeader, b as CardTitle, c as CardDescription, d as CardContent } from "../card.BA4JS6QT.js";
 import { S as Separator } from "../separator.DdA1LhoM.js";
 import { c as mockSuccessReceipt } from "../payment.CLWALyqY.js";
-import { r as requireAuth } from "../requireAuthClient.BhWjweWu.js";
-import { f as fetchAuthedJson } from "../authClient.CZydr8qd.js";
+import { r as requireAuth } from "../requireAuthClient.DpcUQgPl.js";
 import { renderers } from "../renderers.mjs";
 function PaymentSuccessContent() {
   const [receiptId, setReceiptId] = useState(mockSuccessReceipt.transactionId);

@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import jwt from "jsonwebtoken";
+import { sign, verify } from "jsonwebtoken";
 const UserSchema = new Schema({
   fullName: {
     type: String,
@@ -8,33 +8,26 @@ const UserSchema = new Schema({
   },
   email: {
     type: String,
+    required: true,
     trim: true,
     lowercase: true,
-    index: true
-  },
-  phone: {
-    type: String,
-    trim: true,
-    index: true
+    unique: true
   },
   passwordHash: {
-    type: String,
-    required: true
+    type: String
+  },
+  oauthProviders: {
+    google: {
+      id: String,
+      email: String
+    },
+    apple: {
+      id: String,
+      email: String
+    }
   }
 }, {
   timestamps: true
-});
-UserSchema.index({
-  email: 1
-}, {
-  unique: true,
-  sparse: true
-});
-UserSchema.index({
-  phone: 1
-}, {
-  unique: true,
-  sparse: true
 });
 const User = mongoose.models.User || mongoose.model("User", UserSchema);
 function getJwtSecret() {
@@ -43,14 +36,16 @@ function getJwtSecret() {
   return secret;
 }
 function signAuthToken(userId) {
-  return jwt.sign({
+  const payload = {
     sub: userId
-  }, getJwtSecret(), {
+  };
+  const options = {
     expiresIn: process.env.JWT_EXPIRES_IN || "30d"
-  });
+  };
+  return sign(payload, getJwtSecret(), options);
 }
 function verifyAuthToken(token) {
-  return jwt.verify(token, getJwtSecret());
+  return verify(token, getJwtSecret());
 }
 function getBearerToken(request) {
   const auth = request.headers.get("authorization") || "";

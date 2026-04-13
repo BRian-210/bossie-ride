@@ -1,5 +1,6 @@
 ---
 import AppToaster from '@/components/common/AppToaster';
+import OAuthCallbackHandler from '@/components/common/OAuthCallbackHandler';
 
 interface Props {
   title?: string;
@@ -29,6 +30,7 @@ const {
     <slot />
 
     <AppToaster client:load />
+    <OAuthCallbackHandler client:load />
 
     <!-- Safe Theme Script -->
     <script>

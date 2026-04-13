@@ -1,14 +1,13 @@
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
-import { $ as $$BaseLayout } from "../BaseLayout.D-nZ0uYi.js";
+import { f as fetchAuthedJson, $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
 import { S as SafeIcon, a as Button, A as AppHeader } from "../AppHeader.DiYVpvWN.js";
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
 import { useState, useEffect } from "react";
 import { C as Card, d as CardContent, a as CardHeader, b as CardTitle, c as CardDescription } from "../card.BA4JS6QT.js";
 import { A as Alert, a as AlertDescription } from "../alert.uiCSQyi5.js";
 import { S as Separator } from "../separator.DdA1LhoM.js";
-import { r as requireAuth } from "../requireAuthClient.BhWjweWu.js";
-import { f as fetchAuthedJson } from "../authClient.CZydr8qd.js";
+import { r as requireAuth } from "../requireAuthClient.DpcUQgPl.js";
 import { A as AppBottomNav } from "../AppBottomNav.D_V8Uun5.js";
 import { renderers } from "../renderers.mjs";
 function TransactionSummary({

@@ -1,5 +1,5 @@
 import { c as connectDB } from "../../../db.Bk-H3Ses.js";
-import { g as getBearerToken, v as verifyAuthToken, U as User } from "../../../auth.CgSulwnn.js";
+import { g as getBearerToken, v as verifyAuthToken, U as User } from "../../../auth.B8p_MpoA.js";
 import { renderers } from "../../../renderers.mjs";
 const GET = async ({
   request
@@ -36,7 +36,6 @@ const GET = async ({
       id: String(user._id),
       fullName: user.fullName,
       email: user.email,
-      phone: user.phone,
       createdAt: user.createdAt
     }
   }), {

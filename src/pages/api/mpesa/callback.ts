@@ -19,7 +19,7 @@ export const POST: APIRoute = async ({ request, url }) => {
     if (token !== expected) return accepted()
   }
 
-  const body = await request.json().catch(() => null)
+  const body = await request.json().catch((): null => null)
   const cb = parseStkCallback(body)
   if (!cb) return accepted()
 

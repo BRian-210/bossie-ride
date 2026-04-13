@@ -1,4 +1,4 @@
-import { g as getAuthToken, f as fetchAuthedJson, c as clearAuthToken } from "./authClient.CZydr8qd.js";
+import { g as getAuthToken, f as fetchAuthedJson, c as clearAuthToken } from "./BaseLayout.DdVmMhb3.js";
 async function requireAuth(returnTo) {
   if (typeof window === "undefined") return null;
   const token = getAuthToken();

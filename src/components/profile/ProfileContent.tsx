@@ -17,8 +17,7 @@ type ApiTransaction = any
 type User = {
   id: string
   fullName: string
-  email?: string
-  phone?: string
+  email: string
 }
 
 function formatKsh(amount?: number) {

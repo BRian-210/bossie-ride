@@ -1,10 +1,7 @@
 import bcrypt from "bcryptjs";
 import { c as connectDB } from "../../../db.Bk-H3Ses.js";
-import { U as User, s as signAuthToken } from "../../../auth.CgSulwnn.js";
+import { U as User, s as signAuthToken } from "../../../auth.B8p_MpoA.js";
 import { renderers } from "../../../renderers.mjs";
-function looksLikeEmail(value) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-}
 const POST = async ({
   request
 }) => {
@@ -16,11 +13,11 @@ const POST = async ({
       status: 400
     });
   }
-  const identifier = String(body.identifier || "").trim();
+  const email = String(body.email || "").trim().toLowerCase();
   const password = String(body.password || "");
-  if (!identifier) {
+  if (!email) {
     return new Response(JSON.stringify({
-      error: "Email or phone is required"
+      error: "Email is required"
     }), {
       status: 400
     });
@@ -33,12 +30,9 @@ const POST = async ({
     });
   }
   await connectDB();
-  const query = looksLikeEmail(identifier) ? {
-    email: identifier.toLowerCase()
-  } : {
-    phone: identifier
-  };
-  const user = await User.findOne(query);
+  const user = await User.findOne({
+    email
+  });
   if (!user) {
     return new Response(JSON.stringify({
       error: "Account not found. Please sign up."
@@ -60,8 +54,7 @@ const POST = async ({
     user: {
       id: String(user._id),
       fullName: user.fullName,
-      email: user.email,
-      phone: user.phone
+      email: user.email
     }
   }), {
     status: 200,

@@ -1,6 +1,6 @@
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
-import { $ as $$BaseLayout } from "../BaseLayout.D-nZ0uYi.js";
+import { $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
 import { b as Avatar, c as AvatarImage, d as AvatarFallback, S as SafeIcon, B as Badge, a as Button, A as AppHeader } from "../AppHeader.DiYVpvWN.js";
 import { A as AppBottomNav } from "../AppBottomNav.D_V8Uun5.js";
 import { jsxs, jsx } from "react/jsx-runtime";

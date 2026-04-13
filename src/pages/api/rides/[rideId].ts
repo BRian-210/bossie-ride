@@ -12,7 +12,7 @@ export const PATCH: APIRoute = async ({ request, params }) => {
 
   try {
     const userId = await requireUserId(request)
-    const body = await request.json().catch(() => null)
+    const body = await request.json().catch((): null => null)
     if (!body) return new Response(JSON.stringify({ error: 'Invalid JSON body' }), { status: 400 })
 
     const status = body.status as RideStatus | undefined
