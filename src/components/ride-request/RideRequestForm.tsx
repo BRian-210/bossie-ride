@@ -1,7 +1,6 @@
-
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
@@ -10,22 +9,42 @@ import MapContainer from '@/components/common/MapContainer'
 import LocationInputField from '@/components/ride-request/LocationInputField'
 import { mockLocations } from '@/data/location'
 import type { LocationModel } from '@/data/location'
+import { requireAuth } from '@/lib/requireAuthClient'
+import { notify } from '@/lib/notify'  // Added to fix the notify error
 
 export default function RideRequestForm() {
-  const [pickupLocation, setPickupLocation] = useState<LocationModel | null>(mockLocations[0])
-  const [dropoffLocation, setDropoffLocation] = useState<LocationModel | null>(mockLocations[1])
+  const [pickupLocation, setPickupLocation] = useState<LocationModel | null>(null)
+  const [dropoffLocation, setDropoffLocation] = useState<LocationModel | null>(null)
   const [showPickupSuggestions, setShowPickupSuggestions] = useState(false)
   const [showDropoffSuggestions, setShowDropoffSuggestions] = useState(false)
-  const [pickupSearchTerm, setPickupSearchTerm] = useState(mockLocations[0].name)
-  const [dropoffSearchTerm, setDropoffSearchTerm] = useState(mockLocations[1].name)
+  const [pickupSearchTerm, setPickupSearchTerm] = useState('')
+  const [dropoffSearchTerm, setDropoffSearchTerm] = useState('')
+  const [isLocating, setIsLocating] = useState(false)
+  const [preview, setPreview] = useState<{
+    distance: string
+    time: string
+    fare: string
+  } | null>(null)
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    const isAuthed = sessionStorage.getItem('riderAuth') === 'true'
-    if (!isAuthed) {
-      window.location.href = './login?returnTo=ride-request'
-    }
+    requireAuth('ride-request')
   }, [])
+  useEffect(() => {
+    if (pickupLocation && dropoffLocation && pickupLocation.locationId !== dropoffLocation.locationId) {
+      const distanceKm = (Math.random() * 30 + 2).toFixed(1)
+      const timeMin = Math.round(Number(distanceKm) * 2.5 + 5)
+      const fare = Math.round(150 + Number(distanceKm) * 35)
+
+      setPreview({
+        distance: `${distanceKm} km`,
+        time: `${timeMin} min`,
+        fare: `KSh ${fare.toLocaleString()}`,
+      })
+    } else {
+      setPreview(null)
+    }
+  }, [pickupLocation, dropoffLocation])
 
   const handlePickupChange = (value: string) => {
     setPickupSearchTerm(value)
@@ -50,30 +69,40 @@ export default function RideRequestForm() {
   }
 
   const handleSwapLocations = () => {
-    const temp = pickupLocation
+    const tempLoc = pickupLocation
     setPickupLocation(dropoffLocation)
-    setDropoffLocation(temp)
-    
+    setDropoffLocation(tempLoc)
+
     const tempSearch = pickupSearchTerm
     setPickupSearchTerm(dropoffSearchTerm)
     setDropoffSearchTerm(tempSearch)
   }
 
+  const handleGetCurrentLocation = useCallback(() => {
+    setIsLocating(true)
+    setTimeout(() => { 
+      const current = mockLocations[0] 
+      setPickupLocation(current)
+      setPickupSearchTerm(current.name)
+      notify({
+        title: 'Location Set',
+        message: 'Using your current location',
+        level: 'success',
+      })
+      setIsLocating(false)
+    }, 800)
+  }, [])
+
   const handleContinue = () => {
     if (pickupLocation && dropoffLocation) {
-      // Store selected locations in sessionStorage for next page
-      if (typeof window !== 'undefined') {
-        sessionStorage.setItem('pickupLocation', JSON.stringify(pickupLocation))
-        sessionStorage.setItem('dropoffLocation', JSON.stringify(dropoffLocation))
-        window.location.href = './select-ride-type.html'
-      }
+      sessionStorage.setItem('pickupLocation', JSON.stringify(pickupLocation))
+      sessionStorage.setItem('dropoffLocation', JSON.stringify(dropoffLocation))
+      window.location.href = './select-ride-type.html'
     }
   }
 
   const handleViewHistory = () => {
-    if (typeof window !== 'undefined') {
-      window.location.href = './ride-history.html'
-    }
+    window.location.href = './ride-history.html'
   }
 
   const isFormValid = pickupLocation && dropoffLocation && pickupLocation.locationId !== dropoffLocation.locationId
@@ -81,20 +110,25 @@ export default function RideRequestForm() {
   return (
     <div className="container max-w-2xl mx-auto px-4 py-6 space-y-6">
       {/* Map Preview */}
-      <MapContainer height="300px" showControls={true} />
+      <div className="relative rounded-2xl overflow-hidden shadow-lg border border-border">
+        <MapContainer height="380px" showControls={true} />
+      </div>
 
-      {/* Location Input Card */}
-      <Card className="shadow-card">
-        <CardHeader>
-          <CardTitle>Where are you going?</CardTitle>
-          <CardDescription>Enter your pickup and dropoff locations</CardDescription>
+      {/* Location Input Card – semi-transparent with blur */}
+      <Card className="bg-white/90 backdrop-blur-md border border-border/50 shadow-xl">
+        <CardHeader className="pb-4">
+          <CardTitle className="text-xl font-semibold">Where are you going?</CardTitle>
+          <CardDescription className="text-muted-foreground">
+            Enter your pickup and dropoff locations
+          </CardDescription>
         </CardHeader>
-        <CardContent className="space-y-4">
-          {/* Pickup Location */}
-          <div className="space-y-2">
+
+        <CardContent className="space-y-5">
+          {/* Pickup Location with current location button */}
+          <div className="space-y-2 relative">
             <LocationInputField
               label="Pickup Location"
-              placeholder="Enter pickup location"
+              placeholder="Your current location or search..."
               value={pickupSearchTerm}
               onChange={handlePickupChange}
               onFocus={() => setShowPickupSuggestions(true)}
@@ -105,15 +139,31 @@ export default function RideRequestForm() {
               onSelectSuggestion={handlePickupSelect}
               selectedLocation={pickupLocation}
             />
+
+            {/* "Use my location" button positioned inside/near the input */}
+            <Button
+              variant="ghost"
+              size="sm"
+              className="absolute right-3 top-[42px] z-10 text-amber-600 hover:text-amber-700 hover:bg-amber-50/50"
+              onClick={handleGetCurrentLocation}
+              disabled={isLocating}
+            >
+              {isLocating ? (
+                <SafeIcon name="Loader2" size={16} className="mr-1.5 animate-spin" />
+              ) : (
+                <SafeIcon name="Crosshair" size={16} className="mr-1.5" />
+              )}
+              Use current location
+            </Button>
           </div>
 
           {/* Swap Button */}
-          <div className="flex justify-center">
+          <div className="flex justify-center -my-2 relative z-10">
             <Button
               variant="outline"
               size="icon"
               onClick={handleSwapLocations}
-              className="rounded-full"
+              className="rounded-full border-2 shadow-sm bg-background"
               aria-label="Swap pickup and dropoff locations"
             >
               <SafeIcon name="ArrowUpDown" size={20} />
@@ -124,7 +174,7 @@ export default function RideRequestForm() {
           <div className="space-y-2">
             <LocationInputField
               label="Dropoff Location"
-              placeholder="Enter dropoff location"
+              placeholder="Where to? (e.g. Two Rivers, JKIA, Westlands...)"
               value={dropoffSearchTerm}
               onChange={handleDropoffChange}
               onFocus={() => setShowDropoffSuggestions(true)}
@@ -137,18 +187,41 @@ export default function RideRequestForm() {
             />
           </div>
 
-          <Separator className="my-4" />
+          {/* Distance / Time / Fare Preview */}
+          {preview && (
+            <div className="bg-amber-50/70 border border-amber-200/60 rounded-xl p-4 mt-2">
+              <div className="grid grid-cols-3 gap-3 text-center">
+                <div>
+                  <p className="text-xs text-muted-foreground">Distance</p>
+                  <p className="font-semibold text-foreground">{preview.distance}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground">Est. Time</p>
+                  <p className="font-semibold text-foreground">{preview.time}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground">Est. Fare</p>
+                  <p className="font-semibold text-amber-700">{preview.fare}</p>
+                </div>
+              </div>
+              <p className="text-xs text-center text-muted-foreground mt-3 italic">
+                Fare is an estimate — final price depends on traffic & ride type
+              </p>
+            </div>
+          )}
+
+          <Separator className="my-5" />
 
           {/* Action Buttons */}
           <div className="space-y-3">
             <Button
               onClick={handleContinue}
               disabled={!isFormValid}
-              className="w-full"
+              className="w-full bg-foreground hover:bg-foreground/90 text-background"
               size="lg"
             >
               <SafeIcon name="ArrowRight" size={18} className="mr-2" />
-              Continue to Select Ride Type
+              See Prices & Ride Options
             </Button>
 
             <Button
@@ -172,7 +245,7 @@ export default function RideRequestForm() {
             <div className="space-y-1">
               <p className="font-medium text-sm">Pro Tip</p>
               <p className="text-sm text-muted-foreground">
-                You can also tap on the map to select your pickup and dropoff locations directly.
+                Tap anywhere on the map to quickly set pickup or dropoff.
               </p>
             </div>
           </div>

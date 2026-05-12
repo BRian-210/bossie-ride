@@ -10,6 +10,9 @@ import { Badge } from '@/components/ui/badge'
 import SafeIcon from '@/components/common/SafeIcon'
 import { mockCurrentRide, mockRideTypes, type RideTypeModel } from '@/data/ride'
 import { mockLocations } from '@/data/location'
+import { requireAuth } from '@/lib/requireAuthClient'
+import { fetchAuthedJson } from '@/lib/authClient'
+import { notify } from '@/lib/notify'
 
 
 export default function ConfirmRideContent() {
@@ -31,6 +34,7 @@ export default function ConfirmRideContent() {
 
   useEffect(() => {
     if (typeof window === 'undefined') return
+    requireAuth('confirm-ride')
     const stored = sessionStorage.getItem('selectedRideType')
     if (!stored) return
     try {
@@ -49,13 +53,38 @@ export default function ConfirmRideContent() {
   const dropoffLocation = ride.dropoffLocation
 
   const handleConfirmBooking = () => {
-    setIsConfirming(true)
-    // Simulate booking confirmation delay
-    setTimeout(() => {
-      if (typeof window !== 'undefined') {
-        window.location.href = './ride-in-progress'
+    ;(async () => {
+      setIsConfirming(true)
+      try {
+        const result = await fetchAuthedJson<{ ride: { id: string; status: string } }>('./api/rides', {
+          method: 'POST',
+          body: JSON.stringify({
+            pickup: ride.pickupLocation,
+            dropoff: ride.dropoffLocation,
+            rideType: {
+              typeId: rideType.typeId,
+              name: rideType.name,
+              baseFareKsh: rideType.baseFareKsh,
+            },
+            estimatedFareKsh: ride.estimatedFare,
+          }),
+        })
+        if (typeof window !== 'undefined') {
+          sessionStorage.setItem('currentRideId', result.ride.id)
+        }
+        await notify({
+          title: 'Ride requested',
+          message: 'We are connecting you with a driver.',
+          level: 'success',
+          useBrowserNotification: true,
+        })
+        if (typeof window !== 'undefined') window.location.href = './ride-in-progress'
+      } catch (e: any) {
+        await notify({ title: 'Could not request ride', message: e?.message || 'Try again.', level: 'error' })
+      } finally {
+        setIsConfirming(false)
       }
-    }, 1000)
+    })()
   }
 
   const handleBack = () => {

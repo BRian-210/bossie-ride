@@ -1,13 +1,42 @@
 
+'use client'
+
+import { useEffect, useMemo, useState } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import SafeIcon from '@/components/common/SafeIcon'
 import { mockSuccessReceipt } from '@/data/payment'
+import { requireAuth } from '@/lib/requireAuthClient'
+import { fetchAuthedJson } from '@/lib/authClient'
 
 export default function PaymentSuccessContent() {
-  const receipt = mockSuccessReceipt
+  const [receiptId, setReceiptId] = useState<string>(mockSuccessReceipt.transactionId)
+  const [amountPaid, setAmountPaid] = useState<number>(mockSuccessReceipt.amountPaid)
+
+  const rideRef = useMemo(() => {
+    if (typeof window === 'undefined') return mockSuccessReceipt.referenceRideId
+    return sessionStorage.getItem('currentRideId') || mockSuccessReceipt.referenceRideId
+  }, [])
+
+  useEffect(() => {
+    requireAuth('payment-success')
+    if (typeof window === 'undefined') return
+    const checkoutRequestId = sessionStorage.getItem('mpesaCheckoutRequestId')
+    if (!checkoutRequestId) return
+
+    fetchAuthedJson<{ transaction: { status: string; receipt?: string; reference?: string; amountKsh?: number } }>(
+      `./api/mpesa/status?checkoutRequestId=${encodeURIComponent(checkoutRequestId)}`,
+      { method: 'GET' }
+    )
+      .then((res) => {
+        if (res.transaction.receipt) setReceiptId(res.transaction.receipt)
+        else if (res.transaction.reference) setReceiptId(res.transaction.reference)
+        if (typeof res.transaction.amountKsh === 'number') setAmountPaid(res.transaction.amountKsh)
+      })
+      .catch(() => {})
+  }, [])
 
   const handleViewHistory = () => {
     if (typeof window !== 'undefined') {
@@ -57,14 +86,14 @@ export default function PaymentSuccessContent() {
             <p className="text-sm text-muted-foreground">Transaction ID</p>
             <div className="flex items-center gap-2">
               <code className="flex-1 bg-muted p-3 rounded-lg font-mono text-sm font-medium break-all">
-                {receipt.transactionId}
+                {receiptId}
               </code>
               <Button
                 variant="ghost"
                 size="icon"
                 onClick={() => {
                   if (typeof window !== 'undefined' && navigator.clipboard) {
-                    navigator.clipboard.writeText(receipt.transactionId)
+                    navigator.clipboard.writeText(receiptId)
                   }
                 }}
                 aria-label="Copy transaction ID"
@@ -81,7 +110,7 @@ export default function PaymentSuccessContent() {
             <div>
               <p className="text-sm text-muted-foreground">Amount Paid</p>
               <p className="text-2xl font-bold text-success">
-                KES {receipt.amountPaid.toFixed(2)}
+                KES {amountPaid.toFixed(2)}
               </p>
             </div>
             <div>
@@ -114,7 +143,7 @@ export default function PaymentSuccessContent() {
           {/* Reference Ride ID */}
           <div>
             <p className="text-sm text-muted-foreground">Ride Reference</p>
-            <p className="font-mono text-sm font-medium">{receipt.referenceRideId}</p>
+            <p className="font-mono text-sm font-medium">{rideRef}</p>
           </div>
         </CardContent>
       </Card>

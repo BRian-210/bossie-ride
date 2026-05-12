@@ -6,16 +6,14 @@ import { Button } from '@/components/ui/button'
 import { mockRideTypes, type RideTypeModel } from '@/data/ride'
 import RideTypeCard from './RideTypeCard'
 import SafeIcon from '@/components/common/SafeIcon'
+import { requireAuth } from '@/lib/requireAuthClient'
 
 export default function SelectRideTypeContent() {
   const [selectedRideType, setSelectedRideType] = useState<RideTypeModel>(mockRideTypes[0])
 
   useEffect(() => {
     if (typeof window === 'undefined') return
-    const isAuthed = sessionStorage.getItem('riderAuth') === 'true'
-    if (!isAuthed) {
-      window.location.href = './login?returnTo=select-ride-type'
-    }
+    requireAuth('select-ride-type')
   }, [])
 
   const handleBack = () => {

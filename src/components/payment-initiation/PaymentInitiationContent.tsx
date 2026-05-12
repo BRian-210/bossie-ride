@@ -1,7 +1,7 @@
 
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useNavigate } from '@/hooks/useNavigate'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -11,6 +11,7 @@ import SafeIcon from '@/components/common/SafeIcon'
 import PaymentMethodSelector from '@/components/common/PaymentMethodSelector'
 import { mockPaymentSummary, mockPaymentOptions } from '@/data/payment'
 import { mockCompletedRide } from '@/data/ride'
+import { requireAuth } from '@/lib/requireAuthClient'
 
 interface PaymentMethod {
   id: string
@@ -22,6 +23,12 @@ interface PaymentMethod {
 export default function PaymentInitiationContent() {
   const [selectedMethod, setSelectedMethod] = useState('mpesa')
   const navigate = useNavigate()
+
+  useEffect(() => {
+    requireAuth('payment-initiation')
+    if (typeof window === 'undefined') return
+    sessionStorage.setItem('paymentAmountKsh', String(mockPaymentSummary.amountDue))
+  }, [])
 
   // Convert payment options to selector format
   const paymentMethods: PaymentMethod[] = mockPaymentOptions.map(option => ({

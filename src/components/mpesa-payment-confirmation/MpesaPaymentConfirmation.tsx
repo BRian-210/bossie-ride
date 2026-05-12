@@ -9,6 +9,8 @@ import { Separator } from '@/components/ui/separator'
 import SafeIcon from '@/components/common/SafeIcon'
 import TransactionSummary from './TransactionSummary'
 import ApprovalStatus from './ApprovalStatus'
+import { requireAuth } from '@/lib/requireAuthClient'
+import { fetchAuthedJson } from '@/lib/authClient'
 
 interface TransactionData {
   phoneNumber: string
@@ -32,20 +34,47 @@ export default function MpesaPaymentConfirmation() {
   const [status, setStatus] = useState<'pending' | 'approved' | 'failed'>('pending')
   const [timeRemaining, setTimeRemaining] = useState(120) // 2 minutes
   const [isProcessing, setIsProcessing] = useState(false)
+  const [checkoutRequestId, setCheckoutRequestId] = useState<string | null>(null)
 
-  // Simulate M-Pesa approval process
   useEffect(() => {
+    requireAuth('mpesa-payment-confirmation')
+    if (typeof window === 'undefined') return
+    const crid = sessionStorage.getItem('mpesaCheckoutRequestId')
+    const phone = sessionStorage.getItem('mpesaPhoneNumber') || mockTransaction.phoneNumber
+    const amountKsh = sessionStorage.getItem('mpesaAmountKsh')
+    const rideId = sessionStorage.getItem('currentRideId') || mockTransaction.rideId
+
+    setCheckoutRequestId(crid)
+    setTransaction({
+      phoneNumber: phone,
+      amount: amountKsh ? `KES ${Number(amountKsh).toFixed(2)}` : mockTransaction.amount,
+      transactionRef: crid || mockTransaction.transactionRef,
+      rideId,
+      timestamp: new Date().toISOString(),
+    })
+  }, [])
+
+  // Poll backend for callback result
+  useEffect(() => {
+    if (typeof window === 'undefined') return
     if (status !== 'pending') return
+    if (!checkoutRequestId) return
 
-    // Simulate random approval/failure after 3-8 seconds
-    const approvalTimer = setTimeout(() => {
-      const isApproved = Math.random() > 0.3 // 70% success rate for demo
-      setStatus(isApproved ? 'approved' : 'failed')
-      setIsProcessing(false)
-    }, 3000 + Math.random() * 5000)
+    const interval = setInterval(() => {
+      fetchAuthedJson<{ transaction: { status: string; receipt?: string; mpesaResultDesc?: string } }>(
+        `./api/mpesa/status?checkoutRequestId=${encodeURIComponent(checkoutRequestId)}`,
+        { method: 'GET' }
+      )
+        .then((res) => {
+          const s = res.transaction.status
+          if (s === 'success') setStatus('approved')
+          if (s === 'failed') setStatus('failed')
+        })
+        .catch(() => {})
+    }, 2500)
 
-    return () => clearTimeout(approvalTimer)
-  }, [status])
+    return () => clearInterval(interval)
+  }, [status, checkoutRequestId])
 
   // Countdown timer
   useEffect(() => {
@@ -65,9 +94,9 @@ export default function MpesaPaymentConfirmation() {
   }, [status, timeRemaining])
 
   const handleRetry = () => {
-    setStatus('pending')
-    setTimeRemaining(120)
-    setIsProcessing(true)
+    if (typeof window !== 'undefined') {
+      window.location.href = './mpesa-payment-details.html'
+    }
   }
 
   const handleSuccess = () => {
