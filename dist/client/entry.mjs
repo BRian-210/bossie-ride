@@ -1,6 +1,6 @@
 import { renderers } from "./renderers.mjs";
 import { c as createExports, s as serverEntrypointModule } from "./_@astrojs-ssr-adapter.CSD59ynl.js";
-import { manifest } from "./manifest_DCay1Yzm.mjs";
+import { manifest } from "./manifest_DMqloWTs.mjs";
 const serverIslandMap = /* @__PURE__ */ new Map();
 ;
 const _page0 = () => import("./pages/_image.astro.mjs");
