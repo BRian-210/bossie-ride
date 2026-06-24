@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
 import { $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
@@ -16,6 +17,23 @@ import { renderers } from "../renderers.mjs";
 const mockCurrentUser = {
   userId: "user_bossie_007"
 };
+=======
+import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
+import "piccolore";
+import { C as Card, a as CardHeader, b as CardTitle, d as CardContent, e as cn, $ as $$BaseLayout } from "../card.DPXo1ZLP.js";
+import { b as Avatar, c as AvatarImage, d as AvatarFallback, S as SafeIcon, B as Badge, a as Button, A as AppHeader } from "../AppHeader.h2OVAX_7.js";
+import { A as AppBottomNav } from "../AppBottomNav.DLBmlvIO.js";
+import { jsxs, jsx } from "react/jsx-runtime";
+import { m as mockCurrentRide } from "../ride.BbPk0mGh.js";
+import { m as mockCurrentUser } from "../user.D2ggBg4I.js";
+import * as React from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
+import { io } from "socket.io-client";
+import { S as Separator } from "../separator.Jsv1lrSr.js";
+import { I as Input } from "../input.BkTF4_JO.js";
+import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area";
+import { renderers } from "../renderers.mjs";
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
 function useMessaging({
   rideId,
   userId,

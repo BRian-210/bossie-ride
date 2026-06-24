@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
 import { f as fetchAuthedJson, c as clearAuthToken, n as notify, $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
@@ -245,6 +246,69 @@ function ProfileContent() {
       ] }, getId(t))) })
     ] })
   ] });
+=======
+import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
+import "piccolore";
+import { C as Card, a as CardHeader, b as CardTitle, c as CardDescription, d as CardContent, $ as $$BaseLayout } from "../card.DPXo1ZLP.js";
+import { B as Badge, A as AppHeader } from "../AppHeader.h2OVAX_7.js";
+import { A as AppBottomNav } from "../AppBottomNav.DLBmlvIO.js";
+import { jsx, jsxs } from "react/jsx-runtime";
+import { useState, useEffect } from "react";
+import { m as mockCurrentUser } from "../user.D2ggBg4I.js";
+import { renderers } from "../renderers.mjs";
+const defaultProfile = {
+  name: `${mockCurrentUser.firstName} ${mockCurrentUser.lastName}`.trim(),
+  contact: mockCurrentUser.email,
+  method: "email",
+  userId: mockCurrentUser.userId,
+  isRegistered: mockCurrentUser.isRegistered
+};
+function ProfileContent() {
+  const [profile, setProfile] = useState(defaultProfile);
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const isAuthed = sessionStorage.getItem("riderAuth") === "true";
+    if (!isAuthed) {
+      window.location.href = "./login?returnTo=profile";
+      return;
+    }
+    const contact = sessionStorage.getItem("riderContact") || defaultProfile.contact;
+    const method = sessionStorage.getItem("riderAuthMethod") || defaultProfile.method;
+    const displayName = method === "apple" ? "Apple Rider" : contact.includes("@") ? contact.split("@")[0] : "Bossie Rider";
+    setProfile({
+      ...defaultProfile,
+      name: displayName,
+      contact,
+      method
+    });
+  }, []);
+  const initials = profile.name.split(" ").map((part) => part[0]).join("").slice(0, 2).toUpperCase();
+  const registrationLabel = profile.isRegistered ? "Registered" : "Guest";
+  return /* @__PURE__ */ jsx("div", { className: "container max-w-xl mx-auto px-4 py-6 space-y-6", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "62", "data-source-line-end": "91", children: /* @__PURE__ */ jsxs(Card, { className: "shadow-card", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "63", "data-source-line-end": "90", children: [
+    /* @__PURE__ */ jsxs(CardHeader, { className: "flex flex-row items-center gap-4", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "64", "data-source-line-end": "75", children: [
+      /* @__PURE__ */ jsx("div", { className: "h-14 w-14 rounded-full bg-primary/10 text-primary flex items-center justify-center text-lg font-semibold", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "65", "data-source-line-end": "67", children: initials || "BR" }),
+      /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "68", "data-source-line-end": "71", children: [
+        /* @__PURE__ */ jsx(CardTitle, { className: "text-xl", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "69", "data-source-line-end": "69", children: profile.name }),
+        /* @__PURE__ */ jsx(CardDescription, { className: "mt-1", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "70", "data-source-line-end": "70", children: "Rider profile" })
+      ] }),
+      /* @__PURE__ */ jsx("div", { className: "ml-auto", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "72", "data-source-line-end": "74", children: /* @__PURE__ */ jsx(Badge, { variant: "secondary", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "73", "data-source-line-end": "73", children: registrationLabel }) })
+    ] }),
+    /* @__PURE__ */ jsxs(CardContent, { className: "space-y-4 text-sm", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "76", "data-source-line-end": "89", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "77", "data-source-line-end": "80", children: [
+        /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "78", "data-source-line-end": "78", children: "User ID" }),
+        /* @__PURE__ */ jsx("span", { className: "font-medium", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "79", "data-source-line-end": "79", children: profile.userId })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "81", "data-source-line-end": "84", children: [
+        /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "82", "data-source-line-end": "82", children: "Login method" }),
+        /* @__PURE__ */ jsx("span", { className: "font-medium capitalize", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "83", "data-source-line-end": "83", children: profile.method })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "85", "data-source-line-end": "88", children: [
+        /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "86", "data-source-line-end": "86", children: "Contact" }),
+        /* @__PURE__ */ jsx("span", { className: "font-medium", "data-source-file": "src/components/profile/ProfileContent.tsx", "data-source-line-start": "87", "data-source-line-end": "87", children: profile.contact })
+      ] })
+    ] })
+  ] }) });
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
 }
 const $$Profile = createComponent(($$result, $$props, $$slots) => renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { title: "Profile - Bossie Ride" }, { default: ($$result2) => renderTemplate`
   ${renderComponent($$result2, "AppHeader", AppHeader, { title: "Your Profile", showNotifications: false })}

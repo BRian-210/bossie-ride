@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
 import { f as fetchAuthedJson, $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
@@ -31,6 +32,19 @@ function PaymentSuccessContent() {
     }).catch(() => {
     });
   }, []);
+=======
+import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
+import "piccolore";
+import { C as Card, a as CardHeader, b as CardTitle, c as CardDescription, d as CardContent, $ as $$BaseLayout } from "../card.DPXo1ZLP.js";
+import { S as SafeIcon, a as Button, B as Badge, A as AppHeader } from "../AppHeader.h2OVAX_7.js";
+import { A as AppBottomNav } from "../AppBottomNav.DLBmlvIO.js";
+import { jsxs, jsx } from "react/jsx-runtime";
+import { S as Separator } from "../separator.Jsv1lrSr.js";
+import { c as mockSuccessReceipt } from "../payment.B_oLNX7A.js";
+import { renderers } from "../renderers.mjs";
+function PaymentSuccessContent() {
+  const receipt = mockSuccessReceipt;
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
   const handleViewHistory = () => {
     if (typeof window !== "undefined") {
       window.location.href = "./ride-history.html";
@@ -41,6 +55,7 @@ function PaymentSuccessContent() {
       window.location.href = "./ride-completed.html";
     }
   };
+<<<<<<< HEAD
   return /* @__PURE__ */ jsxs("div", { className: "container max-w-md mx-auto px-4 py-8", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "54", "data-source-line-end": "187", children: [
     /* @__PURE__ */ jsx("div", { className: "flex justify-center mb-6", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "56", "data-source-line-end": "66", children: /* @__PURE__ */ jsxs("div", { className: "relative w-24 h-24 rounded-full bg-success/10 flex items-center justify-center", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "57", "data-source-line-end": "65", children: [
       /* @__PURE__ */ jsx("div", { className: "absolute inset-0 rounded-full bg-success/5 animate-pulse", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "58", "data-source-line-end": "58" }),
@@ -117,6 +132,84 @@ function PaymentSuccessContent() {
       ] })
     ] }),
     /* @__PURE__ */ jsx("div", { className: "mt-8 p-4 bg-muted/50 rounded-lg", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "182", "data-source-line-end": "186", children: /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground text-center", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "183", "data-source-line-end": "185", children: "A receipt has been sent to your registered email address. You can also view all your transactions in your ride history." }) })
+=======
+  return /* @__PURE__ */ jsxs("div", { className: "container max-w-md mx-auto px-4 py-8", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "25", "data-source-line-end": "158", children: [
+    /* @__PURE__ */ jsx("div", { className: "flex justify-center mb-6", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "27", "data-source-line-end": "37", children: /* @__PURE__ */ jsxs("div", { className: "relative w-24 h-24 rounded-full bg-success/10 flex items-center justify-center", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "28", "data-source-line-end": "36", children: [
+      /* @__PURE__ */ jsx("div", { className: "absolute inset-0 rounded-full bg-success/5 animate-pulse", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "29", "data-source-line-end": "29" }),
+      /* @__PURE__ */ jsx(SafeIcon, { name: "CheckCircle2", size: 56, className: "text-success relative z-10", strokeWidth: 1.5, "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "30", "data-source-line-end": "35" })
+    ] }) }),
+    /* @__PURE__ */ jsxs("div", { className: "text-center mb-8", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "40", "data-source-line-end": "45", children: [
+      /* @__PURE__ */ jsx("h1", { className: "text-3xl font-bold text-foreground mb-2", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "41", "data-source-line-end": "41", children: "Payment Successful!" }),
+      /* @__PURE__ */ jsx("p", { className: "text-muted-foreground", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "42", "data-source-line-end": "44", children: "Your payment has been processed successfully. Your ride is now confirmed." })
+    ] }),
+    /* @__PURE__ */ jsxs(Card, { className: "shadow-card mb-6", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "48", "data-source-line-end": "120", children: [
+      /* @__PURE__ */ jsxs(CardHeader, { "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "49", "data-source-line-end": "52", children: [
+        /* @__PURE__ */ jsx(CardTitle, { className: "text-lg", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "50", "data-source-line-end": "50", children: "Transaction Details" }),
+        /* @__PURE__ */ jsx(CardDescription, { "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "51", "data-source-line-end": "51", children: "Keep this for your records" })
+      ] }),
+      /* @__PURE__ */ jsxs(CardContent, { className: "space-y-4", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "54", "data-source-line-end": "119", children: [
+        /* @__PURE__ */ jsxs("div", { className: "space-y-2", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "56", "data-source-line-end": "75", children: [
+          /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "57", "data-source-line-end": "57", children: "Transaction ID" }),
+          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "58", "data-source-line-end": "74", children: [
+            /* @__PURE__ */ jsx("code", { className: "flex-1 bg-muted p-3 rounded-lg font-mono text-sm font-medium break-all", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "59", "data-source-line-end": "61", children: receipt.transactionId }),
+            /* @__PURE__ */ jsx(Button, { variant: "ghost", size: "icon", onClick: () => {
+              if (typeof window !== "undefined" && navigator.clipboard) {
+                navigator.clipboard.writeText(receipt.transactionId);
+              }
+            }, "aria-label": "Copy transaction ID", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "62", "data-source-line-end": "73", children: /* @__PURE__ */ jsx(SafeIcon, { name: "Copy", size: 18, "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "72", "data-source-line-end": "72" }) })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsx(Separator, { "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "77", "data-source-line-end": "77" }),
+        /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-2 gap-4", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "80", "data-source-line-end": "96", children: [
+          /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "81", "data-source-line-end": "86", children: [
+            /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "82", "data-source-line-end": "82", children: "Amount Paid" }),
+            /* @__PURE__ */ jsxs("p", { className: "text-2xl font-bold text-success", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "83", "data-source-line-end": "85", children: [
+              "KES ",
+              receipt.amountPaid.toFixed(2)
+            ] })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "87", "data-source-line-end": "95", children: [
+            /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "88", "data-source-line-end": "88", children: "Payment Method" }),
+            /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 mt-1", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "89", "data-source-line-end": "94", children: [
+              /* @__PURE__ */ jsx("div", { className: "w-6 h-6 rounded bg-primary/10 flex items-center justify-center", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "90", "data-source-line-end": "92", children: /* @__PURE__ */ jsx(SafeIcon, { name: "Smartphone", size: 14, className: "text-primary", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "91", "data-source-line-end": "91" }) }),
+              /* @__PURE__ */ jsx("p", { className: "font-medium", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "93", "data-source-line-end": "93", children: receipt.method })
+            ] })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsx(Separator, { "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "98", "data-source-line-end": "98" }),
+        /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-2 gap-4", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "101", "data-source-line-end": "110", children: [
+          /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "102", "data-source-line-end": "105", children: [
+            /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "103", "data-source-line-end": "103", children: "Date" }),
+            /* @__PURE__ */ jsx("p", { className: "font-medium", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "104", "data-source-line-end": "104", children: receipt.date })
+          ] }),
+          /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "106", "data-source-line-end": "109", children: [
+            /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "107", "data-source-line-end": "107", children: "Time" }),
+            /* @__PURE__ */ jsx("p", { className: "font-medium", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "108", "data-source-line-end": "108", children: receipt.time })
+          ] })
+        ] }),
+        /* @__PURE__ */ jsx(Separator, { "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "112", "data-source-line-end": "112" }),
+        /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "115", "data-source-line-end": "118", children: [
+          /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "116", "data-source-line-end": "116", children: "Ride Reference" }),
+          /* @__PURE__ */ jsx("p", { className: "font-mono text-sm font-medium", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "117", "data-source-line-end": "117", children: receipt.referenceRideId })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsx("div", { className: "flex justify-center mb-8", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "123", "data-source-line-end": "128", children: /* @__PURE__ */ jsxs(Badge, { className: "bg-success/10 text-success border-success/20 flex items-center gap-2", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "124", "data-source-line-end": "127", children: [
+      /* @__PURE__ */ jsx(SafeIcon, { name: "CheckCircle", size: 14, "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "125", "data-source-line-end": "125" }),
+      "Payment Confirmed"
+    ] }) }),
+    /* @__PURE__ */ jsxs("div", { className: "space-y-3", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "131", "data-source-line-end": "150", children: [
+      /* @__PURE__ */ jsxs(Button, { onClick: handleViewHistory, className: "w-full", size: "lg", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "132", "data-source-line-end": "139", children: [
+        /* @__PURE__ */ jsx(SafeIcon, { name: "Clock", size: 18, className: "mr-2", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "137", "data-source-line-end": "137" }),
+        "View Ride History"
+      ] }),
+      /* @__PURE__ */ jsxs(Button, { onClick: handleBackToRideDetails, variant: "outline", className: "w-full", size: "lg", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "141", "data-source-line-end": "149", children: [
+        /* @__PURE__ */ jsx(SafeIcon, { name: "ChevronLeft", size: 18, className: "mr-2", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "147", "data-source-line-end": "147" }),
+        "Back to Ride Details"
+      ] })
+    ] }),
+    /* @__PURE__ */ jsx("div", { className: "mt-8 p-4 bg-muted/50 rounded-lg", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "153", "data-source-line-end": "157", children: /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground text-center", "data-source-file": "src/components/payment-success/PaymentSuccessContent.tsx", "data-source-line-start": "154", "data-source-line-end": "156", children: "A receipt has been sent to your registered email address. You can also view all your transactions in your ride history." }) })
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
   ] });
 }
 const $$PaymentSuccess = createComponent(($$result, $$props, $$slots) => renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { title: "Payment Successful - Bossie Ride" }, { default: ($$result2) => renderTemplate`

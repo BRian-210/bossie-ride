@@ -1,4 +1,5 @@
 import { renderers } from "./renderers.mjs";
+<<<<<<< HEAD
 import { c as createExports, s as serverEntrypointModule } from "./_@astrojs-ssr-adapter.CSD59ynl.js";
 import { manifest } from "./manifest_C2hGMRXb.mjs";
 const serverIslandMap = /* @__PURE__ */ new Map();
@@ -74,6 +75,53 @@ const pageMap = /* @__PURE__ */ new Map([
   ["src/pages/signup.astro", _page32],
   ["src/pages/track-driver.astro", _page33],
   ["src/pages/index.astro", _page34]
+=======
+import { c as createExports, s as serverEntrypointModule } from "./_@astrojs-ssr-adapter.qNrPKw6C.js";
+import { manifest } from "./manifest_DN9ke1F3.mjs";
+const serverIslandMap = /* @__PURE__ */ new Map();
+;
+const _page0 = () => import("./pages/_image.astro.mjs");
+const _page1 = () => import("./pages/api/messages/get.astro.mjs");
+const _page2 = () => import("./pages/api/messages/send.astro.mjs");
+const _page3 = () => import("./pages/confirm-ride.astro.mjs");
+const _page4 = () => import("./pages/contact-driver.astro.mjs");
+const _page5 = () => import("./pages/login.astro.mjs");
+const _page6 = () => import("./pages/mpesa-payment-confirmation.astro.mjs");
+const _page7 = () => import("./pages/mpesa-payment-details.astro.mjs");
+const _page8 = () => import("./pages/payment-failure.astro.mjs");
+const _page9 = () => import("./pages/payment-initiation.astro.mjs");
+const _page10 = () => import("./pages/payment-success.astro.mjs");
+const _page11 = () => import("./pages/placeholder.astro.mjs");
+const _page12 = () => import("./pages/profile.astro.mjs");
+const _page13 = () => import("./pages/ride-completed.astro.mjs");
+const _page14 = () => import("./pages/ride-history.astro.mjs");
+const _page15 = () => import("./pages/ride-in-progress.astro.mjs");
+const _page16 = () => import("./pages/ride-request.astro.mjs");
+const _page17 = () => import("./pages/select-ride-type.astro.mjs");
+const _page18 = () => import("./pages/track-driver.astro.mjs");
+const _page19 = () => import("./pages/index.astro.mjs");
+const pageMap = /* @__PURE__ */ new Map([
+  ["node_modules/astro/dist/assets/endpoint/node.js", _page0],
+  ["src/pages/api/messages/get.ts", _page1],
+  ["src/pages/api/messages/send.ts", _page2],
+  ["src/pages/confirm-ride.astro", _page3],
+  ["src/pages/contact-driver.astro", _page4],
+  ["src/pages/login.astro", _page5],
+  ["src/pages/mpesa-payment-confirmation.astro", _page6],
+  ["src/pages/mpesa-payment-details.astro", _page7],
+  ["src/pages/payment-failure.astro", _page8],
+  ["src/pages/payment-initiation.astro", _page9],
+  ["src/pages/payment-success.astro", _page10],
+  ["src/pages/placeholder.astro", _page11],
+  ["src/pages/profile.astro", _page12],
+  ["src/pages/ride-completed.astro", _page13],
+  ["src/pages/ride-history.astro", _page14],
+  ["src/pages/ride-in-progress.astro", _page15],
+  ["src/pages/ride-request.astro", _page16],
+  ["src/pages/select-ride-type.astro", _page17],
+  ["src/pages/track-driver.astro", _page18],
+  ["src/pages/index.astro", _page19]
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
 ]);
 const _manifest = Object.assign(manifest, {
   pageMap,

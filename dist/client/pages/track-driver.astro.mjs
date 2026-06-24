@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
 import { $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
@@ -8,6 +9,17 @@ import { useState } from "react";
 import { C as Card, d as CardContent, a as CardHeader, b as CardTitle } from "../card.BA4JS6QT.js";
 import { S as Separator } from "../separator.DdA1LhoM.js";
 import { M as MapContainer } from "../MapContainer.BYjNKSUp.js";
+=======
+import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
+import "piccolore";
+import { C as Card, d as CardContent, a as CardHeader, b as CardTitle, $ as $$BaseLayout } from "../card.DPXo1ZLP.js";
+import { S as SafeIcon, B as Badge, b as Avatar, c as AvatarImage, d as AvatarFallback, a as Button, A as AppHeader } from "../AppHeader.h2OVAX_7.js";
+import { A as AppBottomNav } from "../AppBottomNav.DLBmlvIO.js";
+import { jsx, jsxs } from "react/jsx-runtime";
+import { useState } from "react";
+import { S as Separator } from "../separator.Jsv1lrSr.js";
+import { M as MapContainer } from "../MapContainer.COZMwZ5f.js";
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
 import { m as mockCurrentRide } from "../ride.BbPk0mGh.js";
 import { renderers } from "../renderers.mjs";
 function TrackDriverContent() {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
 import { f as fetchAuthedJson, $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
@@ -9,6 +10,17 @@ import { A as Alert, a as AlertDescription } from "../alert.uiCSQyi5.js";
 import { S as Separator } from "../separator.DdA1LhoM.js";
 import { r as requireAuth } from "../requireAuthClient.DpcUQgPl.js";
 import { A as AppBottomNav } from "../AppBottomNav.D_V8Uun5.js";
+=======
+import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
+import "piccolore";
+import { C as Card, d as CardContent, a as CardHeader, b as CardTitle, c as CardDescription, $ as $$BaseLayout } from "../card.DPXo1ZLP.js";
+import { S as SafeIcon, a as Button, A as AppHeader } from "../AppHeader.h2OVAX_7.js";
+import { jsx, jsxs, Fragment } from "react/jsx-runtime";
+import { useState, useEffect } from "react";
+import { A as Alert, a as AlertDescription } from "../alert.DbSQSBtI.js";
+import { S as Separator } from "../separator.Jsv1lrSr.js";
+import { A as AppBottomNav } from "../AppBottomNav.DLBmlvIO.js";
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
 import { renderers } from "../renderers.mjs";
 function TransactionSummary({
   transaction
@@ -109,6 +121,7 @@ function MpesaPaymentConfirmation() {
   const [status, setStatus] = useState("pending");
   const [timeRemaining, setTimeRemaining] = useState(120);
   const [isProcessing, setIsProcessing] = useState(false);
+<<<<<<< HEAD
   const [checkoutRequestId, setCheckoutRequestId] = useState(null);
   useEffect(() => {
     requireAuth("mpesa-payment-confirmation");
@@ -142,6 +155,17 @@ function MpesaPaymentConfirmation() {
     }, 2500);
     return () => clearInterval(interval);
   }, [status, checkoutRequestId]);
+=======
+  useEffect(() => {
+    if (status !== "pending") return;
+    const approvalTimer = setTimeout(() => {
+      const isApproved = Math.random() > 0.3;
+      setStatus(isApproved ? "approved" : "failed");
+      setIsProcessing(false);
+    }, 3e3 + Math.random() * 5e3);
+    return () => clearTimeout(approvalTimer);
+  }, [status]);
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
   useEffect(() => {
     if (status !== "pending" || timeRemaining <= 0) return;
     const timer = setInterval(() => {
@@ -156,9 +180,15 @@ function MpesaPaymentConfirmation() {
     return () => clearInterval(timer);
   }, [status, timeRemaining]);
   const handleRetry = () => {
+<<<<<<< HEAD
     if (typeof window !== "undefined") {
       window.location.href = "./mpesa-payment-details.html";
     }
+=======
+    setStatus("pending");
+    setTimeRemaining(120);
+    setIsProcessing(true);
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
   };
   const handleSuccess = () => {
     if (typeof window !== "undefined") {
@@ -180,6 +210,7 @@ function MpesaPaymentConfirmation() {
     const secs = seconds % 60;
     return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
+<<<<<<< HEAD
   return /* @__PURE__ */ jsx("div", { className: "container max-w-md mx-auto px-4 py-8", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "127", "data-source-line-end": "263", children: /* @__PURE__ */ jsxs("div", { className: "space-y-6", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "128", "data-source-line-end": "262", children: [
     /* @__PURE__ */ jsxs(Card, { className: "shadow-card", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "130", "data-source-line-end": "195", children: [
       /* @__PURE__ */ jsxs(CardHeader, { className: "text-center", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "131", "data-source-line-end": "136", children: [
@@ -213,10 +244,46 @@ function MpesaPaymentConfirmation() {
           /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "186", "data-source-line-end": "191", children: [
             /* @__PURE__ */ jsx("p", { className: "font-semibold text-lg", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "187", "data-source-line-end": "187", children: "Payment Failed" }),
             /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "188", "data-source-line-end": "190", children: "The payment could not be processed. Please try again." })
+=======
+  return /* @__PURE__ */ jsx("div", { className: "container max-w-md mx-auto px-4 py-8", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "98", "data-source-line-end": "234", children: /* @__PURE__ */ jsxs("div", { className: "space-y-6", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "99", "data-source-line-end": "233", children: [
+    /* @__PURE__ */ jsxs(Card, { className: "shadow-card", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "101", "data-source-line-end": "166", children: [
+      /* @__PURE__ */ jsxs(CardHeader, { className: "text-center", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "102", "data-source-line-end": "107", children: [
+        /* @__PURE__ */ jsx(CardTitle, { className: "text-2xl", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "103", "data-source-line-end": "103", children: "Confirm Payment" }),
+        /* @__PURE__ */ jsx(CardDescription, { "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "104", "data-source-line-end": "106", children: "Complete the payment on your mobile device" })
+      ] }),
+      /* @__PURE__ */ jsxs(CardContent, { className: "space-y-6", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "108", "data-source-line-end": "165", children: [
+        /* @__PURE__ */ jsx(ApprovalStatus, { status, timeRemaining, "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "110", "data-source-line-end": "110" }),
+        /* @__PURE__ */ jsx(TransactionSummary, { transaction, "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "113", "data-source-line-end": "113" }),
+        status === "pending" && /* @__PURE__ */ jsxs(Alert, { className: "bg-blue-50 border-blue-200", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "117", "data-source-line-end": "123", children: [
+          /* @__PURE__ */ jsx(SafeIcon, { name: "Info", size: 16, className: "text-blue-600", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "118", "data-source-line-end": "118" }),
+          /* @__PURE__ */ jsxs(AlertDescription, { className: "text-blue-800 ml-2", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "119", "data-source-line-end": "122", children: [
+            "A prompt has been sent to ",
+            /* @__PURE__ */ jsx("strong", { "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "120", "data-source-line-end": "120", children: transaction.phoneNumber }),
+            ". Enter your M-Pesa PIN to complete the payment."
+          ] })
+        ] }),
+        status === "pending" && /* @__PURE__ */ jsxs("div", { className: "text-center", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "128", "data-source-line-end": "133", children: [
+          /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground mb-2", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "129", "data-source-line-end": "129", children: "Request expires in" }),
+          /* @__PURE__ */ jsx("p", { className: "text-3xl font-bold text-primary font-mono", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "130", "data-source-line-end": "132", children: formatTime(timeRemaining) })
+        ] }),
+        status === "approved" && /* @__PURE__ */ jsxs("div", { className: "text-center space-y-3", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "138", "data-source-line-end": "148", children: [
+          /* @__PURE__ */ jsx("div", { className: "w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "139", "data-source-line-end": "141", children: /* @__PURE__ */ jsx(SafeIcon, { name: "CheckCircle2", size: 32, className: "text-green-600", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "140", "data-source-line-end": "140" }) }),
+          /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "142", "data-source-line-end": "147", children: [
+            /* @__PURE__ */ jsx("p", { className: "font-semibold text-lg", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "143", "data-source-line-end": "143", children: "Payment Approved!" }),
+            /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "144", "data-source-line-end": "146", children: "Your payment has been successfully processed" })
+          ] })
+        ] }),
+        status === "failed" && /* @__PURE__ */ jsxs("div", { className: "text-center space-y-3", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "153", "data-source-line-end": "163", children: [
+          /* @__PURE__ */ jsx("div", { className: "w-16 h-16 rounded-full bg-red-100 flex items-center justify-center mx-auto", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "154", "data-source-line-end": "156", children: /* @__PURE__ */ jsx(SafeIcon, { name: "XCircle", size: 32, className: "text-red-600", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "155", "data-source-line-end": "155" }) }),
+          /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "157", "data-source-line-end": "162", children: [
+            /* @__PURE__ */ jsx("p", { className: "font-semibold text-lg", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "158", "data-source-line-end": "158", children: "Payment Failed" }),
+            /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "159", "data-source-line-end": "161", children: "The payment could not be processed. Please try again." })
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
           ] })
         ] })
       ] })
     ] }),
+<<<<<<< HEAD
     /* @__PURE__ */ jsxs("div", { className: "space-y-3", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "198", "data-source-line-end": "245", children: [
       status === "pending" && /* @__PURE__ */ jsxs(Fragment, { children: [
         /* @__PURE__ */ jsx(Button, { onClick: handleBack, variant: "outline", className: "w-full", disabled: isProcessing, "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "201", "data-source-line-end": "208", children: "Back to Payment Details" }),
@@ -242,6 +309,33 @@ function MpesaPaymentConfirmation() {
       /* @__PURE__ */ jsxs("div", { className: "flex justify-between", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "255", "data-source-line-end": "258", children: [
         /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "256", "data-source-line-end": "256", children: "Ride ID:" }),
         /* @__PURE__ */ jsx("span", { className: "font-mono font-medium", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "257", "data-source-line-end": "257", children: transaction.rideId })
+=======
+    /* @__PURE__ */ jsxs("div", { className: "space-y-3", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "169", "data-source-line-end": "216", children: [
+      status === "pending" && /* @__PURE__ */ jsxs(Fragment, { children: [
+        /* @__PURE__ */ jsx(Button, { onClick: handleBack, variant: "outline", className: "w-full", disabled: isProcessing, "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "172", "data-source-line-end": "179", children: "Back to Payment Details" }),
+        /* @__PURE__ */ jsx("p", { className: "text-xs text-center text-muted-foreground", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "180", "data-source-line-end": "182", children: "Do not close this page while waiting for approval" })
+      ] }),
+      status === "approved" && /* @__PURE__ */ jsxs(Button, { onClick: handleSuccess, className: "w-full", size: "lg", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "187", "data-source-line-end": "194", children: [
+        /* @__PURE__ */ jsx(SafeIcon, { name: "CheckCircle", size: 18, className: "mr-2", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "192", "data-source-line-end": "192" }),
+        "Continue to Receipt"
+      ] }),
+      status === "failed" && /* @__PURE__ */ jsxs(Fragment, { children: [
+        /* @__PURE__ */ jsxs(Button, { onClick: handleRetry, className: "w-full", size: "lg", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "199", "data-source-line-end": "206", children: [
+          /* @__PURE__ */ jsx(SafeIcon, { name: "RotateCcw", size: 18, className: "mr-2", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "204", "data-source-line-end": "204" }),
+          "Retry Payment"
+        ] }),
+        /* @__PURE__ */ jsx(Button, { onClick: handleFailure, variant: "outline", className: "w-full", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "207", "data-source-line-end": "213", children: "View Error Details" })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsx(Card, { className: "bg-muted/50 border-0", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "219", "data-source-line-end": "232", children: /* @__PURE__ */ jsx(CardContent, { className: "pt-6", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "220", "data-source-line-end": "231", children: /* @__PURE__ */ jsxs("div", { className: "space-y-2 text-sm", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "221", "data-source-line-end": "230", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex justify-between", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "222", "data-source-line-end": "225", children: [
+        /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "223", "data-source-line-end": "223", children: "Transaction ID:" }),
+        /* @__PURE__ */ jsx("span", { className: "font-mono font-medium", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "224", "data-source-line-end": "224", children: transaction.transactionRef })
+      ] }),
+      /* @__PURE__ */ jsxs("div", { className: "flex justify-between", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "226", "data-source-line-end": "229", children: [
+        /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "227", "data-source-line-end": "227", children: "Ride ID:" }),
+        /* @__PURE__ */ jsx("span", { className: "font-mono font-medium", "data-source-file": "src/components/mpesa-payment-confirmation/MpesaPaymentConfirmation.tsx", "data-source-line-start": "228", "data-source-line-end": "228", children: transaction.rideId })
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
       ] })
     ] }) }) })
   ] }) });

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
 import { $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
@@ -11,6 +12,37 @@ import { I as Input } from "../input.DrcO4c1k.js";
 import { S as Separator } from "../separator.DdA1LhoM.js";
 import { r as requireAuth } from "../requireAuthClient.DpcUQgPl.js";
 import { renderers } from "../renderers.mjs";
+=======
+import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
+import "piccolore";
+import { e as cn, C as Card, d as CardContent, a as CardHeader, b as CardTitle, c as CardDescription, $ as $$BaseLayout } from "../card.DPXo1ZLP.js";
+import { B as Badge, S as SafeIcon, a as Button, A as AppHeader } from "../AppHeader.h2OVAX_7.js";
+import { A as AppBottomNav } from "../AppBottomNav.DLBmlvIO.js";
+import { jsx, jsxs } from "react/jsx-runtime";
+import { useState } from "react";
+import * as TabsPrimitive from "@radix-ui/react-tabs";
+import { I as Input } from "../input.BkTF4_JO.js";
+import { S as Separator } from "../separator.Jsv1lrSr.js";
+import { renderers } from "../renderers.mjs";
+function Tabs({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsx(TabsPrimitive.Root, { "data-slot": "tabs", className: cn("flex flex-col gap-2", className), ...props });
+}
+function TabsList({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsx(TabsPrimitive.List, { "data-slot": "tabs-list", className: cn("bg-muted text-muted-foreground inline-flex h-9 w-fit items-center justify-center rounded-lg p-[3px]", className), ...props });
+}
+function TabsTrigger({
+  className,
+  ...props
+}) {
+  return /* @__PURE__ */ jsx(TabsPrimitive.Trigger, { "data-slot": "tabs-trigger", className: cn("data-[state=active]:bg-background dark:data-[state=active]:text-foreground focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:outline-ring dark:data-[state=active]:border-input dark:data-[state=active]:bg-input/30 text-foreground dark:text-muted-foreground inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50 data-[state=active]:shadow-sm [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4", className), ...props });
+}
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
 function RideHistoryItem({
   ride
 }) {
@@ -194,9 +226,12 @@ function RideHistoryList() {
   const [searchQuery, setSearchQuery] = useState("");
   const [filterStatus, setFilterStatus] = useState("all");
   const [history, setHistory] = useState(() => loadStoredHistory());
+<<<<<<< HEAD
   useEffect(() => {
     requireAuth("ride-history");
   }, []);
+=======
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
   const filteredRides = history.filter((ride) => {
     const matchesSearch = ride.pickupLocation.toLowerCase().includes(searchQuery.toLowerCase()) || ride.dropoffLocation.toLowerCase().includes(searchQuery.toLowerCase()) || ride.driverName.toLowerCase().includes(searchQuery.toLowerCase());
     const matchesStatus = filterStatus === "all" || ride.status === filterStatus;
@@ -215,6 +250,7 @@ function RideHistoryList() {
     sessionStorage.setItem("rideHistory", JSON.stringify([]));
     setHistory([]);
   };
+<<<<<<< HEAD
   return /* @__PURE__ */ jsxs("div", { className: "space-y-6", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "171", "data-source-line-end": "287", children: [
     /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "173", "data-source-line-end": "215", children: [
       /* @__PURE__ */ jsx(Card, { "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "174", "data-source-line-end": "186", children: /* @__PURE__ */ jsx(CardContent, { className: "pt-6", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "175", "data-source-line-end": "185", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "176", "data-source-line-end": "184", children: [
@@ -235,10 +271,33 @@ function RideHistoryList() {
         /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "205", "data-source-line-end": "208", children: [
           /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "206", "data-source-line-end": "206", children: "Total Spent" }),
           /* @__PURE__ */ jsxs("p", { className: "text-3xl font-bold text-primary", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "207", "data-source-line-end": "207", children: [
+=======
+  return /* @__PURE__ */ jsxs("div", { className: "space-y-6", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "166", "data-source-line-end": "282", children: [
+    /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-1 md:grid-cols-3 gap-4", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "168", "data-source-line-end": "210", children: [
+      /* @__PURE__ */ jsx(Card, { "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "169", "data-source-line-end": "181", children: /* @__PURE__ */ jsx(CardContent, { className: "pt-6", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "170", "data-source-line-end": "180", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "171", "data-source-line-end": "179", children: [
+        /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "172", "data-source-line-end": "175", children: [
+          /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "173", "data-source-line-end": "173", children: "Total Rides" }),
+          /* @__PURE__ */ jsx("p", { className: "text-3xl font-bold text-primary", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "174", "data-source-line-end": "174", children: history.length })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "176", "data-source-line-end": "178", children: /* @__PURE__ */ jsx(SafeIcon, { name: "Car", size: 24, className: "text-primary", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "177", "data-source-line-end": "177" }) })
+      ] }) }) }),
+      /* @__PURE__ */ jsx(Card, { "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "183", "data-source-line-end": "195", children: /* @__PURE__ */ jsx(CardContent, { className: "pt-6", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "184", "data-source-line-end": "194", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "185", "data-source-line-end": "193", children: [
+        /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "186", "data-source-line-end": "189", children: [
+          /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "187", "data-source-line-end": "187", children: "Completed" }),
+          /* @__PURE__ */ jsx("p", { className: "text-3xl font-bold text-green-600", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "188", "data-source-line-end": "188", children: completedRides })
+        ] }),
+        /* @__PURE__ */ jsx("div", { className: "w-12 h-12 rounded-lg bg-green-100 flex items-center justify-center", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "190", "data-source-line-end": "192", children: /* @__PURE__ */ jsx(SafeIcon, { name: "CheckCircle", size: 24, className: "text-green-600", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "191", "data-source-line-end": "191" }) })
+      ] }) }) }),
+      /* @__PURE__ */ jsx(Card, { "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "197", "data-source-line-end": "209", children: /* @__PURE__ */ jsx(CardContent, { className: "pt-6", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "198", "data-source-line-end": "208", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "199", "data-source-line-end": "207", children: [
+        /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "200", "data-source-line-end": "203", children: [
+          /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "201", "data-source-line-end": "201", children: "Total Spent" }),
+          /* @__PURE__ */ jsxs("p", { className: "text-3xl font-bold text-primary", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "202", "data-source-line-end": "202", children: [
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
             "KES ",
             totalSpent.toLocaleString()
           ] })
         ] }),
+<<<<<<< HEAD
         /* @__PURE__ */ jsx("div", { className: "w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "209", "data-source-line-end": "211", children: /* @__PURE__ */ jsx(SafeIcon, { name: "Wallet", size: 24, className: "text-primary", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "210", "data-source-line-end": "210" }) })
       ] }) }) })
     ] }),
@@ -272,6 +331,41 @@ function RideHistoryList() {
     ] }) }) }) }),
     /* @__PURE__ */ jsx("div", { className: "sticky bottom-24 left-0 right-0", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "279", "data-source-line-end": "286", children: /* @__PURE__ */ jsx("a", { href: "./ride-request.html", className: "block", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "280", "data-source-line-end": "285", children: /* @__PURE__ */ jsxs(Button, { className: "w-full", size: "lg", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "281", "data-source-line-end": "284", children: [
       /* @__PURE__ */ jsx(SafeIcon, { name: "Plus", size: 20, className: "mr-2", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "282", "data-source-line-end": "282" }),
+=======
+        /* @__PURE__ */ jsx("div", { className: "w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "204", "data-source-line-end": "206", children: /* @__PURE__ */ jsx(SafeIcon, { name: "Wallet", size: 24, className: "text-primary", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "205", "data-source-line-end": "205" }) })
+      ] }) }) })
+    ] }),
+    /* @__PURE__ */ jsxs(Card, { "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "213", "data-source-line-end": "248", children: [
+      /* @__PURE__ */ jsxs(CardHeader, { className: "flex flex-row items-center justify-between gap-4", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "214", "data-source-line-end": "228", children: [
+        /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "215", "data-source-line-end": "218", children: [
+          /* @__PURE__ */ jsx(CardTitle, { className: "text-lg", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "216", "data-source-line-end": "216", children: "Search Rides" }),
+          /* @__PURE__ */ jsx(CardDescription, { "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "217", "data-source-line-end": "217", children: "Find past trips and manage your history." })
+        ] }),
+        /* @__PURE__ */ jsxs(Button, { variant: "destructive", size: "sm", onClick: handleClearHistory, disabled: !canClear, "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "219", "data-source-line-end": "227", children: [
+          /* @__PURE__ */ jsx(SafeIcon, { name: "Trash2", size: 16, className: "mr-2", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "225", "data-source-line-end": "225" }),
+          "Clear History"
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxs(CardContent, { className: "space-y-4", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "229", "data-source-line-end": "247", children: [
+        /* @__PURE__ */ jsxs("div", { className: "relative", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "230", "data-source-line-end": "238", children: [
+          /* @__PURE__ */ jsx(SafeIcon, { name: "Search", size: 18, className: "absolute left-3 top-3 text-muted-foreground", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "231", "data-source-line-end": "231" }),
+          /* @__PURE__ */ jsx(Input, { placeholder: "Search by location or driver name...", value: searchQuery, onChange: (e) => setSearchQuery(e.target.value), className: "pl-10", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "232", "data-source-line-end": "237" })
+        ] }),
+        /* @__PURE__ */ jsx(Tabs, { value: filterStatus, onValueChange: (value) => setFilterStatus(value), "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "240", "data-source-line-end": "246", children: /* @__PURE__ */ jsxs(TabsList, { className: "grid w-full grid-cols-3", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "241", "data-source-line-end": "245", children: [
+          /* @__PURE__ */ jsx(TabsTrigger, { value: "all", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "242", "data-source-line-end": "242", children: "All Rides" }),
+          /* @__PURE__ */ jsx(TabsTrigger, { value: "completed", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "243", "data-source-line-end": "243", children: "Completed" }),
+          /* @__PURE__ */ jsx(TabsTrigger, { value: "cancelled", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "244", "data-source-line-end": "244", children: "Cancelled" })
+        ] }) })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsx("div", { className: "space-y-3", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "251", "data-source-line-end": "271", children: filteredRides.length > 0 ? filteredRides.map((ride) => /* @__PURE__ */ jsx(RideHistoryItem, { ride, "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "254", "data-source-line-end": "254" }, ride.id)) : /* @__PURE__ */ jsx(Card, { "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "257", "data-source-line-end": "269", children: /* @__PURE__ */ jsx(CardContent, { className: "pt-12 pb-12", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "258", "data-source-line-end": "268", children: /* @__PURE__ */ jsxs("div", { className: "text-center space-y-3", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "259", "data-source-line-end": "267", children: [
+      /* @__PURE__ */ jsx("div", { className: "w-16 h-16 rounded-full bg-muted flex items-center justify-center mx-auto", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "260", "data-source-line-end": "262", children: /* @__PURE__ */ jsx(SafeIcon, { name: "Search", size: 32, className: "text-muted-foreground", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "261", "data-source-line-end": "261" }) }),
+      /* @__PURE__ */ jsx("p", { className: "text-lg font-medium", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "263", "data-source-line-end": "263", children: "No rides found" }),
+      /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "264", "data-source-line-end": "266", children: searchQuery ? "Try adjusting your search criteria" : "Your ride history will appear here" })
+    ] }) }) }) }),
+    /* @__PURE__ */ jsx("div", { className: "sticky bottom-24 left-0 right-0", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "274", "data-source-line-end": "281", children: /* @__PURE__ */ jsx("a", { href: "./ride-request.html", className: "block", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "275", "data-source-line-end": "280", children: /* @__PURE__ */ jsxs(Button, { className: "w-full", size: "lg", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "276", "data-source-line-end": "279", children: [
+      /* @__PURE__ */ jsx(SafeIcon, { name: "Plus", size: 20, className: "mr-2", "data-source-file": "src/components/ride-history/RideHistoryList.tsx", "data-source-line-start": "277", "data-source-line-end": "277" }),
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
       "Request New Ride"
     ] }) }) })
   ] });

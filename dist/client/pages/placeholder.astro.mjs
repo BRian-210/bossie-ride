@@ -1,7 +1,13 @@
+<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
 import { $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
 import { C as Card, a as CardHeader, b as CardTitle, c as CardDescription, d as CardContent } from "../card.BA4JS6QT.js";
+=======
+import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
+import "piccolore";
+import { $ as $$BaseLayout, C as Card, a as CardHeader, b as CardTitle, c as CardDescription, d as CardContent } from "../card.DPXo1ZLP.js";
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
 import { renderers } from "../renderers.mjs";
 const $$Placeholder = createComponent(($$result, $$props, $$slots) => renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { title: "Page Under Construction - Bossie Ride" }, { default: ($$result2) => renderTemplate`
   ${maybeRenderHead()}<div data-source-file="src/pages/placeholder.astro" data-source-line-start="8" data-source-line-end="41" class="min-h-screen flex items-center justify-center bg-muted/30 p-4">

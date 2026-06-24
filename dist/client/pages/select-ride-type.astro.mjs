@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
 import { $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
@@ -8,6 +9,16 @@ import { useState, useEffect } from "react";
 import { a as mockRideTypes } from "../ride.BbPk0mGh.js";
 import { C as Card, e as cn, d as CardContent } from "../card.BA4JS6QT.js";
 import { r as requireAuth } from "../requireAuthClient.DpcUQgPl.js";
+=======
+import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
+import "piccolore";
+import { C as Card, e as cn, d as CardContent, $ as $$BaseLayout } from "../card.DPXo1ZLP.js";
+import { S as SafeIcon, B as Badge, a as Button, A as AppHeader } from "../AppHeader.h2OVAX_7.js";
+import { A as AppBottomNav } from "../AppBottomNav.DLBmlvIO.js";
+import { jsxs, jsx } from "react/jsx-runtime";
+import { useState, useEffect } from "react";
+import { a as mockRideTypes } from "../ride.BbPk0mGh.js";
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
 import { renderers } from "../renderers.mjs";
 function RideTypeCard({
   rideType,
@@ -69,7 +80,14 @@ function SelectRideTypeContent() {
   const [selectedRideType, setSelectedRideType] = useState(mockRideTypes[0]);
   useEffect(() => {
     if (typeof window === "undefined") return;
+<<<<<<< HEAD
     requireAuth("select-ride-type");
+=======
+    const isAuthed = sessionStorage.getItem("riderAuth") === "true";
+    if (!isAuthed) {
+      window.location.href = "./login?returnTo=select-ride-type";
+    }
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
   }, []);
   const handleBack = () => {
     if (typeof window !== "undefined") {
@@ -82,6 +100,7 @@ function SelectRideTypeContent() {
       window.location.href = "./confirm-ride";
     }
   };
+<<<<<<< HEAD
   return /* @__PURE__ */ jsxs("div", { className: "container max-w-2xl mx-auto px-4 py-6 space-y-6", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "34", "data-source-line-end": "106", children: [
     /* @__PURE__ */ jsxs("div", { className: "space-y-2", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "36", "data-source-line-end": "41", children: [
       /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "37", "data-source-line-end": "37", children: "Choose Your Ride" }),
@@ -97,26 +116,57 @@ function SelectRideTypeContent() {
         /* @__PURE__ */ jsxs("div", { className: "text-right", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "66", "data-source-line-end": "69", children: [
           /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "67", "data-source-line-end": "67", children: "Estimated Fare" }),
           /* @__PURE__ */ jsxs("p", { className: "text-2xl font-bold text-primary", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "68", "data-source-line-end": "68", children: [
+=======
+  return /* @__PURE__ */ jsxs("div", { className: "container max-w-2xl mx-auto px-4 py-6 space-y-6", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "36", "data-source-line-end": "108", children: [
+    /* @__PURE__ */ jsxs("div", { className: "space-y-2", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "38", "data-source-line-end": "43", children: [
+      /* @__PURE__ */ jsx("h2", { className: "text-2xl font-bold", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "39", "data-source-line-end": "39", children: "Choose Your Ride" }),
+      /* @__PURE__ */ jsx("p", { className: "text-muted-foreground", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "40", "data-source-line-end": "42", children: "Select a vehicle type that suits your needs. Compare prices, capacity, and estimated arrival times." })
+    ] }),
+    /* @__PURE__ */ jsx("div", { className: "grid grid-cols-1 md:grid-cols-2 gap-4 scroll-smooth", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "46", "data-source-line-end": "55", children: mockRideTypes.map((rideType) => /* @__PURE__ */ jsx(RideTypeCard, { rideType, isSelected: selectedRideType.typeId === rideType.typeId, onSelect: () => setSelectedRideType(rideType), "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "48", "data-source-line-end": "53" }, rideType.typeId)) }),
+    selectedRideType && /* @__PURE__ */ jsxs("div", { id: "selected-ride-summary", className: "bg-primary/5 border border-primary/20 rounded-lg p-4 space-y-3 transition-all duration-300", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "59", "data-source-line-end": "87", children: [
+      /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "63", "data-source-line-end": "72", children: [
+        /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "64", "data-source-line-end": "67", children: [
+          /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "65", "data-source-line-end": "65", children: "Selected Ride" }),
+          /* @__PURE__ */ jsx("p", { className: "text-lg font-semibold", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "66", "data-source-line-end": "66", children: selectedRideType.name })
+        ] }),
+        /* @__PURE__ */ jsxs("div", { className: "text-right", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "68", "data-source-line-end": "71", children: [
+          /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "69", "data-source-line-end": "69", children: "Estimated Fare" }),
+          /* @__PURE__ */ jsxs("p", { className: "text-2xl font-bold text-primary", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "70", "data-source-line-end": "70", children: [
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
             "KES ",
             selectedRideType.baseFareKsh
           ] })
         ] })
       ] }),
+<<<<<<< HEAD
       /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-3 gap-4 pt-2 border-t border-primary/10", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "71", "data-source-line-end": "84", children: [
         /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "72", "data-source-line-end": "75", children: [
           /* @__PURE__ */ jsx("p", { className: "text-xs text-muted-foreground", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "73", "data-source-line-end": "73", children: "Capacity" }),
           /* @__PURE__ */ jsxs("p", { className: "font-semibold", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "74", "data-source-line-end": "74", children: [
+=======
+      /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-3 gap-4 pt-2 border-t border-primary/10", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "73", "data-source-line-end": "86", children: [
+        /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "74", "data-source-line-end": "77", children: [
+          /* @__PURE__ */ jsx("p", { className: "text-xs text-muted-foreground", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "75", "data-source-line-end": "75", children: "Capacity" }),
+          /* @__PURE__ */ jsxs("p", { className: "font-semibold", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "76", "data-source-line-end": "76", children: [
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
             selectedRideType.capacity,
             " passengers"
           ] })
         ] }),
+<<<<<<< HEAD
         /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "76", "data-source-line-end": "79", children: [
           /* @__PURE__ */ jsx("p", { className: "text-xs text-muted-foreground", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "77", "data-source-line-end": "77", children: "ETA" }),
           /* @__PURE__ */ jsxs("p", { className: "font-semibold", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "78", "data-source-line-end": "78", children: [
+=======
+        /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "78", "data-source-line-end": "81", children: [
+          /* @__PURE__ */ jsx("p", { className: "text-xs text-muted-foreground", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "79", "data-source-line-end": "79", children: "ETA" }),
+          /* @__PURE__ */ jsxs("p", { className: "font-semibold", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "80", "data-source-line-end": "80", children: [
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
             selectedRideType.etaMinutesDefault,
             " min"
           ] })
         ] }),
+<<<<<<< HEAD
         /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "80", "data-source-line-end": "83", children: [
           /* @__PURE__ */ jsx("p", { className: "text-xs text-muted-foreground", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "81", "data-source-line-end": "81", children: "Type" }),
           /* @__PURE__ */ jsx("p", { className: "font-semibold capitalize", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "82", "data-source-line-end": "82", children: selectedRideType.name.split(" ")[1] })
@@ -131,6 +181,22 @@ function SelectRideTypeContent() {
       /* @__PURE__ */ jsxs(Button, { className: "flex-1", onClick: handleConfirm, "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "98", "data-source-line-end": "104", children: [
         "Confirm Ride",
         /* @__PURE__ */ jsx(SafeIcon, { name: "ChevronRight", size: 18, className: "ml-2", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "103", "data-source-line-end": "103" })
+=======
+        /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "82", "data-source-line-end": "85", children: [
+          /* @__PURE__ */ jsx("p", { className: "text-xs text-muted-foreground", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "83", "data-source-line-end": "83", children: "Type" }),
+          /* @__PURE__ */ jsx("p", { className: "font-semibold capitalize", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "84", "data-source-line-end": "84", children: selectedRideType.name.split(" ")[1] })
+        ] })
+      ] })
+    ] }),
+    /* @__PURE__ */ jsxs("div", { className: "flex gap-3 pt-4", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "91", "data-source-line-end": "107", children: [
+      /* @__PURE__ */ jsxs(Button, { variant: "outline", className: "flex-1", onClick: handleBack, "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "92", "data-source-line-end": "99", children: [
+        /* @__PURE__ */ jsx(SafeIcon, { name: "ChevronLeft", size: 18, className: "mr-2", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "97", "data-source-line-end": "97" }),
+        "Back"
+      ] }),
+      /* @__PURE__ */ jsxs(Button, { className: "flex-1", onClick: handleConfirm, "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "100", "data-source-line-end": "106", children: [
+        "Confirm Ride",
+        /* @__PURE__ */ jsx(SafeIcon, { name: "ChevronRight", size: 18, className: "ml-2", "data-source-file": "src/components/select-ride-type/SelectRideTypeContent.tsx", "data-source-line-start": "105", "data-source-line-end": "105" })
+>>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
       ] })
     ] })
   ] });
