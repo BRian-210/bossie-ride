@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
-import { f as fetchAuthedJson, $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
+import { f as fetchAuthedJson, $ as $$BaseLayout } from "../BaseLayout.CtgI0PpG.js";
 import { S as SafeIcon, B as Badge, b as Avatar, c as AvatarImage, d as AvatarFallback, a as Button, A as AppHeader } from "../AppHeader.DiYVpvWN.js";
 import { A as AppBottomNav } from "../AppBottomNav.D_V8Uun5.js";
 import { jsx, jsxs } from "react/jsx-runtime";
@@ -10,19 +9,7 @@ import { m as mockCurrentRide, a as mockRideTypes } from "../ride.BbPk0mGh.js";
 import { M as MapContainer } from "../MapContainer.BYjNKSUp.js";
 import { C as Card, d as CardContent } from "../card.BA4JS6QT.js";
 import { S as Separator } from "../separator.DdA1LhoM.js";
-import { r as requireAuth } from "../requireAuthClient.DpcUQgPl.js";
-=======
-import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
-import "piccolore";
-import { C as Card, d as CardContent, $ as $$BaseLayout } from "../card.DPXo1ZLP.js";
-import { S as SafeIcon, B as Badge, b as Avatar, c as AvatarImage, d as AvatarFallback, a as Button, A as AppHeader } from "../AppHeader.h2OVAX_7.js";
-import { A as AppBottomNav } from "../AppBottomNav.DLBmlvIO.js";
-import { jsx, jsxs } from "react/jsx-runtime";
-import { useState, useEffect } from "react";
-import { m as mockCurrentRide, a as mockRideTypes } from "../ride.BbPk0mGh.js";
-import { M as MapContainer } from "../MapContainer.COZMwZ5f.js";
-import { S as Separator } from "../separator.Jsv1lrSr.js";
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
+import { r as requireAuth } from "../requireAuthClient.BVNKX2L9.js";
 import { renderers } from "../renderers.mjs";
 function DriverMapView({
   driverLocation,
@@ -240,7 +227,6 @@ function RideInProgressContent() {
   const distanceEstimate = mockCurrentRide.estimatedFare - mockCurrentRide.selectedRideType.baseFareKsh;
   useEffect(() => {
     if (typeof window === "undefined") return;
-<<<<<<< HEAD
     requireAuth("ride-in-progress");
     const rideId = sessionStorage.getItem("currentRideId");
     if (rideId) {
@@ -252,8 +238,6 @@ function RideInProgressContent() {
       }).catch(() => {
       });
     }
-=======
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
     const stored = sessionStorage.getItem("selectedRideType");
     if (!stored) return;
     try {
@@ -299,7 +283,6 @@ function RideInProgressContent() {
       }
     }
   };
-<<<<<<< HEAD
   return /* @__PURE__ */ jsxs("div", { className: "relative w-full h-[calc(100vh-64px-80px)] bg-background", "data-source-file": "src/components/ride-in-progress/RideInProgressContent.tsx", "data-source-line-start": "90", "data-source-line-end": "137", children: [
     /* @__PURE__ */ jsx(DriverMapView, { driverLocation: ride.driverDetails?.currentLocation, pickupLocation: ride.pickupLocation.coords, dropoffLocation: ride.dropoffLocation.coords, mapImageUrl: ride.driverMapImageUrl, "data-source-file": "src/components/ride-in-progress/RideInProgressContent.tsx", "data-source-line-start": "92", "data-source-line-end": "97" }),
     /* @__PURE__ */ jsx(RideStatusOverlay, { status: ride.status, eta, pickupLocation: ride.pickupLocation.name, dropoffLocation: ride.dropoffLocation.name, "data-source-file": "src/components/ride-in-progress/RideInProgressContent.tsx", "data-source-line-start": "100", "data-source-line-end": "105" }),
@@ -307,15 +290,6 @@ function RideInProgressContent() {
       ride.driverDetails && /* @__PURE__ */ jsx(DriverDetailsCard, { driver: ride.driverDetails, onContact: handleContactDriver, onTrack: handleTrackDriver, "data-source-file": "src/components/ride-in-progress/RideInProgressContent.tsx", "data-source-line-start": "112", "data-source-line-end": "116" }),
       /* @__PURE__ */ jsx(RideSummaryCard, { pickupLocation: ride.pickupLocation.name, dropoffLocation: ride.dropoffLocation.name, fare: `KES ${ride.estimatedFare.toFixed(2)}`, rideType: ride.selectedRideType.name, "data-source-file": "src/components/ride-in-progress/RideInProgressContent.tsx", "data-source-line-start": "120", "data-source-line-end": "125" }),
       /* @__PURE__ */ jsx(RideActionsPanel, { onCancel: handleCancelRide, onTrack: handleTrackDriver, onContact: handleContactDriver, onPay: handlePayment, status: ride.status, "data-source-file": "src/components/ride-in-progress/RideInProgressContent.tsx", "data-source-line-start": "128", "data-source-line-end": "134" })
-=======
-  return /* @__PURE__ */ jsxs("div", { className: "relative w-full h-[calc(100vh-64px-80px)] bg-background", "data-source-file": "src/components/ride-in-progress/RideInProgressContent.tsx", "data-source-line-start": "80", "data-source-line-end": "127", children: [
-    /* @__PURE__ */ jsx(DriverMapView, { driverLocation: ride.driverDetails?.currentLocation, pickupLocation: ride.pickupLocation.coords, dropoffLocation: ride.dropoffLocation.coords, mapImageUrl: ride.driverMapImageUrl, "data-source-file": "src/components/ride-in-progress/RideInProgressContent.tsx", "data-source-line-start": "82", "data-source-line-end": "87" }),
-    /* @__PURE__ */ jsx(RideStatusOverlay, { status: ride.status, eta, pickupLocation: ride.pickupLocation.name, dropoffLocation: ride.dropoffLocation.name, "data-source-file": "src/components/ride-in-progress/RideInProgressContent.tsx", "data-source-line-start": "90", "data-source-line-end": "95" }),
-    /* @__PURE__ */ jsx("div", { className: "absolute bottom-0 left-0 right-0 bg-background rounded-t-2xl shadow-card max-h-[50vh] overflow-y-auto", "data-source-file": "src/components/ride-in-progress/RideInProgressContent.tsx", "data-source-line-start": "98", "data-source-line-end": "126", children: /* @__PURE__ */ jsxs("div", { className: "p-4 space-y-4", "data-source-file": "src/components/ride-in-progress/RideInProgressContent.tsx", "data-source-line-start": "99", "data-source-line-end": "125", children: [
-      ride.driverDetails && /* @__PURE__ */ jsx(DriverDetailsCard, { driver: ride.driverDetails, onContact: handleContactDriver, onTrack: handleTrackDriver, "data-source-file": "src/components/ride-in-progress/RideInProgressContent.tsx", "data-source-line-start": "102", "data-source-line-end": "106" }),
-      /* @__PURE__ */ jsx(RideSummaryCard, { pickupLocation: ride.pickupLocation.name, dropoffLocation: ride.dropoffLocation.name, fare: `KES ${ride.estimatedFare.toFixed(2)}`, rideType: ride.selectedRideType.name, "data-source-file": "src/components/ride-in-progress/RideInProgressContent.tsx", "data-source-line-start": "110", "data-source-line-end": "115" }),
-      /* @__PURE__ */ jsx(RideActionsPanel, { onCancel: handleCancelRide, onTrack: handleTrackDriver, onContact: handleContactDriver, onPay: handlePayment, status: ride.status, "data-source-file": "src/components/ride-in-progress/RideInProgressContent.tsx", "data-source-line-start": "118", "data-source-line-end": "124" })
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
     ] }) })
   ] });
 }

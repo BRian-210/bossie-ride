@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
-import { s as setAuthToken, n as notify, $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
+import { s as setAuthToken, n as notify, $ as $$BaseLayout } from "../BaseLayout.CtgI0PpG.js";
 import { a as Button, S as SafeIcon, A as AppHeader } from "../AppHeader.DiYVpvWN.js";
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
 import { useState, useMemo } from "react";
@@ -145,120 +144,10 @@ function LoginForm() {
         "New to Bossie Ride?",
         " ",
         /* @__PURE__ */ jsx("a", { href: `./signup?returnTo=${encodeURIComponent(returnTo)}`, className: "text-amber-700 font-medium hover:underline", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "257", "data-source-line-end": "262", children: "Create an account" })
-=======
-import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
-import "piccolore";
-import { C as Card, a as CardHeader, b as CardTitle, c as CardDescription, d as CardContent, $ as $$BaseLayout } from "../card.DPXo1ZLP.js";
-import { a as Button, S as SafeIcon, A as AppHeader } from "../AppHeader.h2OVAX_7.js";
-import { jsx, jsxs } from "react/jsx-runtime";
-import { useState, useMemo } from "react";
-import { I as Input } from "../input.BkTF4_JO.js";
-import { L as Label } from "../label.DDDXh6WB.js";
-import { renderers } from "../renderers.mjs";
-function isValidEmail(value) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-}
-function isValidPhone(value) {
-  return /^[+]?[\d\s()-]{7,}$/.test(value);
-}
-function LoginForm() {
-  const [identifier, setIdentifier] = useState("");
-  const [code, setCode] = useState("");
-  const [step, setStep] = useState("identify");
-  const [error, setError] = useState("");
-  const returnTo = useMemo(() => {
-    if (typeof window === "undefined") return "ride-request";
-    const params = new URLSearchParams(window.location.search);
-    return params.get("returnTo") || "profile";
-  }, []);
-  const isValid = isValidEmail(identifier) || isValidPhone(identifier);
-  const handleRequestCode = (event) => {
-    event.preventDefault();
-    if (!isValid) {
-      setError("Enter a valid email or phone number.");
-      return;
-    }
-    setError("");
-    setStep("verify");
-  };
-  const handleVerifyCode = (event) => {
-    event.preventDefault();
-    if (!/^\d{4,6}$/.test(code)) {
-      setError("Enter the 4-6 digit code sent to you.");
-      return;
-    }
-    if (typeof window !== "undefined") {
-      sessionStorage.setItem("riderAuth", "true");
-      sessionStorage.setItem("riderContact", identifier);
-      sessionStorage.setItem("riderAuthMethod", isValidEmail(identifier) ? "email" : "phone");
-      window.location.href = `./${returnTo}`;
-    }
-  };
-  const handleAppleLogin = () => {
-    if (typeof window !== "undefined") {
-      sessionStorage.setItem("riderAuth", "true");
-      sessionStorage.setItem("riderContact", "apple@signin");
-      sessionStorage.setItem("riderAuthMethod", "apple");
-      window.location.href = `./${returnTo}`;
-    }
-  };
-  return /* @__PURE__ */ jsx("div", { className: "container max-w-md mx-auto px-4 py-8", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "68", "data-source-line-end": "151", children: /* @__PURE__ */ jsxs(Card, { className: "shadow-card", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "69", "data-source-line-end": "150", children: [
-    /* @__PURE__ */ jsxs(CardHeader, { "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "70", "data-source-line-end": "73", children: [
-      /* @__PURE__ */ jsx(CardTitle, { "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "71", "data-source-line-end": "71", children: "Welcome back" }),
-      /* @__PURE__ */ jsx(CardDescription, { "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "72", "data-source-line-end": "72", children: "Log in with your email or phone number to request a ride." })
-    ] }),
-    /* @__PURE__ */ jsxs(CardContent, { "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "74", "data-source-line-end": "149", children: [
-      step === "identify" ? /* @__PURE__ */ jsxs("form", { className: "space-y-4", onSubmit: handleRequestCode, "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "76", "data-source-line-end": "97", children: [
-        /* @__PURE__ */ jsxs("div", { className: "space-y-2", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "77", "data-source-line-end": "91", children: [
-          /* @__PURE__ */ jsx(Label, { htmlFor: "identifier", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "78", "data-source-line-end": "78", children: "Email or phone" }),
-          /* @__PURE__ */ jsx(Input, { id: "identifier", type: "text", value: identifier, onChange: (event) => {
-            setIdentifier(event.target.value);
-            setError("");
-          }, placeholder: "jane.doe@email.com or +254700112233", autoComplete: "username", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "79", "data-source-line-end": "89" }),
-          error && /* @__PURE__ */ jsx("p", { className: "text-sm text-destructive", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "90", "data-source-line-end": "90", children: error })
-        ] }),
-        /* @__PURE__ */ jsxs(Button, { type: "submit", className: "w-full", size: "lg", disabled: !identifier, "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "93", "data-source-line-end": "96", children: [
-          /* @__PURE__ */ jsx(SafeIcon, { name: "Send", size: 18, className: "mr-2", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "94", "data-source-line-end": "94" }),
-          "Request Code"
-        ] })
-      ] }) : /* @__PURE__ */ jsxs("form", { className: "space-y-4", onSubmit: handleVerifyCode, "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "99", "data-source-line-end": "136", children: [
-        /* @__PURE__ */ jsxs("div", { className: "space-y-2", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "100", "data-source-line-end": "117", children: [
-          /* @__PURE__ */ jsx(Label, { htmlFor: "code", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "101", "data-source-line-end": "101", children: "Verification code" }),
-          /* @__PURE__ */ jsx(Input, { id: "code", type: "text", value: code, onChange: (event) => {
-            setCode(event.target.value);
-            setError("");
-          }, placeholder: "Enter code", autoComplete: "one-time-code", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "102", "data-source-line-end": "112" }),
-          error && /* @__PURE__ */ jsx("p", { className: "text-sm text-destructive", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "113", "data-source-line-end": "113", children: error }),
-          /* @__PURE__ */ jsxs("p", { className: "text-xs text-muted-foreground", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "114", "data-source-line-end": "116", children: [
-            "Code sent to ",
-            identifier,
-            ". Use any 4-6 digits for this demo."
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxs(Button, { type: "submit", className: "w-full", size: "lg", disabled: !code, "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "119", "data-source-line-end": "122", children: [
-          /* @__PURE__ */ jsx(SafeIcon, { name: "CheckCircle", size: 18, className: "mr-2", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "120", "data-source-line-end": "120" }),
-          "Verify & Continue"
-        ] }),
-        /* @__PURE__ */ jsx(Button, { type: "button", variant: "ghost", className: "w-full", onClick: () => {
-          setStep("identify");
-          setCode("");
-          setError("");
-        }, "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "124", "data-source-line-end": "135", children: "Use a different email or phone" })
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 py-4", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "139", "data-source-line-end": "143", children: [
-        /* @__PURE__ */ jsx("span", { className: "h-px flex-1 bg-border", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "140", "data-source-line-end": "140" }),
-        /* @__PURE__ */ jsx("span", { className: "text-xs text-muted-foreground uppercase", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "141", "data-source-line-end": "141", children: "or" }),
-        /* @__PURE__ */ jsx("span", { className: "h-px flex-1 bg-border", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "142", "data-source-line-end": "142" })
-      ] }),
-      /* @__PURE__ */ jsxs(Button, { type: "button", variant: "secondary", className: "w-full", size: "lg", onClick: handleAppleLogin, "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "145", "data-source-line-end": "148", children: [
-        /* @__PURE__ */ jsx(SafeIcon, { name: "Apple", size: 18, className: "mr-2", "data-source-file": "src/components/auth/LoginForm.tsx", "data-source-line-start": "146", "data-source-line-end": "146" }),
-        "Continue with Apple"
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
       ] })
     ] })
   ] }) });
 }
-<<<<<<< HEAD
 const $$Login = createComponent(($$result, $$props, $$slots) => renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { title: "Log In - Bossie Ride", description: "Sign in with Google, Apple, phone number, or email to request rides in Nairobi and beyond.", theme: "dark" }, { default: ($$result2) => renderTemplate`
   ${maybeRenderHead()}<div data-source-file="src/pages/login.astro" data-source-line-start="12" data-source-line-end="76" class="min-h-dvh bg-background text-foreground flex flex-col">
     ${renderComponent($$result2, "AppHeader", AppHeader, { title: "Log In", showNotifications: false })}
@@ -316,14 +205,6 @@ const $$Login = createComponent(($$result, $$props, $$slots) => renderTemplate`$
       </div>
     </main>
   </div>
-=======
-const $$Login = createComponent(($$result, $$props, $$slots) => renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { title: "Log In - Bossie Ride" }, { default: ($$result2) => renderTemplate`
-  ${renderComponent($$result2, "AppHeader", AppHeader, { title: "Log In", showNotifications: false })}
-
-  ${maybeRenderHead()}<main data-source-file="src/pages/login.astro" data-source-line-start="10" data-source-line-end="12" class="pb-12">
-    ${renderComponent($$result2, "LoginForm", LoginForm, { "client:load": true, "client:component-hydration": "load", "client:component-path": "@/components/auth/LoginForm.tsx", "client:component-export": "default" })}
-  </main>
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
 ` })}`, "/home/rayan/bossie-ride/src/pages/login.astro", void 0);
 const $$file = "/home/rayan/bossie-ride/src/pages/login.astro";
 const $$url = "/login.html";

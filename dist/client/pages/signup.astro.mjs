@@ -1,6 +1,6 @@
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
-import { s as setAuthToken, n as notify, $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
+import { s as setAuthToken, n as notify, $ as $$BaseLayout } from "../BaseLayout.CtgI0PpG.js";
 import { a as Button, S as SafeIcon, A as AppHeader } from "../AppHeader.DiYVpvWN.js";
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
 import { useState, useMemo } from "react";

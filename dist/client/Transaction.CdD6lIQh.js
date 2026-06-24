@@ -37,8 +37,7 @@ const TransactionSchema = new Schema({
   },
   mpesaCheckoutRequestId: {
     type: String,
-    trim: true,
-    index: true
+    trim: true
   },
   mpesaMerchantRequestId: {
     type: String,

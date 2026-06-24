@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
-import { $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
+import { $ as $$BaseLayout } from "../BaseLayout.CtgI0PpG.js";
 import { S as SafeIcon, a as Button, A as AppHeader } from "../AppHeader.DiYVpvWN.js";
 import { A as AppBottomNav } from "../AppBottomNav.D_V8Uun5.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
@@ -10,18 +9,6 @@ import { C as Card, a as CardHeader, b as CardTitle, d as CardContent, c as Card
 import { A as Alert, b as AlertTitle, a as AlertDescription } from "../alert.uiCSQyi5.js";
 import "../separator.DdA1LhoM.js";
 import { m as mockFailureDetails } from "../payment.CLWALyqY.js";
-=======
-import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
-import "piccolore";
-import { C as Card, a as CardHeader, b as CardTitle, d as CardContent, c as CardDescription, $ as $$BaseLayout } from "../card.DPXo1ZLP.js";
-import { S as SafeIcon, a as Button, A as AppHeader } from "../AppHeader.h2OVAX_7.js";
-import { A as AppBottomNav } from "../AppBottomNav.DLBmlvIO.js";
-import { jsxs, jsx, Fragment } from "react/jsx-runtime";
-import { useState } from "react";
-import { A as Alert, b as AlertTitle, a as AlertDescription } from "../alert.DbSQSBtI.js";
-import "../separator.Jsv1lrSr.js";
-import { m as mockFailureDetails } from "../payment.B_oLNX7A.js";
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
 import { renderers } from "../renderers.mjs";
 function PaymentFailureContent({
   className = ""

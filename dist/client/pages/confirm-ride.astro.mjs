@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
-import { f as fetchAuthedJson, n as notify, $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
+import { f as fetchAuthedJson, n as notify, $ as $$BaseLayout } from "../BaseLayout.CtgI0PpG.js";
 import { B as Badge, S as SafeIcon, a as Button, A as AppHeader } from "../AppHeader.DiYVpvWN.js";
 import { A as AppBottomNav } from "../AppBottomNav.D_V8Uun5.js";
 import { jsxs, jsx, Fragment } from "react/jsx-runtime";
@@ -9,18 +8,7 @@ import { useState, useEffect } from "react";
 import { C as Card, a as CardHeader, b as CardTitle, c as CardDescription, d as CardContent } from "../card.BA4JS6QT.js";
 import { S as Separator } from "../separator.DdA1LhoM.js";
 import { m as mockCurrentRide, a as mockRideTypes } from "../ride.BbPk0mGh.js";
-import { r as requireAuth } from "../requireAuthClient.DpcUQgPl.js";
-=======
-import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
-import "piccolore";
-import { C as Card, a as CardHeader, b as CardTitle, c as CardDescription, d as CardContent, $ as $$BaseLayout } from "../card.DPXo1ZLP.js";
-import { B as Badge, S as SafeIcon, a as Button, A as AppHeader } from "../AppHeader.h2OVAX_7.js";
-import { A as AppBottomNav } from "../AppBottomNav.DLBmlvIO.js";
-import { jsxs, jsx, Fragment } from "react/jsx-runtime";
-import { useState, useEffect } from "react";
-import { S as Separator } from "../separator.Jsv1lrSr.js";
-import { m as mockCurrentRide, a as mockRideTypes } from "../ride.BbPk0mGh.js";
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
+import { r as requireAuth } from "../requireAuthClient.BVNKX2L9.js";
 import { renderers } from "../renderers.mjs";
 function ConfirmRideContent() {
   const [isConfirming, setIsConfirming] = useState(false);
@@ -38,10 +26,7 @@ function ConfirmRideContent() {
   };
   useEffect(() => {
     if (typeof window === "undefined") return;
-<<<<<<< HEAD
     requireAuth("confirm-ride");
-=======
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
     const stored = sessionStorage.getItem("selectedRideType");
     if (!stored) return;
     try {
@@ -56,7 +41,6 @@ function ConfirmRideContent() {
   const pickupLocation = ride.pickupLocation;
   const dropoffLocation = ride.dropoffLocation;
   const handleConfirmBooking = () => {
-<<<<<<< HEAD
     (async () => {
       setIsConfirming(true);
       try {
@@ -93,21 +77,12 @@ function ConfirmRideContent() {
         setIsConfirming(false);
       }
     })();
-=======
-    setIsConfirming(true);
-    setTimeout(() => {
-      if (typeof window !== "undefined") {
-        window.location.href = "./ride-in-progress";
-      }
-    }, 1e3);
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
   };
   const handleBack = () => {
     if (typeof window !== "undefined") {
       window.history.back();
     }
   };
-<<<<<<< HEAD
   return /* @__PURE__ */ jsxs("div", { className: "container max-w-2xl mx-auto px-4 py-6 space-y-6", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "97", "data-source-line-end": "282", children: [
     /* @__PURE__ */ jsxs(Card, { className: "shadow-card", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "99", "data-source-line-end": "225", children: [
       /* @__PURE__ */ jsxs(CardHeader, { "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "100", "data-source-line-end": "103", children: [
@@ -147,64 +122,15 @@ function ConfirmRideContent() {
                 /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 mb-1", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "159", "data-source-line-end": "164", children: [
                   /* @__PURE__ */ jsx("h4", { className: "font-semibold", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "160", "data-source-line-end": "160", children: rideType.name }),
                   /* @__PURE__ */ jsxs(Badge, { variant: "secondary", className: "text-xs", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "161", "data-source-line-end": "163", children: [
-=======
-  return /* @__PURE__ */ jsxs("div", { className: "container max-w-2xl mx-auto px-4 py-6 space-y-6", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "68", "data-source-line-end": "253", children: [
-    /* @__PURE__ */ jsxs(Card, { className: "shadow-card", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "70", "data-source-line-end": "196", children: [
-      /* @__PURE__ */ jsxs(CardHeader, { "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "71", "data-source-line-end": "74", children: [
-        /* @__PURE__ */ jsx(CardTitle, { "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "72", "data-source-line-end": "72", children: "Ride Summary" }),
-        /* @__PURE__ */ jsx(CardDescription, { "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "73", "data-source-line-end": "73", children: "Review your booking details" })
-      ] }),
-      /* @__PURE__ */ jsxs(CardContent, { className: "space-y-6", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "75", "data-source-line-end": "195", children: [
-        /* @__PURE__ */ jsxs("div", { className: "space-y-4", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "77", "data-source-line-end": "108", children: [
-          /* @__PURE__ */ jsx("h3", { className: "font-semibold text-sm text-muted-foreground uppercase", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "78", "data-source-line-end": "78", children: "Route" }),
-          /* @__PURE__ */ jsxs("div", { className: "flex items-start gap-4", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "81", "data-source-line-end": "93", children: [
-            /* @__PURE__ */ jsxs("div", { className: "flex flex-col items-center gap-2", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "82", "data-source-line-end": "87", children: [
-              /* @__PURE__ */ jsx("div", { className: "w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "83", "data-source-line-end": "85", children: /* @__PURE__ */ jsx("div", { className: "w-3 h-3 rounded-full bg-primary", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "84", "data-source-line-end": "84" }) }),
-              /* @__PURE__ */ jsx("div", { className: "w-0.5 h-12 bg-border", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "86", "data-source-line-end": "86" })
-            ] }),
-            /* @__PURE__ */ jsxs("div", { className: "flex-1 pt-1", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "88", "data-source-line-end": "92", children: [
-              /* @__PURE__ */ jsx("p", { className: "text-xs font-medium text-muted-foreground", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "89", "data-source-line-end": "89", children: "PICKUP" }),
-              /* @__PURE__ */ jsx("p", { className: "font-semibold text-base", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "90", "data-source-line-end": "90", children: pickupLocation.name }),
-              /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "91", "data-source-line-end": "91", children: pickupLocation.address })
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "flex items-start gap-4", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "96", "data-source-line-end": "107", children: [
-            /* @__PURE__ */ jsx("div", { className: "flex flex-col items-center", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "97", "data-source-line-end": "101", children: /* @__PURE__ */ jsx("div", { className: "w-8 h-8 rounded-full bg-destructive/20 flex items-center justify-center", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "98", "data-source-line-end": "100", children: /* @__PURE__ */ jsx("div", { className: "w-3 h-3 rounded-full bg-destructive", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "99", "data-source-line-end": "99" }) }) }),
-            /* @__PURE__ */ jsxs("div", { className: "flex-1 pt-1", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "102", "data-source-line-end": "106", children: [
-              /* @__PURE__ */ jsx("p", { className: "text-xs font-medium text-muted-foreground", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "103", "data-source-line-end": "103", children: "DROPOFF" }),
-              /* @__PURE__ */ jsx("p", { className: "font-semibold text-base", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "104", "data-source-line-end": "104", children: dropoffLocation.name }),
-              /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "105", "data-source-line-end": "105", children: dropoffLocation.address })
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsx(Separator, { "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "110", "data-source-line-end": "110" }),
-        /* @__PURE__ */ jsxs("div", { className: "space-y-3", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "113", "data-source-line-end": "147", children: [
-          /* @__PURE__ */ jsx("h3", { className: "font-semibold text-sm text-muted-foreground uppercase", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "114", "data-source-line-end": "114", children: "Ride Type" }),
-          /* @__PURE__ */ jsx("div", { className: "border rounded-lg overflow-hidden hover:shadow-md transition-shadow", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "116", "data-source-line-end": "146", children: /* @__PURE__ */ jsxs("div", { className: "flex gap-4 p-4", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "117", "data-source-line-end": "145", children: [
-            /* @__PURE__ */ jsx("div", { className: "w-24 h-24 rounded-lg overflow-hidden flex-shrink-0 bg-muted", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "119", "data-source-line-end": "125", children: /* @__PURE__ */ jsx("img", { src: rideType.imageUrl, alt: rideType.name, className: "w-full h-full object-cover", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "120", "data-source-line-end": "124" }) }),
-            /* @__PURE__ */ jsxs("div", { className: "flex-1 flex flex-col justify-between", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "128", "data-source-line-end": "144", children: [
-              /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "129", "data-source-line-end": "137", children: [
-                /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-2 mb-1", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "130", "data-source-line-end": "135", children: [
-                  /* @__PURE__ */ jsx("h4", { className: "font-semibold", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "131", "data-source-line-end": "131", children: rideType.name }),
-                  /* @__PURE__ */ jsxs(Badge, { variant: "secondary", className: "text-xs", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "132", "data-source-line-end": "134", children: [
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
                     rideType.capacity,
                     " seats"
                   ] })
                 ] }),
-<<<<<<< HEAD
                 /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "165", "data-source-line-end": "165", children: rideType.description })
               ] }),
               /* @__PURE__ */ jsx("div", { className: "flex items-center gap-4 text-sm", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "167", "data-source-line-end": "172", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-1 text-muted-foreground", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "168", "data-source-line-end": "171", children: [
                 /* @__PURE__ */ jsx(SafeIcon, { name: "Clock", size: 16, "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "169", "data-source-line-end": "169" }),
                 /* @__PURE__ */ jsxs("span", { "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "170", "data-source-line-end": "170", children: [
-=======
-                /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "136", "data-source-line-end": "136", children: rideType.description })
-              ] }),
-              /* @__PURE__ */ jsx("div", { className: "flex items-center gap-4 text-sm", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "138", "data-source-line-end": "143", children: /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-1 text-muted-foreground", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "139", "data-source-line-end": "142", children: [
-                /* @__PURE__ */ jsx(SafeIcon, { name: "Clock", size: 16, "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "140", "data-source-line-end": "140" }),
-                /* @__PURE__ */ jsxs("span", { "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "141", "data-source-line-end": "141", children: [
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
                   rideType.etaMinutesDefault,
                   " min"
                 ] })
@@ -212,7 +138,6 @@ function ConfirmRideContent() {
             ] })
           ] }) })
         ] }),
-<<<<<<< HEAD
         /* @__PURE__ */ jsx(Separator, { "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "178", "data-source-line-end": "178" }),
         /* @__PURE__ */ jsxs("div", { className: "space-y-3", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "181", "data-source-line-end": "208", children: [
           /* @__PURE__ */ jsx("h3", { className: "font-semibold text-sm text-muted-foreground uppercase", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "182", "data-source-line-end": "182", children: "Fare Details" }),
@@ -220,49 +145,26 @@ function ConfirmRideContent() {
             /* @__PURE__ */ jsxs("div", { className: "flex justify-between", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "185", "data-source-line-end": "188", children: [
               /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "186", "data-source-line-end": "186", children: "Base Fare" }),
               /* @__PURE__ */ jsxs("span", { className: "font-medium", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "187", "data-source-line-end": "187", children: [
-=======
-        /* @__PURE__ */ jsx(Separator, { "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "149", "data-source-line-end": "149" }),
-        /* @__PURE__ */ jsxs("div", { className: "space-y-3", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "152", "data-source-line-end": "179", children: [
-          /* @__PURE__ */ jsx("h3", { className: "font-semibold text-sm text-muted-foreground uppercase", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "153", "data-source-line-end": "153", children: "Fare Details" }),
-          /* @__PURE__ */ jsxs("div", { className: "space-y-2 text-sm", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "155", "data-source-line-end": "169", children: [
-            /* @__PURE__ */ jsxs("div", { className: "flex justify-between", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "156", "data-source-line-end": "159", children: [
-              /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "157", "data-source-line-end": "157", children: "Base Fare" }),
-              /* @__PURE__ */ jsxs("span", { className: "font-medium", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "158", "data-source-line-end": "158", children: [
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
                 "KES ",
                 rideType.baseFareKsh.toFixed(2)
               ] })
             ] }),
-<<<<<<< HEAD
             /* @__PURE__ */ jsxs("div", { className: "flex justify-between", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "189", "data-source-line-end": "192", children: [
               /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "190", "data-source-line-end": "190", children: "Distance Estimate" }),
               /* @__PURE__ */ jsxs("span", { className: "font-medium", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "191", "data-source-line-end": "191", children: [
-=======
-            /* @__PURE__ */ jsxs("div", { className: "flex justify-between", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "160", "data-source-line-end": "163", children: [
-              /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "161", "data-source-line-end": "161", children: "Distance Estimate" }),
-              /* @__PURE__ */ jsxs("span", { className: "font-medium", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "162", "data-source-line-end": "162", children: [
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
                 "KES ",
                 (ride.estimatedFare - rideType.baseFareKsh).toFixed(2)
               ] })
             ] }),
-<<<<<<< HEAD
             /* @__PURE__ */ jsx(Separator, { className: "my-2", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "193", "data-source-line-end": "193" }),
             /* @__PURE__ */ jsxs("div", { className: "flex justify-between items-center", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "194", "data-source-line-end": "197", children: [
               /* @__PURE__ */ jsx("span", { className: "font-semibold", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "195", "data-source-line-end": "195", children: "Estimated Total" }),
               /* @__PURE__ */ jsxs("span", { className: "text-2xl font-bold text-primary", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "196", "data-source-line-end": "196", children: [
-=======
-            /* @__PURE__ */ jsx(Separator, { className: "my-2", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "164", "data-source-line-end": "164" }),
-            /* @__PURE__ */ jsxs("div", { className: "flex justify-between items-center", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "165", "data-source-line-end": "168", children: [
-              /* @__PURE__ */ jsx("span", { className: "font-semibold", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "166", "data-source-line-end": "166", children: "Estimated Total" }),
-              /* @__PURE__ */ jsxs("span", { className: "text-2xl font-bold text-primary", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "167", "data-source-line-end": "167", children: [
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
                 "KES ",
                 ride.estimatedFare.toFixed(2)
               ] })
             ] })
           ] }),
-<<<<<<< HEAD
           /* @__PURE__ */ jsx("div", { className: "bg-blue-50 border border-blue-200 rounded-lg p-3 mt-3", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "200", "data-source-line-end": "207", children: /* @__PURE__ */ jsxs("div", { className: "flex gap-2", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "201", "data-source-line-end": "206", children: [
             /* @__PURE__ */ jsx(SafeIcon, { name: "Info", size: 16, className: "text-blue-600 flex-shrink-0 mt-0.5", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "202", "data-source-line-end": "202" }),
             /* @__PURE__ */ jsx("p", { className: "text-xs text-blue-700", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "203", "data-source-line-end": "205", children: "Final fare may vary based on actual distance and traffic conditions" })
@@ -276,21 +178,6 @@ function ConfirmRideContent() {
             /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "218", "data-source-line-end": "221", children: [
               /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "219", "data-source-line-end": "219", children: "Estimated arrival" }),
               /* @__PURE__ */ jsxs("p", { className: "text-xl font-bold text-primary", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "220", "data-source-line-end": "220", children: [
-=======
-          /* @__PURE__ */ jsx("div", { className: "bg-blue-50 border border-blue-200 rounded-lg p-3 mt-3", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "171", "data-source-line-end": "178", children: /* @__PURE__ */ jsxs("div", { className: "flex gap-2", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "172", "data-source-line-end": "177", children: [
-            /* @__PURE__ */ jsx(SafeIcon, { name: "Info", size: 16, className: "text-blue-600 flex-shrink-0 mt-0.5", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "173", "data-source-line-end": "173" }),
-            /* @__PURE__ */ jsx("p", { className: "text-xs text-blue-700", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "174", "data-source-line-end": "176", children: "Final fare may vary based on actual distance and traffic conditions" })
-          ] }) })
-        ] }),
-        /* @__PURE__ */ jsx(Separator, { "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "181", "data-source-line-end": "181" }),
-        /* @__PURE__ */ jsxs("div", { className: "space-y-3", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "184", "data-source-line-end": "194", children: [
-          /* @__PURE__ */ jsx("h3", { className: "font-semibold text-sm text-muted-foreground uppercase", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "185", "data-source-line-end": "185", children: "Estimated Time" }),
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center gap-3 bg-primary/5 rounded-lg p-4", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "187", "data-source-line-end": "193", children: [
-            /* @__PURE__ */ jsx(SafeIcon, { name: "Clock", size: 24, className: "text-primary", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "188", "data-source-line-end": "188" }),
-            /* @__PURE__ */ jsxs("div", { "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "189", "data-source-line-end": "192", children: [
-              /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "190", "data-source-line-end": "190", children: "Estimated arrival" }),
-              /* @__PURE__ */ jsxs("p", { className: "text-xl font-bold text-primary", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "191", "data-source-line-end": "191", children: [
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
                 ride.currentEtaMinutes,
                 " minutes"
               ] })
@@ -299,7 +186,6 @@ function ConfirmRideContent() {
         ] })
       ] })
     ] }),
-<<<<<<< HEAD
     /* @__PURE__ */ jsx("div", { className: "bg-muted/50 rounded-lg p-4 space-y-2", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "228", "data-source-line-end": "248", children: /* @__PURE__ */ jsxs("div", { className: "flex items-start gap-2", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "229", "data-source-line-end": "247", children: [
       /* @__PURE__ */ jsx("input", { type: "checkbox", id: "terms", checked: agreedToTerms, onChange: (e) => setAgreedToTerms(e.target.checked), className: "mt-1 w-4 h-4 rounded border-border cursor-pointer", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "230", "data-source-line-end": "236" }),
       /* @__PURE__ */ jsxs("label", { htmlFor: "terms", className: "text-sm text-muted-foreground cursor-pointer", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "237", "data-source-line-end": "246", children: [
@@ -322,30 +208,6 @@ function ConfirmRideContent() {
       ] }) }),
       /* @__PURE__ */ jsxs(Button, { onClick: handleBack, variant: "outline", size: "lg", className: "w-full", disabled: isConfirming, "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "271", "data-source-line-end": "280", children: [
         /* @__PURE__ */ jsx(SafeIcon, { name: "ChevronLeft", size: 18, className: "mr-2", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "278", "data-source-line-end": "278" }),
-=======
-    /* @__PURE__ */ jsx("div", { className: "bg-muted/50 rounded-lg p-4 space-y-2", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "199", "data-source-line-end": "219", children: /* @__PURE__ */ jsxs("div", { className: "flex items-start gap-2", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "200", "data-source-line-end": "218", children: [
-      /* @__PURE__ */ jsx("input", { type: "checkbox", id: "terms", checked: agreedToTerms, onChange: (e) => setAgreedToTerms(e.target.checked), className: "mt-1 w-4 h-4 rounded border-border cursor-pointer", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "201", "data-source-line-end": "207" }),
-      /* @__PURE__ */ jsxs("label", { htmlFor: "terms", className: "text-sm text-muted-foreground cursor-pointer", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "208", "data-source-line-end": "217", children: [
-        "I agree to the",
-        " ",
-        /* @__PURE__ */ jsx("a", { href: "#", className: "text-primary hover:underline font-medium", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "210", "data-source-line-end": "212", children: "Terms & Conditions" }),
-        " ",
-        "and",
-        " ",
-        /* @__PURE__ */ jsx("a", { href: "#", className: "text-primary hover:underline font-medium", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "214", "data-source-line-end": "216", children: "Privacy Policy" })
-      ] })
-    ] }) }),
-    /* @__PURE__ */ jsxs("div", { className: "space-y-3 pb-4", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "222", "data-source-line-end": "252", children: [
-      /* @__PURE__ */ jsx(Button, { onClick: handleConfirmBooking, size: "lg", className: "w-full", disabled: isConfirming || !agreedToTerms, "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "223", "data-source-line-end": "240", children: isConfirming ? /* @__PURE__ */ jsxs(Fragment, { children: [
-        /* @__PURE__ */ jsx(SafeIcon, { name: "Loader2", size: 18, className: "mr-2 animate-spin", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "231", "data-source-line-end": "231" }),
-        "Confirming..."
-      ] }) : /* @__PURE__ */ jsxs(Fragment, { children: [
-        /* @__PURE__ */ jsx(SafeIcon, { name: "CheckCircle", size: 18, className: "mr-2", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "236", "data-source-line-end": "236" }),
-        "Confirm Booking"
-      ] }) }),
-      /* @__PURE__ */ jsxs(Button, { onClick: handleBack, variant: "outline", size: "lg", className: "w-full", disabled: isConfirming, "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "242", "data-source-line-end": "251", children: [
-        /* @__PURE__ */ jsx(SafeIcon, { name: "ChevronLeft", size: 18, className: "mr-2", "data-source-file": "src/components/confirm-ride/ConfirmRideContent.tsx", "data-source-line-start": "249", "data-source-line-end": "249" }),
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
         "Back to Ride Types"
       ] })
     ] })

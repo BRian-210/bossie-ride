@@ -1,6 +1,6 @@
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
-import { $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
+import { $ as $$BaseLayout } from "../BaseLayout.CtgI0PpG.js";
 import { renderers } from "../renderers.mjs";
 const $$Home = createComponent(($$result, $$props, $$slots) => renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { title: "Bossie Ride | Request rides 24/7", description: "Request a ride for now or later with Bossie Ride in Nairobi.", theme: "monster" }, { default: ($$result2) => renderTemplate`
   ${maybeRenderHead()}<div data-source-file="src/pages/home.astro" data-source-line-start="10" data-source-line-end="156" class="min-h-dvh bg-background text-foreground">

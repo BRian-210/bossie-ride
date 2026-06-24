@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
-import { f as fetchAuthedJson, $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
+import { f as fetchAuthedJson, $ as $$BaseLayout } from "../BaseLayout.CtgI0PpG.js";
 import { S as SafeIcon, b as Avatar, c as AvatarImage, d as AvatarFallback, a as Button, A as AppHeader } from "../AppHeader.DiYVpvWN.js";
 import { A as AppBottomNav } from "../AppBottomNav.D_V8Uun5.js";
 import { jsx, jsxs, Fragment } from "react/jsx-runtime";
@@ -9,18 +8,7 @@ import * as React from "react";
 import { useState, useEffect } from "react";
 import { C as Card, d as CardContent, a as CardHeader, b as CardTitle, e as cn, c as CardDescription } from "../card.BA4JS6QT.js";
 import { S as Separator } from "../separator.DdA1LhoM.js";
-import { r as requireAuth } from "../requireAuthClient.DpcUQgPl.js";
-=======
-import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
-import "piccolore";
-import { C as Card, d as CardContent, a as CardHeader, b as CardTitle, e as cn, c as CardDescription, $ as $$BaseLayout } from "../card.DPXo1ZLP.js";
-import { S as SafeIcon, b as Avatar, c as AvatarImage, d as AvatarFallback, a as Button, A as AppHeader } from "../AppHeader.h2OVAX_7.js";
-import { A as AppBottomNav } from "../AppBottomNav.DLBmlvIO.js";
-import { jsx, jsxs, Fragment } from "react/jsx-runtime";
-import * as React from "react";
-import { useState } from "react";
-import { S as Separator } from "../separator.Jsv1lrSr.js";
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
+import { r as requireAuth } from "../requireAuthClient.BVNKX2L9.js";
 import { renderers } from "../renderers.mjs";
 function RideCompletedHeader({
   completedAt
@@ -174,7 +162,6 @@ function RideCompletedContent() {
   const [rating, setRating] = useState(0);
   const [feedback, setFeedback] = useState("");
   const [isSubmittingRating, setIsSubmittingRating] = useState(false);
-<<<<<<< HEAD
   useEffect(() => {
     requireAuth("ride-completed");
     if (typeof window === "undefined") return;
@@ -190,8 +177,6 @@ function RideCompletedContent() {
     }).catch(() => {
     });
   }, [rideData.fare]);
-=======
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
   const handleRatingSubmit = () => {
     setIsSubmittingRating(true);
     setTimeout(() => {
@@ -218,7 +203,6 @@ function RideCompletedContent() {
       window.history.back();
     }
   };
-<<<<<<< HEAD
   return /* @__PURE__ */ jsxs("div", { className: "space-y-6 max-w-2xl mx-auto", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "98", "data-source-line-end": "196", children: [
     /* @__PURE__ */ jsx(RideCompletedHeader, { completedAt: rideData.completedAt, "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "100", "data-source-line-end": "100" }),
     /* @__PURE__ */ jsx(RideSummaryCard, { pickupLocation: rideData.pickupLocation, dropoffLocation: rideData.dropoffLocation, driverName: rideData.driverName, driverAvatar: rideData.driverAvatar, driverRating: rideData.driverRating, vehicleType: rideData.vehicleType, vehiclePlate: rideData.vehiclePlate, fare: rideData.fare, duration: rideData.duration, distance: rideData.distance, "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "103", "data-source-line-end": "114" }),
@@ -231,25 +215,10 @@ function RideCompletedContent() {
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "flex justify-between items-center", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "126", "data-source-line-end": "129", children: [
           /* @__PURE__ */ jsxs("span", { className: "text-muted-foreground", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "127", "data-source-line-end": "127", children: [
-=======
-  return /* @__PURE__ */ jsxs("div", { className: "space-y-6 max-w-2xl mx-auto", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "84", "data-source-line-end": "182", children: [
-    /* @__PURE__ */ jsx(RideCompletedHeader, { completedAt: rideData.completedAt, "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "86", "data-source-line-end": "86" }),
-    /* @__PURE__ */ jsx(RideSummaryCard, { pickupLocation: rideData.pickupLocation, dropoffLocation: rideData.dropoffLocation, driverName: rideData.driverName, driverAvatar: rideData.driverAvatar, driverRating: rideData.driverRating, vehicleType: rideData.vehicleType, vehiclePlate: rideData.vehiclePlate, fare: rideData.fare, duration: rideData.duration, distance: rideData.distance, "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "89", "data-source-line-end": "100" }),
-    /* @__PURE__ */ jsxs(Card, { className: "shadow-card", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "103", "data-source-line-end": "126", children: [
-      /* @__PURE__ */ jsx(CardHeader, { "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "104", "data-source-line-end": "106", children: /* @__PURE__ */ jsx(CardTitle, { className: "text-lg", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "105", "data-source-line-end": "105", children: "Fare Breakdown" }) }),
-      /* @__PURE__ */ jsxs(CardContent, { className: "space-y-3", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "107", "data-source-line-end": "125", children: [
-        /* @__PURE__ */ jsxs("div", { className: "flex justify-between items-center", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "108", "data-source-line-end": "111", children: [
-          /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "109", "data-source-line-end": "109", children: "Base Fare" }),
-          /* @__PURE__ */ jsx("span", { className: "font-medium", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "110", "data-source-line-end": "110", children: "KES 250" })
-        ] }),
-        /* @__PURE__ */ jsxs("div", { className: "flex justify-between items-center", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "112", "data-source-line-end": "115", children: [
-          /* @__PURE__ */ jsxs("span", { className: "text-muted-foreground", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "113", "data-source-line-end": "113", children: [
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
             "Distance (",
             rideData.distance,
             ")"
           ] }),
-<<<<<<< HEAD
           /* @__PURE__ */ jsx("span", { className: "font-medium", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "128", "data-source-line-end": "128", children: "KES 150" })
         ] }),
         /* @__PURE__ */ jsxs("div", { className: "flex justify-between items-center", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "130", "data-source-line-end": "133", children: [
@@ -281,39 +250,6 @@ function RideCompletedContent() {
       ] }),
       /* @__PURE__ */ jsxs(Button, { onClick: handleBackToRideDetails, variant: "ghost", size: "lg", className: "w-full", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "186", "data-source-line-end": "194", children: [
         /* @__PURE__ */ jsx(SafeIcon, { name: "ChevronLeft", size: 18, className: "mr-2", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "192", "data-source-line-end": "192" }),
-=======
-          /* @__PURE__ */ jsx("span", { className: "font-medium", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "114", "data-source-line-end": "114", children: "KES 150" })
-        ] }),
-        /* @__PURE__ */ jsxs("div", { className: "flex justify-between items-center", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "116", "data-source-line-end": "119", children: [
-          /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "117", "data-source-line-end": "117", children: "Service Fee" }),
-          /* @__PURE__ */ jsx("span", { className: "font-medium", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "118", "data-source-line-end": "118", children: "KES 50" })
-        ] }),
-        /* @__PURE__ */ jsx(Separator, { "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "120", "data-source-line-end": "120" }),
-        /* @__PURE__ */ jsxs("div", { className: "flex justify-between items-center pt-2", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "121", "data-source-line-end": "124", children: [
-          /* @__PURE__ */ jsx("span", { className: "font-semibold", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "122", "data-source-line-end": "122", children: "Total Fare" }),
-          /* @__PURE__ */ jsx("span", { className: "text-2xl font-bold text-primary", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "123", "data-source-line-end": "123", children: rideData.fare })
-        ] })
-      ] })
-    ] }),
-    /* @__PURE__ */ jsx(DriverRatingCard, { driverName: rideData.driverName, rating, onRatingChange: setRating, feedback, onFeedbackChange: setFeedback, onSubmit: handleRatingSubmit, isSubmitting: isSubmittingRating, "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "129", "data-source-line-end": "137" }),
-    /* @__PURE__ */ jsxs("div", { className: "space-y-3 pb-4", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "140", "data-source-line-end": "181", children: [
-      /* @__PURE__ */ jsxs(Button, { onClick: handleMakePayment, size: "lg", className: "w-full", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "141", "data-source-line-end": "148", children: [
-        /* @__PURE__ */ jsx(SafeIcon, { name: "CreditCard", size: 18, className: "mr-2", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "146", "data-source-line-end": "146" }),
-        "Make Payment"
-      ] }),
-      /* @__PURE__ */ jsxs("div", { className: "grid grid-cols-2 gap-3", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "150", "data-source-line-end": "170", children: [
-        /* @__PURE__ */ jsxs(Button, { onClick: handleRequestNewRide, variant: "outline", size: "lg", className: "w-full", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "151", "data-source-line-end": "159", children: [
-          /* @__PURE__ */ jsx(SafeIcon, { name: "Plus", size: 18, className: "mr-2", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "157", "data-source-line-end": "157" }),
-          "New Ride"
-        ] }),
-        /* @__PURE__ */ jsxs(Button, { onClick: handleViewHistory, variant: "outline", size: "lg", className: "w-full", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "161", "data-source-line-end": "169", children: [
-          /* @__PURE__ */ jsx(SafeIcon, { name: "Clock", size: 18, className: "mr-2", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "167", "data-source-line-end": "167" }),
-          "History"
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxs(Button, { onClick: handleBackToRideDetails, variant: "ghost", size: "lg", className: "w-full", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "172", "data-source-line-end": "180", children: [
-        /* @__PURE__ */ jsx(SafeIcon, { name: "ChevronLeft", size: 18, className: "mr-2", "data-source-file": "src/components/ride-completed/RideCompletedContent.tsx", "data-source-line-start": "178", "data-source-line-end": "178" }),
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
         "Back to Details"
       ] })
     ] })

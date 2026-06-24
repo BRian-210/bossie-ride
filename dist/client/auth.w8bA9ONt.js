@@ -1,5 +1,7 @@
 import mongoose, { Schema } from "mongoose";
-import { sign, verify } from "jsonwebtoken";
+import pkg from "jsonwebtoken";
+import fs from "fs";
+import path from "path";
 const UserSchema = new Schema({
   fullName: {
     type: String,
@@ -30,8 +32,29 @@ const UserSchema = new Schema({
   timestamps: true
 });
 const User = mongoose.models.User || mongoose.model("User", UserSchema);
+const {
+  sign,
+  verify
+} = pkg;
+function getEnvVar(name) {
+  if (process.env[name]) return process.env[name];
+  try {
+    const envPath = path.resolve(process.cwd(), ".env");
+    if (!fs.existsSync(envPath)) return void 0;
+    const contents = fs.readFileSync(envPath, "utf8");
+    const m = contents.match(new RegExp("^" + name + "\\s*=\\s*(.*)$", "m"));
+    if (!m) return void 0;
+    let val = m[1].trim();
+    if (val.startsWith('"') && val.endsWith('"') || val.startsWith("'") && val.endsWith("'")) {
+      val = val.slice(1, -1);
+    }
+    return val || void 0;
+  } catch (e) {
+    return void 0;
+  }
+}
 function getJwtSecret() {
-  const secret = process.env.JWT_SECRET;
+  const secret = process.env.JWT_SECRET || getEnvVar("JWT_SECRET");
   if (!secret) throw new Error("JWT_SECRET is not set");
   return secret;
 }

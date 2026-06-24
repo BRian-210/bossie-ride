@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { e as createComponent, p as renderHead, v as renderScript, r as renderTemplate } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
 import "clsx";
@@ -36,29 +35,6 @@ ${renderHead()}</head>
   ${renderScript($$result, "/home/rayan/bossie-ride/src/pages/index.astro?astro&type=script&index=0&lang.ts")}
 </body>
 </html>`, "/home/rayan/bossie-ride/src/pages/index.astro", void 0);
-=======
-import { e as createComponent, r as renderTemplate, l as renderHead } from "../astro/server.C9n97yqK.js";
-import "piccolore";
-import "clsx";
-import { renderers } from "../renderers.mjs";
-var __freeze = Object.freeze, __defProp = Object.defineProperty;
-var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(cooked.slice()) }));
-var _a;
-const $$Index = createComponent(($$result, $$props, $$slots) => renderTemplate(_a || (_a = __template([`<html lang="en">
-  <head data-source-file="src/pages/index.astro" data-source-line-start="8" data-source-line-end="12">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-source-file="src/pages/index.astro" data-source-line-start="11" data-source-line-end="11">Bossie Ride - Redirecting</title>
-  `, `</head>
-  <body data-source-file="src/pages/index.astro" data-source-line-start="13" data-source-line-end="20">
-    <script>
-      window.location.href = './ride-request';
-    <\/script>
-    <noscript data-source-file="src/pages/index.astro" data-source-line-start="17" data-source-line-end="19">
-      <meta data-source-file="src/pages/index.astro" data-source-line-start="18" data-source-line-end="18" http-equiv="refresh" content="0; url=./ride-request.html">
-    </noscript>
-  </body></html>`])), renderHead()), "/home/rayan/bossie-ride/src/pages/index.astro", void 0);
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
 const $$file = "/home/rayan/bossie-ride/src/pages/index.astro";
 const $$url = "";
 const _page = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({

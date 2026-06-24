@@ -1,6 +1,6 @@
-import jwt from "jsonwebtoken";
-import { c as connectDB } from "../../../../db.Bk-H3Ses.js";
-import { U as User, s as signAuthToken } from "../../../../auth.B8p_MpoA.js";
+import pkg from "jsonwebtoken";
+import { c as connectDB } from "../../../../db.CUhxi6K0.js";
+import { U as User, s as signAuthToken } from "../../../../auth.w8bA9ONt.js";
 import { renderers } from "../../../../renderers.mjs";
 const POST = async ({
   request,
@@ -17,7 +17,7 @@ const POST = async ({
     return redirect(`${process.env.BASE_URL || "http://localhost:4321"}/login?error=no_code`);
   }
   try {
-    const decoded = jwt.decode(idToken);
+    const decoded = pkg.decode(idToken);
     if (!decoded || !decoded.sub) {
       return redirect(`${process.env.BASE_URL || "http://localhost:4321"}/login?error=invalid_token`);
     }

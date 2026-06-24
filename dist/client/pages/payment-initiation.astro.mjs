@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
-import { $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
+import { $ as $$BaseLayout } from "../BaseLayout.CtgI0PpG.js";
 import { S as SafeIcon, a as Button, B as Badge, A as AppHeader } from "../AppHeader.DiYVpvWN.js";
 import { A as AppBottomNav } from "../AppBottomNav.D_V8Uun5.js";
 import { jsx, jsxs } from "react/jsx-runtime";
@@ -14,23 +13,7 @@ import { Circle } from "lucide-react";
 import { L as Label } from "../label.Da--91Bw.js";
 import { a as mockPaymentSummary, b as mockPaymentOptions } from "../payment.CLWALyqY.js";
 import { b as mockCompletedRide } from "../ride.BbPk0mGh.js";
-import { r as requireAuth } from "../requireAuthClient.DpcUQgPl.js";
-=======
-import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
-import "piccolore";
-import { e as cn, C as Card, a as CardHeader, b as CardTitle, c as CardDescription, d as CardContent, $ as $$BaseLayout } from "../card.DPXo1ZLP.js";
-import { S as SafeIcon, a as Button, B as Badge, A as AppHeader } from "../AppHeader.h2OVAX_7.js";
-import { A as AppBottomNav } from "../AppBottomNav.DLBmlvIO.js";
-import { jsx, jsxs } from "react/jsx-runtime";
-import * as React from "react";
-import { useState } from "react";
-import { S as Separator } from "../separator.Jsv1lrSr.js";
-import * as RadioGroupPrimitive from "@radix-ui/react-radio-group";
-import { Circle } from "lucide-react";
-import { L as Label } from "../label.DDDXh6WB.js";
-import { a as mockPaymentOptions, b as mockPaymentSummary } from "../payment.B_oLNX7A.js";
-import { b as mockCompletedRide } from "../ride.BbPk0mGh.js";
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
+import { r as requireAuth } from "../requireAuthClient.BVNKX2L9.js";
 import { renderers } from "../renderers.mjs";
 function useNavigate() {
   const navigate = (path) => {
@@ -107,14 +90,11 @@ function PaymentMethodSelector({
 function PaymentInitiationContent() {
   const [selectedMethod, setSelectedMethod] = useState("mpesa");
   const navigate = useNavigate();
-<<<<<<< HEAD
   useEffect(() => {
     requireAuth("payment-initiation");
     if (typeof window === "undefined") return;
     sessionStorage.setItem("paymentAmountKsh", String(mockPaymentSummary.amountDue));
   }, []);
-=======
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
   const paymentMethods = mockPaymentOptions.map((option) => ({
     id: option.method.toLowerCase(),
     name: option.name,
@@ -140,7 +120,6 @@ function PaymentInitiationContent() {
       maximumFractionDigits: 2
     })}`;
   };
-<<<<<<< HEAD
   return /* @__PURE__ */ jsxs("div", { className: "container max-w-2xl mx-auto px-4 py-6 space-y-6", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "63", "data-source-line-end": "166", children: [
     /* @__PURE__ */ jsxs(Card, { className: "shadow-card", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "65", "data-source-line-end": "133", children: [
       /* @__PURE__ */ jsxs(CardHeader, { "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "66", "data-source-line-end": "75", children: [
@@ -152,24 +131,10 @@ function PaymentInitiationContent() {
           ] })
         ] }),
         /* @__PURE__ */ jsxs(CardDescription, { "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "74", "data-source-line-end": "74", children: [
-=======
-  return /* @__PURE__ */ jsxs("div", { className: "container max-w-2xl mx-auto px-4 py-6 space-y-6", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "56", "data-source-line-end": "159", children: [
-    /* @__PURE__ */ jsxs(Card, { className: "shadow-card", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "58", "data-source-line-end": "126", children: [
-      /* @__PURE__ */ jsxs(CardHeader, { "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "59", "data-source-line-end": "68", children: [
-        /* @__PURE__ */ jsxs(CardTitle, { className: "flex items-center justify-between", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "60", "data-source-line-end": "66", children: [
-          /* @__PURE__ */ jsx("span", { "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "61", "data-source-line-end": "61", children: "Payment Summary" }),
-          /* @__PURE__ */ jsxs(Badge, { variant: "outline", className: "text-xs", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "62", "data-source-line-end": "65", children: [
-            /* @__PURE__ */ jsx(SafeIcon, { name: "Clock", size: 14, className: "mr-1", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "63", "data-source-line-end": "63" }),
-            "Pending"
-          ] })
-        ] }),
-        /* @__PURE__ */ jsxs(CardDescription, { "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "67", "data-source-line-end": "67", children: [
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
           "Ride ID: ",
           mockPaymentSummary.rideId
         ] })
       ] }),
-<<<<<<< HEAD
       /* @__PURE__ */ jsxs(CardContent, { className: "space-y-4", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "76", "data-source-line-end": "132", children: [
         /* @__PURE__ */ jsxs("div", { className: "space-y-3", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "78", "data-source-line-end": "100", children: [
           /* @__PURE__ */ jsxs("div", { className: "flex items-start gap-3", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "79", "data-source-line-end": "88", children: [
@@ -198,74 +163,29 @@ function PaymentInitiationContent() {
           /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "110", "data-source-line-end": "113", children: [
             /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "111", "data-source-line-end": "111", children: "Distance" }),
             /* @__PURE__ */ jsxs("span", { className: "font-medium", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "112", "data-source-line-end": "112", children: [
-=======
-      /* @__PURE__ */ jsxs(CardContent, { className: "space-y-4", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "69", "data-source-line-end": "125", children: [
-        /* @__PURE__ */ jsxs("div", { className: "space-y-3", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "71", "data-source-line-end": "93", children: [
-          /* @__PURE__ */ jsxs("div", { className: "flex items-start gap-3", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "72", "data-source-line-end": "81", children: [
-            /* @__PURE__ */ jsx("div", { className: "mt-1 w-4 h-4 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "73", "data-source-line-end": "75", children: /* @__PURE__ */ jsx("div", { className: "w-2 h-2 rounded-full bg-primary", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "74", "data-source-line-end": "74" }) }),
-            /* @__PURE__ */ jsxs("div", { className: "flex-1 min-w-0", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "76", "data-source-line-end": "80", children: [
-              /* @__PURE__ */ jsx("p", { className: "text-sm font-medium text-muted-foreground", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "77", "data-source-line-end": "77", children: "From" }),
-              /* @__PURE__ */ jsx("p", { className: "font-medium truncate", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "78", "data-source-line-end": "78", children: mockCompletedRide.pickupLocation.name }),
-              /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground truncate", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "79", "data-source-line-end": "79", children: mockCompletedRide.pickupLocation.address })
-            ] })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "flex items-start gap-3", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "83", "data-source-line-end": "92", children: [
-            /* @__PURE__ */ jsx("div", { className: "mt-1 w-4 h-4 rounded-sm bg-destructive/20 flex items-center justify-center flex-shrink-0", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "84", "data-source-line-end": "86", children: /* @__PURE__ */ jsx("div", { className: "w-2 h-2 rounded-sm bg-destructive", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "85", "data-source-line-end": "85" }) }),
-            /* @__PURE__ */ jsxs("div", { className: "flex-1 min-w-0", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "87", "data-source-line-end": "91", children: [
-              /* @__PURE__ */ jsx("p", { className: "text-sm font-medium text-muted-foreground", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "88", "data-source-line-end": "88", children: "To" }),
-              /* @__PURE__ */ jsx("p", { className: "font-medium truncate", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "89", "data-source-line-end": "89", children: mockCompletedRide.dropoffLocation.name }),
-              /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground truncate", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "90", "data-source-line-end": "90", children: mockCompletedRide.dropoffLocation.address })
-            ] })
-          ] })
-        ] }),
-        /* @__PURE__ */ jsx(Separator, { "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "95", "data-source-line-end": "95" }),
-        /* @__PURE__ */ jsxs("div", { className: "space-y-2", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "98", "data-source-line-end": "111", children: [
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "99", "data-source-line-end": "102", children: [
-            /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "100", "data-source-line-end": "100", children: "Ride Fare" }),
-            /* @__PURE__ */ jsx("span", { className: "font-medium", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "101", "data-source-line-end": "101", children: formatCurrency(mockCompletedRide.finalFare) })
-          ] }),
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "103", "data-source-line-end": "106", children: [
-            /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "104", "data-source-line-end": "104", children: "Distance" }),
-            /* @__PURE__ */ jsxs("span", { className: "font-medium", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "105", "data-source-line-end": "105", children: [
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
               mockCompletedRide.distanceKm,
               " km"
             ] })
           ] }),
-<<<<<<< HEAD
           /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "114", "data-source-line-end": "117", children: [
             /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "115", "data-source-line-end": "115", children: "Duration" }),
             /* @__PURE__ */ jsxs("span", { className: "font-medium", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "116", "data-source-line-end": "116", children: [
-=======
-          /* @__PURE__ */ jsxs("div", { className: "flex items-center justify-between", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "107", "data-source-line-end": "110", children: [
-            /* @__PURE__ */ jsx("span", { className: "text-muted-foreground", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "108", "data-source-line-end": "108", children: "Duration" }),
-            /* @__PURE__ */ jsxs("span", { className: "font-medium", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "109", "data-source-line-end": "109", children: [
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
               mockCompletedRide.durationMinutes,
               " minutes"
             ] })
           ] })
         ] }),
-<<<<<<< HEAD
         /* @__PURE__ */ jsx(Separator, { "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "120", "data-source-line-end": "120" }),
         /* @__PURE__ */ jsxs("div", { className: "bg-primary/5 rounded-lg p-4", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "123", "data-source-line-end": "131", children: [
           /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground mb-1", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "124", "data-source-line-end": "124", children: "Amount Due" }),
           /* @__PURE__ */ jsx("p", { className: "text-3xl font-bold text-primary", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "125", "data-source-line-end": "127", children: formatCurrency(mockPaymentSummary.amountDue) }),
           /* @__PURE__ */ jsxs("p", { className: "text-xs text-muted-foreground mt-2", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "128", "data-source-line-end": "130", children: [
-=======
-        /* @__PURE__ */ jsx(Separator, { "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "113", "data-source-line-end": "113" }),
-        /* @__PURE__ */ jsxs("div", { className: "bg-primary/5 rounded-lg p-4", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "116", "data-source-line-end": "124", children: [
-          /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground mb-1", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "117", "data-source-line-end": "117", children: "Amount Due" }),
-          /* @__PURE__ */ jsx("p", { className: "text-3xl font-bold text-primary", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "118", "data-source-line-end": "120", children: formatCurrency(mockPaymentSummary.amountDue) }),
-          /* @__PURE__ */ jsxs("p", { className: "text-xs text-muted-foreground mt-2", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "121", "data-source-line-end": "123", children: [
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
             "Reference: ",
             mockPaymentSummary.referenceNumber
           ] })
         ] })
       ] })
     ] }),
-<<<<<<< HEAD
     /* @__PURE__ */ jsx(PaymentMethodSelector, { amount: formatCurrency(mockPaymentSummary.amountDue), selectedMethod, onMethodChange: handleMethodChange, methods: paymentMethods, onConfirm: handleProceedToPayment, "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "136", "data-source-line-end": "142" }),
     /* @__PURE__ */ jsx(Card, { className: "bg-blue-50 border-blue-200", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "145", "data-source-line-end": "155", children: /* @__PURE__ */ jsx(CardContent, { className: "pt-6", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "146", "data-source-line-end": "154", children: /* @__PURE__ */ jsxs("div", { className: "flex gap-3", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "147", "data-source-line-end": "153", children: [
       /* @__PURE__ */ jsx(SafeIcon, { name: "Info", size: 20, className: "text-blue-600 flex-shrink-0 mt-0.5", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "148", "data-source-line-end": "148" }),
@@ -276,18 +196,6 @@ function PaymentInitiationContent() {
     ] }) }) }),
     /* @__PURE__ */ jsxs(Button, { variant: "outline", className: "w-full", onClick: handleBackToRide, "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "158", "data-source-line-end": "165", children: [
       /* @__PURE__ */ jsx(SafeIcon, { name: "ChevronLeft", size: 16, className: "mr-2", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "163", "data-source-line-end": "163" }),
-=======
-    /* @__PURE__ */ jsx(PaymentMethodSelector, { amount: formatCurrency(mockPaymentSummary.amountDue), selectedMethod, onMethodChange: handleMethodChange, methods: paymentMethods, onConfirm: handleProceedToPayment, "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "129", "data-source-line-end": "135" }),
-    /* @__PURE__ */ jsx(Card, { className: "bg-blue-50 border-blue-200", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "138", "data-source-line-end": "148", children: /* @__PURE__ */ jsx(CardContent, { className: "pt-6", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "139", "data-source-line-end": "147", children: /* @__PURE__ */ jsxs("div", { className: "flex gap-3", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "140", "data-source-line-end": "146", children: [
-      /* @__PURE__ */ jsx(SafeIcon, { name: "Info", size: 20, className: "text-blue-600 flex-shrink-0 mt-0.5", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "141", "data-source-line-end": "141" }),
-      /* @__PURE__ */ jsxs("div", { className: "text-sm text-blue-900", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "142", "data-source-line-end": "145", children: [
-        /* @__PURE__ */ jsx("p", { className: "font-medium mb-1", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "143", "data-source-line-end": "143", children: "Payment Information" }),
-        /* @__PURE__ */ jsx("p", { "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "144", "data-source-line-end": "144", children: "Your payment will be processed securely. You'll receive a confirmation once the transaction is complete." })
-      ] })
-    ] }) }) }),
-    /* @__PURE__ */ jsxs(Button, { variant: "outline", className: "w-full", onClick: handleBackToRide, "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "151", "data-source-line-end": "158", children: [
-      /* @__PURE__ */ jsx(SafeIcon, { name: "ChevronLeft", size: 16, className: "mr-2", "data-source-file": "src/components/payment-initiation/PaymentInitiationContent.tsx", "data-source-line-start": "156", "data-source-line-end": "156" }),
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
       "Back to Ride Details"
     ] })
   ] });

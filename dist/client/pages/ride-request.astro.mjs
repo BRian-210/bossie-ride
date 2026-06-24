@@ -1,7 +1,6 @@
-<<<<<<< HEAD
 import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.DvbP1VFY.js";
 import "piccolore";
-import { n as notify, $ as $$BaseLayout } from "../BaseLayout.DdVmMhb3.js";
+import { n as notify, $ as $$BaseLayout } from "../BaseLayout.CtgI0PpG.js";
 import { S as SafeIcon, a as Button, A as AppHeader } from "../AppHeader.DiYVpvWN.js";
 import { A as AppBottomNav } from "../AppBottomNav.D_V8Uun5.js";
 import { jsxs, jsx } from "react/jsx-runtime";
@@ -12,21 +11,7 @@ import { M as MapContainer } from "../MapContainer.BYjNKSUp.js";
 import { I as Input } from "../input.DrcO4c1k.js";
 import { L as Label } from "../label.Da--91Bw.js";
 import { m as mockLocations } from "../location.BmOrolG9.js";
-import { r as requireAuth } from "../requireAuthClient.DpcUQgPl.js";
-=======
-import { e as createComponent, k as renderComponent, r as renderTemplate, m as maybeRenderHead } from "../astro/server.C9n97yqK.js";
-import "piccolore";
-import { C as Card, a as CardHeader, b as CardTitle, c as CardDescription, d as CardContent, $ as $$BaseLayout } from "../card.DPXo1ZLP.js";
-import { S as SafeIcon, a as Button, A as AppHeader } from "../AppHeader.h2OVAX_7.js";
-import { A as AppBottomNav } from "../AppBottomNav.DLBmlvIO.js";
-import { jsxs, jsx } from "react/jsx-runtime";
-import { useState, useEffect } from "react";
-import { S as Separator } from "../separator.Jsv1lrSr.js";
-import { M as MapContainer } from "../MapContainer.COZMwZ5f.js";
-import { I as Input } from "../input.BkTF4_JO.js";
-import { L as Label } from "../label.DDDXh6WB.js";
-import { m as mockLocations } from "../location.BmOrolG9.js";
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
+import { r as requireAuth } from "../requireAuthClient.BVNKX2L9.js";
 import { renderers } from "../renderers.mjs";
 function LocationInputField({
   label,
@@ -39,7 +24,6 @@ function LocationInputField({
   suggestions = [],
   showSuggestions = false,
   onSelectSuggestion,
-<<<<<<< HEAD
   selectedLocation,
   isLoading = false,
   className
@@ -76,34 +60,10 @@ function LocationInputField({
         value,
         '"'
       ] })
-=======
-  selectedLocation
-}) {
-  const filteredSuggestions = suggestions.filter((loc) => loc.name.toLowerCase().includes(value.toLowerCase()) || loc.address.toLowerCase().includes(value.toLowerCase()));
-  return /* @__PURE__ */ jsxs("div", { className: "space-y-2 relative", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "41", "data-source-line-end": "96", children: [
-    /* @__PURE__ */ jsx(Label, { htmlFor: `location-${label}`, className: "text-sm font-medium", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "42", "data-source-line-end": "44", children: label }),
-    /* @__PURE__ */ jsxs("div", { className: "relative", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "46", "data-source-line-end": "62", children: [
-      /* @__PURE__ */ jsx("div", { className: "absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "47", "data-source-line-end": "49", children: /* @__PURE__ */ jsx(SafeIcon, { name: icon, size: 18, "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "48", "data-source-line-end": "48" }) }),
-      /* @__PURE__ */ jsx(Input, { id: `location-${label}`, type: "text", placeholder, value, onChange: (e) => onChange(e.target.value), onFocus, onBlur, className: "pl-10 pr-4", autoComplete: "off", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "51", "data-source-line-end": "61" })
-    ] }),
-    showSuggestions && filteredSuggestions.length > 0 && /* @__PURE__ */ jsx(Card, { className: "absolute top-full left-0 right-0 mt-1 z-50 shadow-lg", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "66", "data-source-line-end": "85", children: /* @__PURE__ */ jsx("div", { className: "max-h-64 overflow-y-auto", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "67", "data-source-line-end": "84", children: filteredSuggestions.map((location) => /* @__PURE__ */ jsxs("button", { onClick: () => onSelectSuggestion?.(location), className: "w-full px-4 py-3 text-left hover:bg-muted transition-colors border-b last:border-b-0 flex items-start gap-3", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "69", "data-source-line-end": "82", children: [
-      /* @__PURE__ */ jsx(SafeIcon, { name: "MapPin", size: 18, className: "text-primary flex-shrink-0 mt-0.5", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "74", "data-source-line-end": "74" }),
-      /* @__PURE__ */ jsxs("div", { className: "flex-1 min-w-0", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "75", "data-source-line-end": "78", children: [
-        /* @__PURE__ */ jsx("p", { className: "font-medium text-sm", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "76", "data-source-line-end": "76", children: location.name }),
-        /* @__PURE__ */ jsx("p", { className: "text-xs text-muted-foreground truncate", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "77", "data-source-line-end": "77", children: location.address })
-      ] }),
-      selectedLocation?.locationId === location.locationId && /* @__PURE__ */ jsx(SafeIcon, { name: "Check", size: 18, className: "text-primary flex-shrink-0", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "80", "data-source-line-end": "80" })
-    ] }, location.locationId)) }) }),
-    showSuggestions && value && filteredSuggestions.length === 0 && /* @__PURE__ */ jsx(Card, { className: "absolute top-full left-0 right-0 mt-1 z-50 shadow-lg", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "90", "data-source-line-end": "94", children: /* @__PURE__ */ jsxs("div", { className: "px-4 py-3 text-center text-sm text-muted-foreground", "data-source-file": "src/components/ride-request/LocationInputField.tsx", "data-source-line-start": "91", "data-source-line-end": "93", children: [
-      'No locations found for "',
-      value,
-      '"'
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
     ] }) })
   ] });
 }
 function RideRequestForm() {
-<<<<<<< HEAD
   const [pickupLocation, setPickupLocation] = useState(null);
   const [dropoffLocation, setDropoffLocation] = useState(null);
   const [showPickupSuggestions, setShowPickupSuggestions] = useState(false);
@@ -130,21 +90,6 @@ function RideRequestForm() {
       setPreview(null);
     }
   }, [pickupLocation, dropoffLocation]);
-=======
-  const [pickupLocation, setPickupLocation] = useState(mockLocations[0]);
-  const [dropoffLocation, setDropoffLocation] = useState(mockLocations[1]);
-  const [showPickupSuggestions, setShowPickupSuggestions] = useState(false);
-  const [showDropoffSuggestions, setShowDropoffSuggestions] = useState(false);
-  const [pickupSearchTerm, setPickupSearchTerm] = useState(mockLocations[0].name);
-  const [dropoffSearchTerm, setDropoffSearchTerm] = useState(mockLocations[1].name);
-  useEffect(() => {
-    if (typeof window === "undefined") return;
-    const isAuthed = sessionStorage.getItem("riderAuth") === "true";
-    if (!isAuthed) {
-      window.location.href = "./login?returnTo=ride-request";
-    }
-  }, []);
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
   const handlePickupChange = (value) => {
     setPickupSearchTerm(value);
     setShowPickupSuggestions(true);
@@ -164,20 +109,13 @@ function RideRequestForm() {
     setShowDropoffSuggestions(false);
   };
   const handleSwapLocations = () => {
-<<<<<<< HEAD
     const tempLoc = pickupLocation;
     setPickupLocation(dropoffLocation);
     setDropoffLocation(tempLoc);
-=======
-    const temp = pickupLocation;
-    setPickupLocation(dropoffLocation);
-    setDropoffLocation(temp);
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
     const tempSearch = pickupSearchTerm;
     setPickupSearchTerm(dropoffSearchTerm);
     setDropoffSearchTerm(tempSearch);
   };
-<<<<<<< HEAD
   const handleGetCurrentLocation = useCallback(() => {
     setIsLocating(true);
     setTimeout(() => {
@@ -245,60 +183,16 @@ function RideRequestForm() {
           ] }),
           /* @__PURE__ */ jsxs(Button, { onClick: handleViewHistory, variant: "outline", className: "w-full", size: "lg", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "227", "data-source-line-end": "235", children: [
             /* @__PURE__ */ jsx(SafeIcon, { name: "Clock", size: 18, className: "mr-2", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "233", "data-source-line-end": "233" }),
-=======
-  const handleContinue = () => {
-    if (pickupLocation && dropoffLocation) {
-      if (typeof window !== "undefined") {
-        sessionStorage.setItem("pickupLocation", JSON.stringify(pickupLocation));
-        sessionStorage.setItem("dropoffLocation", JSON.stringify(dropoffLocation));
-        window.location.href = "./select-ride-type.html";
-      }
-    }
-  };
-  const handleViewHistory = () => {
-    if (typeof window !== "undefined") {
-      window.location.href = "./ride-history.html";
-    }
-  };
-  const isFormValid = pickupLocation && dropoffLocation && pickupLocation.locationId !== dropoffLocation.locationId;
-  return /* @__PURE__ */ jsxs("div", { className: "container max-w-2xl mx-auto px-4 py-6 space-y-6", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "82", "data-source-line-end": "181", children: [
-    /* @__PURE__ */ jsx(MapContainer, { height: "300px", showControls: true, "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "84", "data-source-line-end": "84" }),
-    /* @__PURE__ */ jsxs(Card, { className: "shadow-card", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "87", "data-source-line-end": "165", children: [
-      /* @__PURE__ */ jsxs(CardHeader, { "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "88", "data-source-line-end": "91", children: [
-        /* @__PURE__ */ jsx(CardTitle, { "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "89", "data-source-line-end": "89", children: "Where are you going?" }),
-        /* @__PURE__ */ jsx(CardDescription, { "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "90", "data-source-line-end": "90", children: "Enter your pickup and dropoff locations" })
-      ] }),
-      /* @__PURE__ */ jsxs(CardContent, { className: "space-y-4", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "92", "data-source-line-end": "164", children: [
-        /* @__PURE__ */ jsx("div", { className: "space-y-2", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "94", "data-source-line-end": "108", children: /* @__PURE__ */ jsx(LocationInputField, { label: "Pickup Location", placeholder: "Enter pickup location", value: pickupSearchTerm, onChange: handlePickupChange, onFocus: () => setShowPickupSuggestions(true), onBlur: () => setTimeout(() => setShowPickupSuggestions(false), 200), icon: "MapPin", suggestions: mockLocations, showSuggestions: showPickupSuggestions, onSelectSuggestion: handlePickupSelect, selectedLocation: pickupLocation, "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "95", "data-source-line-end": "107" }) }),
-        /* @__PURE__ */ jsx("div", { className: "flex justify-center", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "111", "data-source-line-end": "121", children: /* @__PURE__ */ jsx(Button, { variant: "outline", size: "icon", onClick: handleSwapLocations, className: "rounded-full", "aria-label": "Swap pickup and dropoff locations", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "112", "data-source-line-end": "120", children: /* @__PURE__ */ jsx(SafeIcon, { name: "ArrowUpDown", size: 20, "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "119", "data-source-line-end": "119" }) }) }),
-        /* @__PURE__ */ jsx("div", { className: "space-y-2", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "124", "data-source-line-end": "138", children: /* @__PURE__ */ jsx(LocationInputField, { label: "Dropoff Location", placeholder: "Enter dropoff location", value: dropoffSearchTerm, onChange: handleDropoffChange, onFocus: () => setShowDropoffSuggestions(true), onBlur: () => setTimeout(() => setShowDropoffSuggestions(false), 200), icon: "MapPin", suggestions: mockLocations, showSuggestions: showDropoffSuggestions, onSelectSuggestion: handleDropoffSelect, selectedLocation: dropoffLocation, "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "125", "data-source-line-end": "137" }) }),
-        /* @__PURE__ */ jsx(Separator, { className: "my-4", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "140", "data-source-line-end": "140" }),
-        /* @__PURE__ */ jsxs("div", { className: "space-y-3", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "143", "data-source-line-end": "163", children: [
-          /* @__PURE__ */ jsxs(Button, { onClick: handleContinue, disabled: !isFormValid, className: "w-full", size: "lg", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "144", "data-source-line-end": "152", children: [
-            /* @__PURE__ */ jsx(SafeIcon, { name: "ArrowRight", size: 18, className: "mr-2", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "150", "data-source-line-end": "150" }),
-            "Continue to Select Ride Type"
-          ] }),
-          /* @__PURE__ */ jsxs(Button, { onClick: handleViewHistory, variant: "outline", className: "w-full", size: "lg", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "154", "data-source-line-end": "162", children: [
-            /* @__PURE__ */ jsx(SafeIcon, { name: "Clock", size: 18, className: "mr-2", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "160", "data-source-line-end": "160" }),
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
             "View Ride History"
           ] })
         ] })
       ] })
     ] }),
-<<<<<<< HEAD
     /* @__PURE__ */ jsx(Card, { className: "bg-primary/5 border-primary/20", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "241", "data-source-line-end": "253", children: /* @__PURE__ */ jsx(CardContent, { className: "pt-6", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "242", "data-source-line-end": "252", children: /* @__PURE__ */ jsxs("div", { className: "flex gap-3", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "243", "data-source-line-end": "251", children: [
       /* @__PURE__ */ jsx(SafeIcon, { name: "Info", size: 20, className: "text-primary flex-shrink-0 mt-0.5", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "244", "data-source-line-end": "244" }),
       /* @__PURE__ */ jsxs("div", { className: "space-y-1", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "245", "data-source-line-end": "250", children: [
         /* @__PURE__ */ jsx("p", { className: "font-medium text-sm", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "246", "data-source-line-end": "246", children: "Pro Tip" }),
         /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "247", "data-source-line-end": "249", children: "Tap anywhere on the map to quickly set pickup or dropoff." })
-=======
-    /* @__PURE__ */ jsx(Card, { className: "bg-primary/5 border-primary/20", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "168", "data-source-line-end": "180", children: /* @__PURE__ */ jsx(CardContent, { className: "pt-6", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "169", "data-source-line-end": "179", children: /* @__PURE__ */ jsxs("div", { className: "flex gap-3", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "170", "data-source-line-end": "178", children: [
-      /* @__PURE__ */ jsx(SafeIcon, { name: "Info", size: 20, className: "text-primary flex-shrink-0 mt-0.5", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "171", "data-source-line-end": "171" }),
-      /* @__PURE__ */ jsxs("div", { className: "space-y-1", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "172", "data-source-line-end": "177", children: [
-        /* @__PURE__ */ jsx("p", { className: "font-medium text-sm", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "173", "data-source-line-end": "173", children: "Pro Tip" }),
-        /* @__PURE__ */ jsx("p", { className: "text-sm text-muted-foreground", "data-source-file": "src/components/ride-request/RideRequestForm.tsx", "data-source-line-start": "174", "data-source-line-end": "176", children: "You can also tap on the map to select your pickup and dropoff locations directly." })
->>>>>>> e4f2f6c (git  commit -m "feat: add dist/client files")
       ] })
     ] }) }) })
   ] });
